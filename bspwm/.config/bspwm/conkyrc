@@ -1,0 +1,46 @@
+# Output to console
+out_to_x no
+out_to_console yes
+
+# Behaviour
+update_interval 1
+if_up_strictness link
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+TEXT
+C%{F\#FFDDB26f}::%{F-}  \
+\uE00E \
+ %{F\#FFDDB26f}::%{F-}  \
+${time %A, %d %B %Y} \
+ %{F\#FFDDB26f}::%{F-}  \
+\uE017 \
+${time %H:%M} \
+ %{F\#FFDDB26f}::%{F-}
+S%{F\#FFDDB26f}::%{F-}  \
+\uE026 \
+${cpu cpu0}%% \
+\uE01D \
+${hwmon 0 temp 1}C \
+ %{F\#FFDDB26f}::%{F-}  \
+\uE05D \
+${execi 3 ponymix get-volume}%% \
+ %{F\#FFDDB26f}::%{F-}  \
+${if_up wlan0}\
+\uE048 \
+${wireless_essid wlan0} \
+\uE12F \
+[${downspeedf wlan0}/${upspeedf wlan0}] \
+ %{F\#FFDDB26f}::%{F-}  \
+${endif}\
+${if_up eth0}\
+\uE148 \
+Cable \
+\uE12F \
+[${downspeedf eth0}/${upspeedf eth0}] \
+ %{F\#FFDDB26f}::%{F-}  \
+${endif}\
+\uE033 \
+${battery BAT1} \
+ %{F\#FFDDB26f}::%{F-}

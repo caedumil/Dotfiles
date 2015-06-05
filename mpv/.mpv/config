@@ -1,0 +1,92 @@
+# Write your default config options here!
+[default]
+
+##################
+# video settings #
+##################
+
+# Specify default video driver (see -vo help for a list).
+vo = xv,opengl
+
+# Start in fullscreen mode by default.
+fs = no
+
+# Which screen to go fullscreen
+fs-screen = current
+
+# Change to a different videomode when going fullscreen.
+#vm = yes
+
+# Use this for a widescreen monitor, non-square pixels.
+monitoraspect = 16:10
+
+# Keep the player window on top of all other windows.
+ontop = no
+
+##################
+# audio settings #
+##################
+
+# Specify default audio driver (see -ao help for a list).
+ao = pulse
+
+# Multithreaded decoding of H264/MPEG-1/2 (valid: 1-16, 0 for autodetect)
+vd-lavc-threads = 0
+
+# 2 channels = stereo, 6 = 5.1
+audio-channels = 2
+
+# Use volume filter instead of audio driver controls
+softvol = yes
+
+# Volume on startup
+volume = 95
+
+##################
+# cache settings #
+##################
+
+# Don't use cache on local files
+cache = auto
+
+# Use 25MB input cache by default
+cache-default = 25600
+
+# Playback will start with 10MB on cache
+cache-initial = 10240
+
+# Pause player when the cache runs low and unpause once data is avaliable
+cache-pause = yes
+
+#######################
+# screenchot settings #
+#######################
+
+# Screenshot format
+screenshot-format = png
+
+# Screenshot filename
+screenshot-template = "%F-%n"
+
+####################
+# devices settings #
+####################
+
+# CD device
+cdrom-device = /dev/cdrom
+
+# DVD device
+dvd-device = /dev/cdrom
+
+##################
+# other settings #
+##################
+
+# Subtitle matching fuzzines
+sub-auto = fuzzy
+
+# DVD: Display English subtitles if available.
+slang = por,eng
+
+# DVD: Play English audio tracks if available.
+alang = eng
