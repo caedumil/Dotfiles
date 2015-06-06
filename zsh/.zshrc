@@ -127,8 +127,12 @@ alias -s pdf='zathura'
 alias -s {mp3,m4a}='mpv --no-audio-display'
 
 ##### Functions
-tmux() {
-    /usr/bin/tmux a || /usr/bin/tmux
+dev () {
+    local dir=$(pwd)
+
+    [[ -d ${1} ]] && cd ${1}
+    tmux a || tmux
+    cd ${dir}
 }
 
 ##########
