@@ -12,7 +12,10 @@
 " - colorschemes-noah
 
 " User settings
-" Vim settings
+" Terminal options
+set t_Co=256
+
+" Vim mode
 set nocompatible
 
 " Enable Syntax highlighting
