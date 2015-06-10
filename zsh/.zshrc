@@ -120,6 +120,7 @@ alias x='aunpack -e'
 alias mpv='mpv --quiet'
 alias feh='feh --scale-down'
 alias trc='transmission-remote-cli'
+alias tmux='tmux -2'
 ### Extension
 alias -s gz='tar -xzvf'
 alias -s bz2='tar -xjvf'
@@ -131,7 +132,11 @@ dev () {
     local dir=$(pwd)
 
     [[ -d ${1} ]] && cd ${1}
-    tmux a || tmux
+    if tmux has-session >/dev/null 2>&1 ; then
+        tmux attach-session >/dev/null 2>&1
+    else
+        tmux >/dev/null 2>&1
+    fi
     cd ${dir}
 }
 
