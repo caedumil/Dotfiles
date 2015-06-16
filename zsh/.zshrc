@@ -121,6 +121,8 @@ alias mpv='mpv --quiet'
 alias feh='feh --scale-down'
 alias trc='transmission-remote-cli'
 alias tmux='tmux -2'
+alias tintin='tintin -G'
+alias tt='tintin'
 ### Extension
 alias -s gz='tar -xzvf'
 alias -s bz2='tar -xjvf'
