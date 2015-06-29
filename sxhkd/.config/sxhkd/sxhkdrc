@@ -123,10 +123,13 @@ super + Pause
     devmon -r
 
 super + space
-    j4-dmenu-desktop --dmenu="dmenu -i -fn cure -p '>>'"
+    j4-dmenu-desktop --dmenu="rofi -dmenu -p 'run:'"
 
 super + shift + space
-    dmenu_run -fn cure -p ">>"
+    rofi -show run
+
+alt + Tab
+    rofi -show window
 
 super + Print
     maim ~/$(date +%Y-%m-%d).png
