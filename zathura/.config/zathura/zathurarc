@@ -1,0 +1,14 @@
+#Zathurarc file
+set adjust-open width
+
+map + zoom in
+map - zoom out
+map = zoom 100%
+
+map <F11> toggle_fullscreen
+map <Tab> toggle_index
+
+map [ scroll full-up
+map ] scroll full-down
+
+map <C-q> quit
