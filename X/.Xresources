@@ -1,3 +1,6 @@
+!! Color Theme -------------------------------------------------------------- !!
+#include ".colors/base16/base16-chalk.dark.256.xresources"
+
 !! Xcursor ------------------------------------------------------------------ !!
 Xcursor.theme: Adwaita
 
@@ -37,66 +40,27 @@ URxvt.clipboard.pastecmd:       xclip -o -selection clipboard
 
 !! Dzen --------------------------------------------------------------------- !!
 dzen2.font:                     -*-cure-medium-*-normal-*-9-*-*-*-*-*-*-*
-dzen2.background:               #000000
-dzen2.foreground:               #CCCCCC
+dzen2.background:               base00
+dzen2.foreground:               base05
 
 !! Rofi --------------------------------------------------------------------- !!
 rofi.font:                      cure 8
 rofi.terminal:                  urxvtc
-rofi.color-enabled:             true
-rofi.color-normal:              #151515,#d0d0d0,#151515,#d0d0d0,#151515
-rofi.color-urgent:              #151515,#fb9fb1,#151515,#fb9fb1,#151515
-rofi.color-active:              #151515,#12cfc0,#151515,#12cfc0,#151515
-rofi.color-window:              #151515,#d0d0d0
-
-!! Color Theme -------------------------------------------------------------- !!
-! Base16 Chalk
-! Scheme: Chris Kempson (http://chriskempson.com)
-
-#define base00 #151515
-#define base01 #202020
-#define base02 #303030
-#define base03 #505050
-#define base04 #b0b0b0
-#define base05 #d0d0d0
-#define base06 #e0e0e0
-#define base07 #f5f5f5
-#define base08 #fb9fb1
-#define base09 #eda987
-#define base0A #ddb26f
-#define base0B #acc267
-#define base0C #12cfc0
-#define base0D #6fc2ef
-#define base0E #e1a3ee
-#define base0F #deaf8f
-
-*.foreground:   base05
-*.background:   base00
-*.cursorColor:  base05
-
-*.color0:       base00
-*.color1:       base08
-*.color2:       base0B
-*.color3:       base0A
-*.color4:       base0D
-*.color5:       base0E
-*.color6:       base0C
-*.color7:       base05
-
-*.color8:       base03
-*.color9:       base08
-*.color10:      base0B
-*.color11:      base0A
-*.color12:      base0D
-*.color13:      base0E
-*.color14:      base0C
-*.color15:      base07
-
-! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
-! use 'shell' template to set these if necessary
-*.color16:      base09
-*.color17:      base0F
-*.color18:      base01
-*.color19:      base02
-*.color20:      base04
-*.color21:      base06
+rofi.color-enabled:             false
+rofi.color-normal:              base00,base05,base00,base05,base00
+rofi.color-urgent:              base00,base08,base00,base08,base00
+rofi.color-active:              base00,base0C,base00,base0C,base00
+rofi.color-window:              base00,base05
+rofi.bg:                        base00
+rofi.fg:                        base05
+rofi.bgalt:                     base00
+rofi.hlbg:                      base05
+rofi.hlfg:                      base00
+rofi.bg-urgent:                 base00
+rofi.fg-urgent:                 base08
+rofi.hlbg-urgent:               base08
+rofi.hlfg-urgent:               base00
+rofi.bg-active:                 base00
+rofi.fg-active:                 base0C
+rofi.hlbg-active:               base0C
+rofi.hlfg-active:               base00

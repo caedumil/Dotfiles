@@ -38,9 +38,7 @@ colors
 
 ##### Highlight
 local xbase16="/usr/share/base16-shell/base16-chalk.dark.sh"
-local vbase16="${HOME}/.vbase16/base16-chalk.dark.sh"
 [[ -s ${xbase16} ]] && source ${xbase16}
-[[ $TERM == "linux" && -s ${vbase16} ]] && source ${vbase16}
 
 ##### cd-bookmark
 autoload -Uz cd-bookmark
