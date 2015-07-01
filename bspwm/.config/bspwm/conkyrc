@@ -1,15 +1,18 @@
-# Output to console
-out_to_x no
-out_to_console yes
+-- vim: syntax=lua
+-- Output to console
+conky.config = {
+    out_to_x = false,
+    out_to_console =  true,
 
-# Behaviour
-update_interval 1
-if_up_strictness link
+    -- Behaviour
+    update_interval = 1,
+    if_up_strictness = 'link',
 
-# Force UTF8? note that UTF8 support required XFT
-override_utf8_locale yes
+    -- Force UTF8? note that UTF8 support required XFT
+    override_utf8_locale = true
+}
 
-TEXT
+conky.text = [[
 C%{F\#FFDDB26f}::%{F-}  \
 \uE00E \
  %{F\#FFDDB26f}::%{F-}  \
@@ -44,3 +47,4 @@ ${endif}\
 \uE033 \
 ${battery BAT1} \
  %{F\#FFDDB26f}::%{F-}
+]]
