@@ -1,0 +1,22 @@
+# Set the Prezto modules to load (browse modules).
+# The order matters.
+zstyle ':prezto:load' pmodule \
+    'environment' \
+    'terminal' \
+    'editor' \
+    'utility' \
+    'history' \
+    'directory' \
+    'completion' \
+    'pacman' \
+    'git' \
+    'tmux' \
+    'syntax-highlighting' \
+    'history-substring-search' \
+    'prompt'
+zstyle ':prezto:module:terminal' auto-title 'yes'
+zstyle ':prezto:module:editor' key-bindings 'vi'
+zstyle ':prezto:module:pacman' frontend 'aura'
+zstyle ':prezto:module:tmux:auto-start' local 'no'
+zstyle ':prezto:module:tmux:auto-start' remote 'yes'
+zstyle ':prezto:module:prompt' theme 'sorin'
