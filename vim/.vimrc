@@ -24,7 +24,7 @@ syntax enable
 " Set color scheme
 set background=dark
 let base16colorspace=256
-colorscheme base16-chalk
+colorscheme base16-ocean
 
 " Numbered lines
 set number

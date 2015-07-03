@@ -5,7 +5,7 @@ SAVEHIST=100
 HISTFILE=~/.zhistfile
 
 ##### Highlight
-local xbase16="/usr/share/base16-shell/base16-chalk.dark.sh"
+local xbase16="/usr/share/base16-shell/base16-ocean.dark.sh"
 [[ -s ${xbase16} ]] && source ${xbase16}
 
 ##### cd-bookmark

@@ -13,38 +13,38 @@ conky.config = {
 }
 
 conky.text = [[
-C%{F\#FFDDB26f}::%{F-}  \
+C%{F\#ebcb8b}::%{F-}  \
 \uE00E \
- %{F\#FFDDB26f}::%{F-}  \
+ %{F\#ebcb8b}::%{F-}  \
 ${time %A, %d %B %Y} \
- %{F\#FFDDB26f}::%{F-}  \
+ %{F\#ebcb8b}::%{F-}  \
 \uE017 \
 ${time %H:%M} \
- %{F\#FFDDB26f}::%{F-}
-S%{F\#FFDDB26f}::%{F-}  \
+ %{F\#ebcb8b}::%{F-}
+S%{F\#ebcb8b}::%{F-}  \
 \uE026 \
 ${cpu cpu0}%% \
 \uE01D \
 ${hwmon 0 temp 1}C \
- %{F\#FFDDB26f}::%{F-}  \
+ %{F\#ebcb8b}::%{F-}  \
 \uE05D \
 ${execi 3 ponymix get-volume}%% \
- %{F\#FFDDB26f}::%{F-}  \
+ %{F\#ebcb8b}::%{F-}  \
 ${if_up wlan0}\
 \uE048 \
 ${wireless_essid wlan0} \
 \uE12F \
 [${downspeedf wlan0}/${upspeedf wlan0}] \
- %{F\#FFDDB26f}::%{F-}  \
+ %{F\#ebcb8b}::%{F-}  \
 ${endif}\
 ${if_up eth0}\
 \uE148 \
 Cable \
 \uE12F \
 [${downspeedf eth0}/${upspeedf eth0}] \
- %{F\#FFDDB26f}::%{F-}  \
+ %{F\#ebcb8b}::%{F-}  \
 ${endif}\
 \uE033 \
 ${battery BAT1} \
- %{F\#FFDDB26f}::%{F-}
+ %{F\#ebcb8b}::%{F-}
 ]]
