@@ -8,7 +8,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = GohuFont, Powerline Symbols, stlarch 8
+font = GohuFont, stlarch 8
 scrollback_lines = 1000
 search_wrap = true
 geometry = 600x350
@@ -41,36 +41,36 @@ cursor_shape = block
 #roundness = 2.0
 
 [colors]
-# Base16 Chalk
+# Base16 Ocean
 # Scheme: Chris Kempson (http://chriskempson.com)
 
-foreground      = #d0d0d0
-foreground_bold = #d0d0d0
-cursor          = #d0d0d0
-background      = #151515
+foreground      = #c0c5ce
+foreground_bold = #c0c5ce
+cursor          = #c0c5ce
+background      = #2b303b
 
 # 16 color space
-color0  = #151515
-color1  = #fb9fb1
-color2  = #acc267
-color3  = #ddb26f
-color4  = #6fc2ef
-color5  = #e1a3ee
-color6  = #12cfc0
-color7  = #d0d0d0
-color8  = #505050
-color9  = #fb9fb1
-color10 = #acc267
-color11 = #ddb26f
-color12 = #6fc2ef
-color13 = #e1a3ee
-color14 = #12cfc0
-color15 = #f5f5f5
+color0  = #2b303b
+color1  = #bf616a
+color2  = #a3be8c
+color3  = #ebcb8b
+color4  = #8fa1b3
+color5  = #b48ead
+color6  = #96b5b4
+color7  = #c0c5ce
+color8  = #65737e
+color9  = #bf616a
+color10 = #a3be8c
+color11 = #ebcb8b
+color12 = #8fa1b3
+color13 = #b48ead
+color14 = #96b5b4
+color15 = #eff1f5
 
 # 256 color space
-color16 = #eda987
-color17 = #deaf8f
-color18 = #202020
-color19 = #303030
-color20 = #b0b0b0
-color21 = #e0e0e0
+color16 = #d08770
+color17 = #ab7967
+color18 = #343d46
+color19 = #4f5b66
+color20 = #a7adba
+color21 = #dfe1e8
