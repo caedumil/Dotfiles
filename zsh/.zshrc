@@ -46,6 +46,11 @@ alias -s bz2='tar -xjvf'
 alias -s pdf='zathura'
 alias -s {mp3,m4a}='mpv --no-audio-display'
 
+##### Fix ls colors on termite
+if [[ $TERM = 'xterm-termite' ]]; then
+    source <(dircolors ~/.dircolors)
+fi
+
 ##### Functions
 dev () {
     local dir=$(pwd)

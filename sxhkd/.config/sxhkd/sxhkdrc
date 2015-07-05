@@ -84,7 +84,7 @@ super + @button{1-3}
 # multimedia keys
 #
 XF86Launch1
-    urxvtc
+    termite
 
 XF86Mail
     thunderbird
@@ -93,7 +93,7 @@ XF86WWW
     firefox
 
 XF86Launch2
-    urxvtc --name Ranger -e ranger
+    termite --name Ranger -e ranger
 
 XF86AudioMute
     dvol --toggle
@@ -111,7 +111,7 @@ XF86{Sleep,Battery}
 # shortcuts
 #
 super + Return
-    urxvtc
+    termite
 
 super + F2
     slimlock
