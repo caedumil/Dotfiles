@@ -93,7 +93,7 @@ XF86WWW
     firefox
 
 XF86Launch2
-    termite --name Ranger -e ranger
+    urxvt --name Ranger -e ranger
 
 XF86AudioMute
     dvol --toggle
