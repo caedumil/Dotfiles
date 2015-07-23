@@ -4,6 +4,13 @@
 !! Xcursor ------------------------------------------------------------------ !!
 Xcursor.theme: Adwaita
 
+!! Xft
+Xft.antialias:                  true
+Xft.rgba:                       rgb
+Xft.hinting:                    true
+Xft.hintstyle:                  hintfull
+Xft.lcdfilter:                  lcdlight
+
 !! UXTerm ------------------------------------------------------------------- !!
 UXTerm*termName:                xterm-256color
 UXTerm*faceName:                GohuFont
