@@ -38,6 +38,11 @@ alias trc='transmission-remote-cli'
 alias tmux='tmux -2'
 alias tintin='tintin -G'
 alias tt='tintin'
+if [[ -x $(which envoy-exec) ]]; then
+    alias ssh='envoy-exec ssh'
+    alias scp='envoy-exec scp'
+    alias rsync='envoy-exec rsync'
+fi
 ### Clear aliases
 unalias rm
 ### Extension
