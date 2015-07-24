@@ -52,7 +52,7 @@ dzen2.foreground:               base05
 
 !! Rofi --------------------------------------------------------------------- !!
 rofi.font:                      cure 8
-rofi.terminal:                  urxvtc
+rofi.terminal:                  termite
 rofi.color-enabled:             false
 rofi.color-normal:              base00,base05,base00,base05,base00
 rofi.color-urgent:              base00,base08,base00,base08,base00
