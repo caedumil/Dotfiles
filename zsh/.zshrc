@@ -1,18 +1,36 @@
-########## ZSHRC
-##### Configuration file for ZSH
+#
+# ZSH options
+#
+
+#
+# Source Prezto
+#
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+#
+# Zsh customizations
+#
 HISTSIZE=100
 SAVEHIST=100
 HISTFILE=~/.zhistfile
 
-##### Highlight
+#
+# Highlight
+#
 local xbase16="/usr/share/base16-shell/base16-ocean.dark.sh"
 [[ -s ${xbase16} ]] && source ${xbase16}
 
-##### cd-bookmark
+#
+# Plugins
+#
 autoload -Uz cd-bookmark
 alias cdb='cd-bookmark'
 
-### Movement
+#
+# Movement
+#
 bindkey "\e[7~" beginning-of-line           # Home  # rxvt
 bindkey "\e[8~" end-of-line                 # End   # rxvt
 bindkey "\eOH"  beginning-of-line           # Home  # guake
@@ -20,11 +38,15 @@ bindkey "\eOF"  end-of-line                 # End   # guake
 bindkey "\e[H"  beginning-of-line           # Home  # termite
 bindkey "\e[F"  end-of-line                 # End   # termite
 
-##### Colored Pager
+#
+# Colored Pager
+#
 export PAGER='less'
 export LESSHISTFILE='-'
 
-##### Aliases
+#
+# Aliases
+#
 alias egrep='grep -E'
 alias fgrep='grep -F'
 alias mkdir='mkdir -pv'
@@ -43,20 +65,26 @@ if [[ -x $(which envoy-exec) ]]; then
     alias scp='envoy-exec scp'
     alias rsync='envoy-exec rsync'
 fi
-### Clear aliases
+
+# Clear aliases
 unalias rm
-### Extension
+
+# Extension
 alias -s gz='tar -xzvf'
 alias -s bz2='tar -xjvf'
 alias -s pdf='zathura'
 alias -s {mp3,m4a}='mpv --no-audio-display'
 
-##### Fix ls colors on termite
+#
+# Fix ls colors on termite
+#
 if [[ $TERM = 'xterm-termite' ]]; then
     source <(dircolors ~/.dircolors)
 fi
 
-##### Functions
+#
+# Functions
+#
 dev () {
     local dir=$(pwd)
 
@@ -68,5 +96,3 @@ dev () {
     fi
     cd ${dir}
 }
-
-##########
