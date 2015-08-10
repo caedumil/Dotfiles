@@ -117,10 +117,10 @@ super + F2
     slimlock
 
 Pause
-    disks -l all
+    disks
 
 super + Pause
-    devmon -r
+    disks --umount
 
 super + space
     j4-dmenu-desktop --dmenu="rofi -dmenu -p 'run:'"
