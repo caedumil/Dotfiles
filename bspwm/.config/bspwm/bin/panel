@@ -18,14 +18,14 @@ trap "trap - TERM; kill 0" INT TERM QUIT EXIT
 [[ -e ${PANEL_FIFO} ]] && rm ${PANEL_FIFO}
 mkfifo ${PANEL_FIFO}
 
-bspc config top_padding 10
+bspc config top_padding 15
 
 conky -c ${DIR}/conkyrc > ${PANEL_FIFO} &
 bspc control --subscribe > ${PANEL_FIFO} &
 
 cat ${PANEL_FIFO} \
-    | ${DIR}/workspace \
-    | lemonbar -g "x10++" -F "${FG}" -B "${BG}" \
+    | ${DIR}/bin/workspace \
+    | lemonbar -g "x15++" -u 2 -F "${FG}" -B "${BG}" \
         -f "-*-stlarch-medium-*-normal-*-*-*-*-*-c-*-*-*"\
         -f "-*-cure-medium-*-normal-*-*-*-*-*-*-*-*-*"
 
