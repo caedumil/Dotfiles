@@ -1,8 +1,8 @@
 #!/bin/bash
-# vim: set tw=90:
+# vim: set tw=95:
 
 SEP="#FF$(getXresColor color3)"
-URG="#FF$(getXrexColor color1)"
+ULN="#FF$(getXresColor color8)"
 
 while read -r line; do
     case ${line} in
@@ -20,8 +20,8 @@ while read -r line; do
                 item=${1}
                 name=${item#?}
                 case $item in
-                    [OFU]*) wm_infos+="%{R}%{U${SEP}}%{+u} ${name} %{-u}%{U-}%{R}" ;;
-                    u*) wm_infos+="%{R}%{U${URG}}%{+u} ${name} %{-u}%{U-}%{R}" ;;
+                    [OFU]*) wm_infos+="%{R}%{U${ULN}}%{+u}%{+o} ${name} %{-o}%{-u}%{U-}%{R}" ;;
+                    u*) wm_infos+="%{R}%{U${ULN}}%{+o}% ${name} %{-o}%{U-}%{R}" ;;
                     o*) wm_infos+="%{R} ${name} %{R}" ;;
                     f*) ;;
                 esac
