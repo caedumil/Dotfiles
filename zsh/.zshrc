@@ -47,23 +47,38 @@ export LESSHISTFILE='-'
 #
 # Aliases
 #
-alias egrep='grep -E'
-alias fgrep='grep -F'
+# coreutils
 alias mkdir='mkdir -pv'
 alias rmdir='rmdir -pv'
 alias mv='mv -v'
 alias cp='cp -v'
+# grep
+alias egrep='grep -E'
+alias fgrep='grep -F'
+# atool
 alias x='aunpack -e'
+# mpv
 alias mpv='mpv --quiet'
+# feh
 alias feh='feh --scale-down'
+# transmission-remote-cli
 alias trc='transmission-remote-cli'
+# tmux
 alias tmux='tmux -2'
+# tintin
 alias tintin='tintin -G'
 alias tt='tintin'
+# envoy
 if [[ -x $(which envoy-exec) ]]; then
+    # openssh
     alias ssh='envoy-exec ssh'
     alias scp='envoy-exec scp'
+    # rsync
     alias rsync='envoy-exec rsync'
+    # git
+    alias gf="envoy-exec git fetch"
+    alias gfm="envoy-exec git pull"
+    alias gp="envoy-exec git push"
 fi
 
 # Clear aliases
