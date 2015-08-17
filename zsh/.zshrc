@@ -16,6 +16,9 @@ fi
 local xbase16="/usr/share/base16-shell/base16-ocean.dark.sh"
 [[ -s ${xbase16} ]] && source ${xbase16}
 
+# Source .profile if needed
+[[ -n ${EDITOR} ]] || source ~/.profile
+
 # Load bookmark plugin
 autoload -Uz cd-bookmark
 alias cdb='cd-bookmark'

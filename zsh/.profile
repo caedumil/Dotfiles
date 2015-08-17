@@ -4,7 +4,7 @@
 
 ## SSH Environment
 # Setup Envoy
-source <(envoy -d -p)
+[[ -x $(which envoy) ]] && source <(envoy -d -p)
 
 ## XDG
 export XDG_CONFIG_HOME="$HOME/.config"
