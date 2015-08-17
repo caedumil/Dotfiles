@@ -83,19 +83,6 @@ alias -s {mp3,m4a}='mpv --no-audio-display'
 # Zsh functions
 #
 
-# cd to dir and open tmux
-dev () {
-    local dir=$(pwd)
-
-    [[ -d ${1} ]] && cd ${1}
-    if tmux has-session >/dev/null 2>&1 ; then
-        tmux attach-session >/dev/null 2>&1
-    else
-        tmux >/dev/null 2>&1
-    fi
-    cd ${dir}
-}
-
 #
 # Terminal fixes
 #
