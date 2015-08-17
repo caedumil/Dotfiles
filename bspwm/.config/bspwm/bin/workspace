@@ -2,7 +2,9 @@
 # vim: set tw=95:
 
 SEP="#FF$(getXresColor color3)"
-ULN="#FF$(getXresColor color8)"
+ULN="#FF$(getXresColor color7)"
+URG="#FF$(getXresColor color15)"
+FRI="#FF$(getXresColor color8)"
 
 while read -r line; do
     case ${line} in
@@ -20,10 +22,10 @@ while read -r line; do
                 item=${1}
                 name=${item#?}
                 case $item in
-                    [OFU]*) wm_infos+="%{R}%{U${ULN}}%{+u}%{+o} ${name} %{-o}%{-u}%{U-}%{R}" ;;
-                    u*) wm_infos+="%{R}%{U${ULN}}%{+o}% ${name} %{-o}%{U-}%{R}" ;;
-                    o*) wm_infos+="%{R} ${name} %{R}" ;;
-                    f*) ;;
+                    [OFU]*) wm_infos+="%{U${ULN}}%{+u}%{+o} ${name} %{-o}%{-u}%{U-}" ;;
+                    u*) wm_infos+="%{U${URG}}%{+o}% ${name} %{-o}%{U-}" ;;
+                    o*) wm_infos+="%{U${ULN}}%{+o}% ${name} %{-o}%{U-}" ;;
+                    f*) wm_infos+="%{U${FRI}}%{+o}% ${name} %{-o}%{U-}" ;;
                 esac
                 shift
             done
