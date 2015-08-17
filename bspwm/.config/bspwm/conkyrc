@@ -20,7 +20,13 @@ ${time %A, %d %B %Y} \
  %{F\#ebcb8b}::%{F-}  \
 \uE017 \
 ${time %H:%M} \
- %{F\#ebcb8b}::%{F-}
+ %{F\#ebcb8b}::%{F-}  \
+${if_mpd_playing}\
+\uE04D \
+${mpd_artist} - ${mpd_title} \
+ %{F\#ebcb8b}::%{F-}\
+${endif}\
+
 S%{F\#ebcb8b}::%{F-}  \
 \uE026 \
 ${cpu cpu0}%% \
