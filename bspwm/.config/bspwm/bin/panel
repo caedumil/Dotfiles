@@ -26,7 +26,7 @@ bspc control --subscribe > ${PANEL_FIFO} &
 cat ${PANEL_FIFO} \
     | ${DIR}/bin/workspace \
     | lemonbar -g "x20++" -u 3 -F "${FG}" -B "${BG}" \
-        -f "-*-stlarch-medium-*-normal-*-*-*-*-*-c-*-*-*"\
-        -f "-*-cure-medium-*-normal-*-*-*-*-*-*-*-*-*"
+        -f "-*-siji-medium-*-normal-*-*-*-*-*-c-*-*-*"\
+        -f "-*-lime-medium-*-normal-*-*-*-*-*-*-*-*-*"
 
 wait

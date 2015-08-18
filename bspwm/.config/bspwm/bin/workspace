@@ -33,6 +33,6 @@ while read -r line; do
         esac
     printf "%b %b %b\n" \
         "%{l}${clock}" \
-        "%{c}%{F${SEP}}::%{F-}  ${wm_infos}  %{F${SEP}}::%{F-}" \
+        "%{c}%{F${SEP}}\uE190%{F-} ${wm_infos} %{F${SEP}}\uE190%{F-}" \
         "%{r}${sys_info}"
 done
