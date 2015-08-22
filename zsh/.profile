@@ -1,16 +1,17 @@
-#
 # ~/.profile
+
+#
+# Set up
 #
 
-## SSH Environment
-# Setup Envoy
+# SSH
 [[ -x $(which envoy) ]] && source <(envoy -d -p)
 
-## XDG
+# XDG
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
-## Colored less
+# Colored less
 export LESS_TERMCAP_mb=$'\E[01;31m'         # begin blinking
 export LESS_TERMCAP_md=$'\E[00;38;5;5m'     # begin bold
 export LESS_TERMCAP_me=$'\E[0m'             # end mode
@@ -24,11 +25,9 @@ export LESS_TERMCAP_us=$'\E[00;38;5;177m'   # begin underline
 # - 5;x (where x is color index (0..255)) or
 # - 2;r;g;b (where r,g,b are red, green and blue color channels (out of 255))
 
-## Java Options
-opt1="swing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
-opt2="swing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
-export _JAVA_OPTIONS="-D${opt1} -D${opt2}"
+#
+# Env vars
+#
 
-## Misc
-export BROWSER="firefox"
+# Applications
 export EDITOR="vim"
