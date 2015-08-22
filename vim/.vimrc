@@ -55,7 +55,7 @@ set ignorecase
 
 " Highlight white spaces
 set list
-set listchars=trail:·,tab:»·
+set listchars=trail:·,tab:»·,eol:¬
 
 " Vim Airline
 set laststatus=2
