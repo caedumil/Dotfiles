@@ -5,6 +5,12 @@
 super + alt + Escape
     pkill -x conky; pkill -x panel; bspc quit
 
+super + alt + r
+    pkill -x conky; \
+    pkill -x workspace; \
+    pkill -x panel; \
+    sh ~/.config/bspwm/bin/panel &
+
 super + w
     bspc window -c
 
