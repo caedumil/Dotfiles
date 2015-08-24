@@ -25,9 +25,6 @@ xset +fp /usr/share/fonts/local
 xset +fp /usr/share/fonts/artwiz-fonts
 xset fp rehash
 
-# PulseAudio
-start-pulseaudio-x11
-
 #
 # Env vars
 #
