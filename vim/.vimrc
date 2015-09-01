@@ -1,7 +1,7 @@
 " Plugins
 " - airline-git
 " - commentary
-" - ednwise
+" - endwise
 " - fugitive
 " - repeat
 " - surround
@@ -79,10 +79,6 @@ let g:syntastic_check_on_wq=0
 " C++14
 let g:syntastic_cpp_compiler='g++'
 let g:syntastic_cpp_compiler_options='-std=c++14'
-
-" Vim LaTeXSuite
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor='latex'
 
 " Maps
 " Don't open command history
