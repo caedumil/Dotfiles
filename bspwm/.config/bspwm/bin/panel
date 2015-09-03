@@ -3,7 +3,7 @@
 set -e
 
 PANEL_FIFO="/tmp/bspwm.fifo"
-DIR="${HOME}/.config/bspwm"
+DIR="${HOME}/.config/bspwm/bin"
 
 FG="#$(getXresColor foreground)"
 BG="#$(getXresColor background)"
@@ -24,7 +24,7 @@ conky -c ${DIR}/conkyrc > ${PANEL_FIFO} &
 bspc control --subscribe > ${PANEL_FIFO} &
 
 cat ${PANEL_FIFO} \
-    | ${DIR}/bin/workspace \
+    | ${DIR}/workspace \
     | lemonbar -g "x20++" -u 3 -F "${FG}" -B "${BG}" \
         -f "-*-siji-medium-*-normal-*-*-*-*-*-c-*-*-*"\
         -f "-*-lime-medium-*-normal-*-*-*-*-*-*-*-*-*"
