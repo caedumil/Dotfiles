@@ -51,6 +51,7 @@ dzen2.background:               base00
 dzen2.foreground:               base05
 
 !! Rofi --------------------------------------------------------------------- !!
+rofi.hide-scrollbar:            true
 rofi.font:                      lime 8
 rofi.terminal:                  termite
 rofi.color-enabled:             false
