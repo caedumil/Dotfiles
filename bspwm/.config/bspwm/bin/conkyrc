@@ -20,15 +20,15 @@ ${time %A, %d %B %Y} \
 ${time %H:%M} \
 %{F\#ebcb8b}\uE192%{F-}
 S%{F\#ebcb8b}\uE192%{F-} \
-${if_mpd_playing}\
-\uE0FE \
-%{F\#ebcb8b}\uE192%{F-} \
-${endif}\
 \uE026 \
 ${cpu cpu0}%% \
 \uE01D \
 ${hwmon 0 temp 1}C \
 %{F\#ebcb8b}\uE192%{F-} \
+${if_mpd_playing}\
+\uE0FE\
+${mpd_status} \
+${endif}\
 \uE05D \
 ${execi 3 ponymix get-volume}%% \
 %{F\#ebcb8b}\uE192%{F-}\
