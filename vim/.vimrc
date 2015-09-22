@@ -18,6 +18,9 @@ set t_Co=256
 " Vim mode
 set nocompatible
 
+" Read .vimrc in current directory
+set exrc
+
 " Enable Syntax highlighting
 syntax enable
 
@@ -106,3 +109,7 @@ function HexMe()
         let $in_hex=1
     endif
 endfunction
+
+" Disable shell and write commands in current directory
+" switch it off only when 'exrc' is off
+set secure
