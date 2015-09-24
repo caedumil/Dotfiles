@@ -52,8 +52,8 @@ cache = auto
 # Use 25MB input cache by default
 cache-default = 25600
 
-# Playback will start with 10MB on cache
-cache-initial = 10240
+# Playback will start with 20MB on cache
+cache-initial = 20480
 
 # Pause player when the cache runs low and unpause once data is avaliable
 cache-pause = yes
