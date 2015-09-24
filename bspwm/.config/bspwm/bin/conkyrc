@@ -25,10 +25,6 @@ ${cpu cpu0}%% \
 \uE01D \
 ${hwmon 0 temp 1}C \
 %{F\#ebcb8b}\uE192%{F-} \
-${if_mpd_playing}\
-\uE0FE\
-${mpd_status} \
-${endif}\
 \uE05D \
 ${execi 3 ponymix get-volume}%% \
 %{F\#ebcb8b}\uE192%{F-}\
