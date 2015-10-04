@@ -50,6 +50,13 @@ dzen2.font:                     -*-cure-medium-*-normal-*-9-*-*-*-*-*-*-*
 dzen2.background:               base00
 dzen2.foreground:               base05
 
+!! Dmenu2
+dmenu.font:                     -*-lime-medium-*-normal-*-10-*-*-*-*-*-*-*
+dmenu.background:               base00
+dmenu.foreground:               base05
+dmenu.selbackground:            base05
+dmenu.selforeground:            base00
+
 !! Rofi --------------------------------------------------------------------- !!
 rofi.hide-scrollbar:            true
 rofi.font:                      lime 8
