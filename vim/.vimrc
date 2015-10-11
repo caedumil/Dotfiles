@@ -1,26 +1,54 @@
-" Plugins
-" - airline-git
-" - commentary
-" - endwise
-" - fugitive
-" - repeat
-" - surround
-" - syntastic
-
-" Colorschemes
-" - base16-git
-" - colorschemes-noah
-
-" User settings
-" Terminal options
+" VIM mode {{{
+" Force 256 colors
 set t_Co=256
 
-" Vim mode
+" Disable VI compatibility mode
 set nocompatible
 
-" Read .vimrc in current directory
-set exrc
+" Use UTF-8
+set encoding=utf-8
 
+" Enable modeline
+set modeline
+
+" Look for modeline in the final line
+set modelines=1
+" }}}
+
+" Vim Vundle {{{
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Vundle manage itself
+Plugin 'VundleVim/Vundle.vim'
+
+" Plugins on GitHub
+Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-endwise'
+Plugin 'kien/ctrlp.vim'
+Plugin 'LucHermitte/lh-vim-lib'
+Plugin 'LucHermitte/local_vimrc'
+" Color schemes
+Plugin 'chriskempson/base16-vim'
+"Plugin 'noah/vim256-color'
+
+call vundle#end()
+filetype plugin on
+" }}}
+
+" Misc {{{
+" Leader is comma
+let mapleader=","
+" }}}
+
+" Colors {{{
 " Enable Syntax highlighting
 syntax enable
 
@@ -28,39 +56,112 @@ syntax enable
 set background=dark
 let base16colorspace=256
 colorscheme base16-ocean
+" }}}
 
-" Numbered lines
+" Spaces & Tabs {{{
+" Number of visual spaces per TAB
+set tabstop=4
+
+" Number of spaces in tab when editing
+set softtabstop=4
+
+" Number of spaces for indent
+set shiftwidth=4
+
+" Indent line when pressing TAB
+set smarttab
+
+" Tabs are spaces
+set expandtab
+
+" Auto indent
+set smartindent
+
+" Use to see the difference between tabs and spaces
+set list
+
+" Customize characters to use in list mode
+set listchars=trail:·,tab:»·,eol:¬
+" }}}
+
+" UI Config {{{
+" Show line numbers
 set number
 
 " 80 char a line, no more!
 set textwidth=80
-set formatoptions+=t
 
 " Mark the column after textwidth
 set colorcolumn=+1
 
-" Automatically indent
-set smartindent
+" Show command in bottom bar
+set showcmd
 
-" Tabs to 4 spaces
-set shiftwidth=4
-set tabstop=4
-set expandtab
-set smarttab
+" Highlight current line
+set cursorline
 
-" Use UTF-8
-set encoding=utf-8
+" Load filetype-specific indent files
+filetype indent on
 
-" Search as you type, case insensitive and highlight
+" Visual autocomplete for command menu
+set wildmenu
+
+" Redraw only when needed to
+set lazyredraw
+
+" Highlight matching [{()}]
+set showmatch
+" }}}
+
+" Searching {{{
+" Search as characters are entered
 set incsearch
+
+" Case insensitive
 set ignorecase
-"set hlsearch
 
-" Highlight white spaces
-set list
-set listchars=trail:·,tab:»·,eol:¬
+" Highlight matches
+set hlsearch
 
-" Vim Airline
+" Turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+" }}}
+
+" Folding {{{
+" Enable folding
+set foldenable
+
+" Open most folds by default
+set foldlevelstart=10
+
+" 10 nested fold max
+set foldnestmax=10
+
+" space open/close folds
+"nnoremap <space> za
+
+" Fold based on indent level
+set foldmethod=indent
+" }}}
+
+" Movement {{{
+" Move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
+" Highlight last inserted text
+nnoremap gV `[v`]
+" }}}
+
+" Vim CtrlP {{{
+" Settings
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrp_user_command = 'ag %s -l --nocolor -g ""'
+" }}}
+
+" Vim Airline {{{
 set laststatus=2
 set ttimeoutlen=50
 
@@ -73,8 +174,9 @@ let g:airline#extensions#tabline#enabled=1
 
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#branch#empty_message=''
+" }}}
 
-" Vim Syntastic
+" Vim Syntastic {{{
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 let g:syntastic_check_on_wq=0
@@ -87,29 +189,31 @@ let g:syntastic_mode_map={
 " C++14
 let g:syntastic_cpp_compiler='g++'
 let g:syntastic_cpp_compiler_options='-std=c++14'
+" }}}
 
-" Maps
+" Custom functions {{{
 " Don't open command history
 map q: :q
 
-" Remove trailing spaces.
-nnoremap <silent> <F10> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
-" Toggle 'hex mode'
-noremap <F9> :call HexMe()<CR>
-let $in_hex=0
-function HexMe()
-    set binary
-    set noeol
-    if $in_hex>0
-        :%!xxd -r
-        let $in_hex=0
+" Toggle relativenumber
+function! ToggleNumber()
+    if(&relativenumber == 1)
+        set norelativenumber
+        set number
     else
-        :%!xxd
-        let $in_hex=1
+        set relativenumber
     endif
 endfunction
 
-" Disable shell and write commands in current directory
-" switch it off only when 'exrc' is off
-set secure
+" Strips trailing whitespaces.
+function! <SID>StripWhitespaces()
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    let @/=_s
+    call cursor(l, c)
+endfunction
+" }}}
+
+" vim:foldmethod=marker:foldlevel=0
