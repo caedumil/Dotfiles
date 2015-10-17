@@ -33,8 +33,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-endwise'
 Plugin 'kien/ctrlp.vim'
-Plugin 'LucHermitte/lh-vim-lib'
-Plugin 'LucHermitte/local_vimrc'
+Plugin 'embear/vim-localvimrc'
 " Color schemes
 Plugin 'chriskempson/base16-vim'
 "Plugin 'noah/vim256-color'
@@ -189,6 +188,10 @@ let g:syntastic_mode_map={
 " C++14
 let g:syntastic_cpp_compiler='g++'
 let g:syntastic_cpp_compiler_options='-std=c++14'
+" }}}
+
+" Vim LocalVimRC {{{
+let g:localvimrc_name=[ '.lvimrc', '.vimrc.local' ]
 " }}}
 
 " Custom functions {{{
