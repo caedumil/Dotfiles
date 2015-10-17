@@ -14,8 +14,8 @@ visualizer_type = "wave" #(spectrum/wave)
 
 #Display Settings
 playlist_display_mode = "classic"
-song_list_format = "{$7%a •} {$9%t}"
-song_status_format = "{$7%a •} {$6%t $7•} {$2%b}$7"
+song_list_format = "{$5%a •} {$7%b •} {$6%t}"
+song_status_format = "{$2%a •} {$4%b •} {$8%t}$0"
 statusbar_color = "white"
 visualizer_color = "red"
 main_window_highlight_color = "cyan"
