@@ -36,6 +36,7 @@ alias mkdir='mkdir -pv'
 alias rmdir='rmdir -pv'
 alias mv='mv -v'
 alias cp='cp -v'
+alias l='ls -1'
 
 # grep
 alias egrep='grep -E'
