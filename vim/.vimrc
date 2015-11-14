@@ -1,3 +1,13 @@
+" VIMRC
+" This rc uses Vundle to manage vim plugins.
+" To setup everything properly, run
+"   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"
+" then launch vim and run:
+"   :PluginInstall
+"
+" and it's all done!
+
 " VIM mode {{{
 " Force 256 colors
 set t_Co=256
