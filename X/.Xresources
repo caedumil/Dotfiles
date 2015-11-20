@@ -4,7 +4,7 @@
 !! Xcursor ------------------------------------------------------------------ !!
 Xcursor.theme: Adwaita
 
-!! Xft
+!! Xft ---------------------------------------------------------------------- !!
 Xft.antialias:                  true
 Xft.rgba:                       rgb
 Xft.hinting:                    true
@@ -13,24 +13,19 @@ Xft.lcdfilter:                  lcdlight
 
 !! UXTerm ------------------------------------------------------------------- !!
 UXTerm*termName:                xterm-256color
-UXTerm*faceName:                GohuFont
-UXTerm*faceSize:                9
+UXTerm*font:                    -*-gohufont-medium-*-normal-*-11-*-*-*-*-*-*-*
 UXTerm*saveLines:               500
 
 !! URxvt -------------------------------------------------------------------- !!
-URxvt.geometry:                 103x30
+URxvt.geometry:                 100x30
 URxvt.transparent:              false
 URxvt.scrollBar:                false
 URxvt.scrollBar_right:          false
-URxvt.font:                     xft:GohuFont:style=Regular:size=9
-URxvt.boldFont:                 xft:GohuFont:style=Bold:size=9
+URxvt.font:                     -*-gohufont-medium-*-normal-*-11-*-*-*-*-*-*-*
+URxvt.boldFont:                 -*-gohufont-bold-*-normal-*-11-*-*-*-*-*-*-*
 URxvt.letterSpace:              0
 URxvt.saveLines:                500
 URxvt.fading:                   25
-!colors
-URxvt.throughColor:             #8080f0
-URxvt.highlightColor:           #343434
-URxvt.tintColor:                #999999
 !extensions
 URxvt.perl-ext-common:          default,url-select,keyboard-select,clipboard
 !perls -- url-select
