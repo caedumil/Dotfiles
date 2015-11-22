@@ -21,7 +21,7 @@ ${time %H:%M} \
 %{F\#ebcb8b}\uE192%{F-}
 S%{F\#ebcb8b}\uE192%{F-} \
 \uE026 \
-${cpu cpu0}%% \
+${cpu cpu0}% \
 \uE01D \
 ${hwmon 0 temp 1}C \
 %{F\#ebcb8b}\uE192%{F-} \
