@@ -1,0 +1,9 @@
+*.swp
+
+media/.config/mpd/mpdstate
+media/.config/mpd/mpd.db
+media/.config/mpd/mpd.pid
+media/.config/mpd/mpd.log
+
+vim/.vim/.netrwhist
+vim/.vim/plugged/*
