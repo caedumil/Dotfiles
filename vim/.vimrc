@@ -1,12 +1,8 @@
 " VIMRC
-" This rc uses Vundle to manage vim plugins.
-" To setup everything properly, run
-"   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" Vim-Plug (https://github.com/junegunn/vim-plug) manages all plugins
 "
-" then launch vim and run:
-"   :PluginInstall
-"
-" and it's all done!
+" on new installation, run:
+"   :PlugInstall
 
 " VIM mode {{{
 " Force 256 colors
@@ -25,31 +21,25 @@ set modeline
 set modelines=1
 " }}}
 
-" Vim Vundle {{{
-filetype off
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Vundle manage itself
-Plugin 'VundleVim/Vundle.vim'
+" Vim Plug {{{
+call plug#begin('~/.vim/plugged')
 
 " Plugins on GitHub
-Plugin 'bling/vim-airline'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-endwise'
-Plugin 'kien/ctrlp.vim'
-Plugin 'embear/vim-localvimrc'
-" Color schemes
-Plugin 'chriskempson/base16-vim'
-"Plugin 'noah/vim256-color'
+Plug 'bling/vim-airline'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-endwise'
+Plug 'kien/ctrlp.vim'
+Plug 'embear/vim-localvimrc'
 
-call vundle#end()
-filetype plugin on
+" Color schemes
+Plug 'chriskempson/base16-vim'
+
+" Add plugins to &runtimepath
+call plug#end()
 " }}}
 
 " Misc {{{
