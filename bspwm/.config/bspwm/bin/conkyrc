@@ -26,7 +26,7 @@ ${cpu cpu0}% \
 ${hwmon 0 temp 1}C \
 %{F\#ebcb8b}\uE192%{F-} \
 \uE05D \
-${execi 3 ponymix get-volume}%% \
+${execi 3 ponymix get-volume}% \
 %{F\#ebcb8b}\uE192%{F-}\
 ${if_up wlan0} \
 \uE048 \
