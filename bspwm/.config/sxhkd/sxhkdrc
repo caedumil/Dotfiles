@@ -138,7 +138,8 @@ alt + Tab
     rofi -show window
 
 super + Print
-    maim ~/$(date +%Y-%m-%d).png
+    maim ~/$(date +%Y-%m-%d-%H:%M:%S).png; \
+    notify-send -a "SShot" "Save to" "~/$(date +%Y-%m-%d-%H:%M:%S).png"
 
 # make sxhkd reload its configuration files:
 super + Escape
