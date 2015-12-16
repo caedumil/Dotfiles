@@ -39,6 +39,8 @@ fi
 # Wi-Fi unbloack
 #rfkill unblock wlan
 
+xsettingsd &
+
 # Load WM
 sxhkd &
 exec bspwm
