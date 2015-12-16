@@ -7,3 +7,4 @@ media/.config/mpd/mpd.log
 
 vim/.vim/.netrwhist
 vim/.vim/plugged/*
+vim/.vim/autoload/*

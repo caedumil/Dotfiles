@@ -1,7 +1,13 @@
 " VIMRC
 " Vim-Plug (https://github.com/junegunn/vim-plug) manages all plugins
 "
-" on new installation, run:
+" on new installation, download plug.vim:
+"
+"   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"
+" then open vim and run:
+"
 "   :PlugInstall
 
 " VIM mode {{{
@@ -32,7 +38,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'embear/vim-localvimrc'
 
 " Color schemes
