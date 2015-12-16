@@ -8,7 +8,7 @@ follow_now_playing_lyrics = "yes"
 
 #Visualizer
 visualizer_fifo_path = "/tmp/mpd.fifo"
-visualizer_sync_interval = "1"
+visualizer_sync_interval = "10"
 visualizer_output_name = "Visualizer"
 visualizer_type = "wave" #(spectrum/wave)
 
