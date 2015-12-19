@@ -13,7 +13,7 @@ Xft.lcdfilter:                  lcdlight
 
 !! UXTerm ------------------------------------------------------------------- !!
 UXTerm*termName:                xterm-256color
-UXTerm*font:                    -*-gohufont-medium-*-normal-*-11-*-*-*-*-*-*-*
+UXTerm*font:                    -*-tewi-medium-*-normal-*-11-*-*-*-*-*-*-*
 UXTerm*saveLines:               500
 
 !! URxvt -------------------------------------------------------------------- !!
@@ -21,8 +21,8 @@ URxvt.geometry:                 100x30
 URxvt.transparent:              false
 URxvt.scrollBar:                false
 URxvt.scrollBar_right:          false
-URxvt.font:                     -*-gohufont-medium-*-normal-*-11-*-*-*-*-*-*-*
-URxvt.boldFont:                 -*-gohufont-bold-*-normal-*-11-*-*-*-*-*-*-*
+URxvt.font:                     -*-tewi-medium-*-normal-*-11-*-*-*-*-*-*-*
+URxvt.boldFont:                 -*-tewi-bold-*-normal-*-11-*-*-*-*-*-*-*
 URxvt.letterSpace:              0
 URxvt.saveLines:                500
 URxvt.fading:                   25
