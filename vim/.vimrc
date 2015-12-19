@@ -1,6 +1,6 @@
 " VIMRC
 " Vim-Plug (https://github.com/junegunn/vim-plug) manages all plugins
-"
+"{{{
 " on new installation, download plug.vim:
 "
 "   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -9,6 +9,7 @@
 " then open vim and run:
 "
 "   :PlugInstall
+"}}}
 
 " VIM mode {{{
 " Force 256 colors
@@ -40,6 +41,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'embear/vim-localvimrc'
+Plug 'calebsmith/vim-lambdify'
 
 " Color schemes
 Plug 'chriskempson/base16-vim'
