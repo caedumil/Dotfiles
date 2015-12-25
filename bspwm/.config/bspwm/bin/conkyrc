@@ -14,6 +14,7 @@ conky.config = {
 
 conky.text = [[
 C%{F\#ebcb8b}\uE192%{F-} \
+\uE225 \
 ${time %A, %d %B %Y} \
 %{F\#ebcb8b}\uE192%{F-} \
 \uE017 \
