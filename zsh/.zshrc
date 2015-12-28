@@ -8,11 +8,10 @@ source $HOME/.profile
 # History settings
 HISTSIZE=100
 SAVEHIST=100
-HISTFILE=~/.zhistfile
 
-# Source Prezto
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+# Source Zim
+if [[ -s ${ZDOTDIR:-$HOME}/.zim/init.zsh ]]; then
+    source ${ZDOTDIR:-$HOME}/.zim/init.zsh
 fi
 
 #
@@ -35,6 +34,7 @@ alias rmdir='rmdir -pv'
 alias mv='mv -v'
 alias cp='cp -v'
 alias l='ls -1'
+alias la='ls -lah'
 
 # grep
 alias egrep='grep -E'
@@ -67,9 +67,6 @@ if command -v gpg-exec >/dev/null 2>&1; then
     alias gfm="gpg-exec git pull"
     alias gp="gpg-exec git push"
 fi
-
-# Clear prezto aliases
-unalias rm
 
 # Extension
 alias -s gz='tar -xzvf'
