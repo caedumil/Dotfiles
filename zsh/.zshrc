@@ -54,7 +54,7 @@ alias trc='transmission-remote-cli'
 alias tmux='tmux -2'
 
 # gpg-exec
-if [[ -x $(which gpg-exec) ]]; then
+if which gpg-exec >/dev/null 2>&1; then
     # openssh
     alias ssh='gpg-exec ssh'
     alias scp='gpg-exec scp'

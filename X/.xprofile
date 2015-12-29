@@ -26,7 +26,7 @@ xset +fp /usr/share/fonts/artwiz-fonts
 xset fp rehash
 
 # X f.lux
-[[ -x $(which xflux) ]] && xflux -l -23.3 -g 46.4 -k 5000
+which xflux >/dev/null 2>&1 && xflux -l -23.3 -g 46.4 -k 5000 || true
 
 #
 # Env vars
