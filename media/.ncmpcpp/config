@@ -1,6 +1,6 @@
 #MPD Settings
 mpd_crossfade_time = "3"
-mpd_music_dir = "~/.config/mpd/music"
+mpd_music_dir = "~/Media/Music"
 
 #Lyrics Settings
 lyrics_directory = "~/.config/music/lyrics"

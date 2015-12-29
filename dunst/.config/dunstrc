@@ -1,5 +1,5 @@
 [global]
-    font = Tamsyn 8
+    font = Lime 8
 
     # The format of the message. Possible variables are:
     #   %a  appname
