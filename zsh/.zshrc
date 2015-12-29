@@ -19,10 +19,6 @@ local xbase16="/usr/share/base16-shell/base16-ocean.dark.sh"
 # Source .profile if needed
 [[ -n ${EDITOR} ]] || source ~/.profile
 
-# Load bookmark plugin
-autoload -Uz cd-bookmark
-alias cdb='cd-bookmark'
-
 # Set pager
 export PAGER='less'
 export LESSHISTFILE='-'
@@ -57,10 +53,6 @@ alias trc='transmission-remote-cli'
 # tmux
 alias tmux='tmux -2'
 
-# tintin
-alias tintin='tintin -G'
-alias tt='tintin'
-
 # gpg-exec
 if [[ -x $(which gpg-exec) ]]; then
     # openssh
@@ -81,7 +73,6 @@ unalias rm
 alias -s gz='tar -xzvf'
 alias -s bz2='tar -xjvf'
 alias -s pdf='zathura'
-alias -s {mp3,m4a}='mpv --no-audio-display'
 
 #
 # Zsh functions
@@ -91,15 +82,8 @@ alias -s {mp3,m4a}='mpv --no-audio-display'
 # Terminal fixes
 #
 
-# ls colors on termite
-if [[ $TERM = 'xterm-termite' ]]; then
-    source <(dircolors ~/.dircolors)
-fi
-
 # Misbehaving keys
 bindkey "\e[7~" beginning-of-line           # Home  # rxvt
 bindkey "\e[8~" end-of-line                 # End   # rxvt
-bindkey "\eOH"  beginning-of-line           # Home  # guake
-bindkey "\eOF"  end-of-line                 # End   # guake
 bindkey "\e[H"  beginning-of-line           # Home  # termite
 bindkey "\e[F"  end-of-line                 # End   # termite
