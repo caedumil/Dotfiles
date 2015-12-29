@@ -90,7 +90,7 @@ super + @button{1-3}
 # multimedia keys
 #
 XF86Launch1
-    termite
+    urxvtc
 
 XF86Mail
     thunderbird
@@ -117,7 +117,7 @@ XF86{Sleep,Battery}
 # shortcuts
 #
 super + Return
-    termite
+    urxvtc
 
 super + F2
     slimlock

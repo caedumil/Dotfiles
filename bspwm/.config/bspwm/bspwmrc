@@ -30,6 +30,6 @@ compton -b -i 0.9
 ~/.config/bspwm/bin/panel &
 
 # Startup
-#urxvtd -q -o -f
+urxvtd -q -o -f
 dunst &
 ~/.fehbg
