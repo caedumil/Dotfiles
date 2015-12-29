@@ -5,7 +5,7 @@
 #
 
 # SSH
-[[ -x $(which envoy) ]] && source <(envoy -d -p)
+export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
 
 # XDG
 export XDG_CONFIG_HOME="$HOME/.config"

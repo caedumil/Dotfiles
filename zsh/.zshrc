@@ -61,17 +61,17 @@ alias tmux='tmux -2'
 alias tintin='tintin -G'
 alias tt='tintin'
 
-# envoy
-if [[ -x $(which envoy-exec) ]]; then
+# gpg-exec
+if [[ -x $(which gpg-exec) ]]; then
     # openssh
-    alias ssh='envoy-exec ssh'
-    alias scp='envoy-exec scp'
+    alias ssh='gpg-exec ssh'
+    alias scp='gpg-exec scp'
     # rsync
-    alias rsync='envoy-exec rsync'
+    alias rsync='gpg-exec rsync'
     # git
-    alias gf="envoy-exec git fetch"
-    alias gfm="envoy-exec git pull"
-    alias gp="envoy-exec git push"
+    alias gf="gpg-exec git fetch"
+    alias gfm="gpg-exec git pull"
+    alias gp="gpg-exec git push"
 fi
 
 # Clear prezto aliases
