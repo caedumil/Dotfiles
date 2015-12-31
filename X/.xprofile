@@ -17,8 +17,8 @@ xsetroot -cursor_name left_ptr
 setxkbmap -model acer_laptop -layout br
 
 # X Screensaver
-xset s 3600
-xset dpms 3600 3600 3600
+xset s off
+xset dpms 900 1800 3600
 
 # X Fonts
 xset +fp /usr/share/fonts/local
