@@ -29,5 +29,8 @@ export LESS_TERMCAP_us=$'\E[00;38;5;177m'   # begin underline
 # Env vars
 #
 
+# Zsh dot dir
+export ZDOTDIR="$HOME/.zsh"
+
 # Applications
 export EDITOR="vim"
