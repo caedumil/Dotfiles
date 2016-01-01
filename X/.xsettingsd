@@ -1,11 +1,13 @@
 Net/ThemeName       "Vertex-Light"
 Net/IconThemeName   "Vertex-Icons"
+Gtk/CursorThemeName "Adwaita"
+Gtk/FontName        "Open Sans 8"
+
+Gtk/MenuImages      0
+Gtk/ButtonImages    0
 
 Xft/Antialias       1
 Xgt/Hinting         1
 Xft/HintStyle       "hintfull"
 Xft/RGBA            "rgb"
 Xft/lcdfilter       "lcdlight"
-
-Gtk/FontName        "Open Sans 8"
-Gtk/CursorThemeName ""
