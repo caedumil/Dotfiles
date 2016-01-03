@@ -26,7 +26,18 @@ bspc rule -a Gimp-2.8 floating=on
 # Status Bar
 ~/.config/bspwm/bin/panel &
 
+#
 # Startup
-urxvtd -q -o -f
-dunst &
-~/.fehbg
+#
+
+# Terminal daemon
+command -v urxvt >/dev/null 2>&1 && urxvtd -q -o -f
+
+# Notification daemon
+command -v dunst >/dev/null 2>&1 && dunst &
+
+# Background
+command -v feh >/dev/null 2>&1 && ~/.fehbg
+
+# Screen locker
+command -v xss-lock >/dev/null 2>&1 && xss-lock -- lock ~/.config/screenlock.png &
