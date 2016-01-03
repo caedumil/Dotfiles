@@ -33,7 +33,6 @@ command -v xflux >/dev/null 2>&1 && xflux -l -23.3 -g 46.4 -k 5000 || true
 #
 
 # Applications
-export TERMINAL="termite"
 export BROWSER="firefox"
 
 # Java options

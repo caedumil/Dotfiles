@@ -2,6 +2,9 @@
 # ZSH options
 #
 
+# Source .profile for env vars
+source $HOME/.profile
+
 # History settings
 HISTSIZE=100
 SAVEHIST=100
@@ -12,16 +15,15 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
     source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Source shell colors
-local xbase16="/usr/share/base16-shell/base16-ocean.dark.sh"
-[[ -s ${xbase16} ]] && source ${xbase16}
+#
+# ZSH input
+#
 
-# Source .profile if needed
-[[ -n ${EDITOR} ]] || source ~/.profile
-
-# Set pager
-export PAGER='less'
-export LESSHISTFILE='-'
+# Misbehaving keys
+bindkey "\e[7~" beginning-of-line           # Home  # rxvt
+bindkey "\e[8~" end-of-line                 # End   # rxvt
+bindkey "\e[H"  beginning-of-line           # Home  # termite
+bindkey "\e[F"  end-of-line                 # End   # termite
 
 #
 # ZSH aliases
@@ -73,17 +75,3 @@ unalias rm
 alias -s gz='tar -xzvf'
 alias -s bz2='tar -xjvf'
 alias -s pdf='zathura'
-
-#
-# Zsh functions
-#
-
-#
-# Terminal fixes
-#
-
-# Misbehaving keys
-bindkey "\e[7~" beginning-of-line           # Home  # rxvt
-bindkey "\e[8~" end-of-line                 # End   # rxvt
-bindkey "\e[H"  beginning-of-line           # Home  # termite
-bindkey "\e[F"  end-of-line                 # End   # termite
