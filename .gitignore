@@ -5,3 +5,8 @@ media/.config/mpd/mpd.db
 media/.config/mpd/mpd.pid
 media/.config/mpd/mpd.log
 media/.ncmpcpp/error*
+
+zsh/.zdotdir/.zim
+zsh/.zdotdir/*.zwc
+zsh/.zdotdir/.zcompdump
+zsh/.zdotdir/.zhistory
