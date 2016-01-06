@@ -14,6 +14,15 @@ if [[ -s ${ZDOTDIR:-$HOME}/.zim/init.zsh ]]; then
     source ${ZDOTDIR:-$HOME}/.zim/init.zsh
 fi
 
+# Add custom path
+if [[ -e ${ZDOTDIR} ]]; then
+    fpath=( ${ZDOTDIR}/zthemes $fpath )
+fi
+
+# Load custom prompt
+autoload -Uz promptinit && promptinit
+prompt caedus
+
 #
 # ZSH input
 #
