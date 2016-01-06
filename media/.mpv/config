@@ -78,15 +78,25 @@ cdrom-device = /dev/cdrom
 # DVD device
 dvd-device = /dev/cdrom
 
-##################
-# other settings #
-##################
-
-# Subtitle matching fuzzines
-sub-auto = fuzzy
-
 # DVD: Display English subtitles if available.
 slang = por,eng
 
 # DVD: Play English audio tracks if available.
 alang = eng
+
+######################
+# subtitles settings #
+######################
+
+# Subtitle matching fuzzines
+sub-auto = fuzzy
+
+#################
+# misc settings #
+#################
+
+# Less output
+quiet
+
+# Pause video on start
+pause

@@ -43,9 +43,6 @@ alias fgrep='grep -F'
 # atool
 alias x='aunpack -e'
 
-# mpv
-alias mpv='mpv --quiet'
-
 # feh
 alias feh='feh --scale-down'
 
