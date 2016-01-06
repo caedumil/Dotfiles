@@ -1,0 +1,133 @@
+#
+# Caedus theme
+# fork of Minimal theme (https://github.com/S1cK94/minimal)
+#
+
+caedus_remote() {
+  print "${SSH_TTY:+"%{${cae_on_color}%}%n@%M%{%f%}"}"
+}
+
+caedus_user() {
+  print "%(!.%{${cae_on_color}%}.%{${cae_off_color}%})${cae_prompt_char}%{%f%}"
+}
+
+caedus_jobs() {
+  print "%(1j.%{${cae_on_color}%}.%{${cae_off_color}%})${cae_prompt_char}%{%f%}"
+}
+
+caedus_vimode() {
+  local ret=""
+
+  case ${KEYMAP} in
+    main|viins)
+      ret+="${cae_on_color}"
+      ;;
+    vicmd)
+      ret+="${cae_off_color}"
+      ;;
+  esac
+
+  print "%{${ret}%}${cae_prompt_char}%{%f%}"
+}
+
+caedus_status() {
+  print "%(0?.%{${cae_on_color}%}.%{${cae_err_color}%})${cae_prompt_char}%{%f%}"
+}
+
+-caedus_ellipse() {
+  local string=${1}
+  local sep="${rsc}..${path_color}"
+  if [[ ${#string} -gt 10 ]]; then
+    print "${string:0:4}${sep}${string: -4}"
+  else
+    print ${string}
+  fi
+}
+
+caedus_path() {
+  local path_color="%F{8}"
+  local sep="%{%F{7}%}/%{${path_color}%}"
+
+  local pwd="${PWD/#$HOME/~}"
+
+  if [[ "$pwd" == [/~] ]]; then
+    print "%{${path_color}%}$(sed s_/_${sep}_g <<< ${pwd})%{%f%}"
+  else
+    local head="${${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}//\%/%%}"
+    local tail="$(-caedus_ellipse "${${pwd:t}//\%/%%}")"
+
+    print "%{$path_color%}$(sed s_/_${sep}_g <<< ${head}/${tail})%{%f%}"
+  fi
+}
+
+git_branch_name() {
+  local branch_name="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
+  [[ -n ${branch_name} ]] && print "${branch_name}"
+}
+
+git_repo_status() {
+  local rs="$(git status --porcelain -b)"
+
+  if $(print "${rs}" | grep -v '^##' &> /dev/null); then # is dirty
+    print "%{%F{1}%}"
+  elif $(print "${rs}" | grep '^## .*diverged' &> /dev/null); then # has diverged
+    print "%{%F{1}%}"
+  elif $(print "${rs}" | grep '^## .*behind' &> /dev/null); then # is behind
+    print "%{%F{3}%}"
+  elif $(print "${rs}" | grep '^## .*ahead' &> /dev/null); then # is ahead
+    print "%{%F{7}%}"
+  else # is clean
+    print "%{%F{2}%}"
+  fi
+}
+
+caedus_git() {
+  local bname=$(git_branch_name)
+  if [[ -n ${bname} ]]; then
+    local infos="$(git_repo_status)${bname}"
+    print " ${infos}%{%f%}"
+  fi
+}
+
+function zle-line-init zle-line-finish zle-keymap-select {
+  zle reset-prompt
+  zle -R
+}
+
+prompt_caedus_precmd() {
+  zle -N zle-line-init
+  zle -N zle-keymap-select
+  zle -N zle-line-finish
+
+  PROMPT='$(caedus_remote)$(caedus_user)$(caedus_jobs)$(caedus_vimode)$(caedus_status) '
+  RPROMPT='$(caedus_path)$(caedus_git)'
+}
+
+function prompt_caedus_setup() {
+  cae_prompt_char="❯"
+
+  # Colors
+  # range from 0 to 255, on supported terminals
+  # range from 0 to 15, on all terminals
+  #
+  # 0 = black         |   8  = bright black
+  # 1 = red           |   9  = bright red
+  # 2 = green         |   10 = bright green
+  # 3 = yellow        |   11 = bright yellow
+  # 4 = blue          |   12 = bright blue
+  # 5 = magenta       |   13 = bright magenta
+  # 6 = cyan          |   14 = bright cyan
+  # 7 = white         |   15 = bright white
+  cae_on_color="%F{3}"
+  cae_off_color="%F{7}"
+  cae_err_color="%F{1}"
+
+  autoload -Uz add-zsh-hook
+
+  add-zsh-hook precmd prompt_caedus_precmd
+  prompt_opts=(cr subst percent)
+}
+
+prompt_caedus_setup "${@}"
+
+# vim:filetype=zsh:tabstop=2:shiftwidth=2
