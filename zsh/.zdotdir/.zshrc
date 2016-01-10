@@ -2,9 +2,6 @@
 # ZSH options
 #
 
-# Source .profile for env vars
-source $HOME/.profile
-
 # History settings
 HISTSIZE=100
 SAVEHIST=100

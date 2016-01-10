@@ -32,13 +32,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
-# Source profiles
-[ -f "$HOME/.xprofile" ] && . "$HOME/.xprofile"
-[ -f "$HOME/.profile" ] && . "$HOME/.profile"
+# Source environment
+[ -f "$HOME/.xenv" ] && . "$HOME/.xenv"
+[ -f "$HOME/.env" ] && . "$HOME/.env"
 
-# Wi-Fi unbloack
-#rfkill unblock wlan
-
+# X11 settings daemon
 xsettingsd &
 
 # Load WM
