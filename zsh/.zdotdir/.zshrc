@@ -9,12 +9,50 @@ SAVEHIST=100
 # Source Zim
 if [[ -s ${ZDOTDIR:-$HOME}/.zim/init.zsh ]]; then
     source ${ZDOTDIR:-$HOME}/.zim/init.zsh
+else
+    # Silent
+    setopt nobeep
+
+    # Changing Directories
+    setopt auto_cd
+    setopt pushd_ignore_dups
+
+    # Expansion and Globing
+    setopt extended_glob
+    setopt nomatch
+
+    # History
+    setopt append_history
+    setopt hist_expire_dups_first
+    setopt hist_ignore_all_dups
+    setopt hist_ignore_space
+    setopt hist_reduce_blanks
+    setopt hist_verify
+
+    # Completion
+    setopt always_to_end
+    setopt auto_menu
+    setopt complete_aliases
+    setopt complete_in_word
+    unsetopt menu_complete
+
+    # Correction
+    setopt correct
+
+    # Command completion
+    autoload -Uz compinit && compinit
+
+    # rehash path
+    zstyle ':completion:*' rehash true
+
+    # cd style
+    zstyle ':completion:*:cd:*' ignore-parents parent pwd
+    zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+    zstyle ':completion:*:warning' '%BSorry, no matches for: %d%b'
 fi
 
 # Add custom path
-if [[ -e ${ZDOTDIR} ]]; then
-    fpath=( ${ZDOTDIR}/zthemes $fpath )
-fi
+fpath=( ${ZDOTDIR}/zthemes $fpath )
 
 # Load custom prompt
 autoload -Uz promptinit && promptinit
@@ -63,8 +101,10 @@ if command -v gpg-exec >/dev/null 2>&1; then
     # openssh
     alias ssh='gpg-exec ssh'
     alias scp='gpg-exec scp'
+
     # rsync
     alias rsync='gpg-exec rsync'
+
     # git
     alias gf="gpg-exec git fetch"
     alias gfm="gpg-exec git pull"
