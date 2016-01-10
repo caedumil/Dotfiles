@@ -21,8 +21,8 @@ URxvt.geometry:                 100x30
 URxvt.transparent:              false
 URxvt.scrollBar:                false
 URxvt.scrollBar_right:          false
-URxvt.font:                     -*-tewi-medium-*-normal-*-11-*-*-*-*-*-*-*
-URxvt.boldFont:                 -*-tewi-bold-*-normal-*-11-*-*-*-*-*-*-*
+URxvt.font:                     -*-tewi-medium-*-normal-*-11-*-*-*-*-*-*-*, -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+URxvt.boldFont:                 -*-tewi-bold-*-normal-*-11-*-*-*-*-*-*-*, -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 URxvt.letterSpace:              0
 URxvt.saveLines:                500
 URxvt.fading:                   25
