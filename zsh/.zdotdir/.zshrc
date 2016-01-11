@@ -34,7 +34,6 @@ else
     setopt auto_menu
     setopt complete_aliases
     setopt complete_in_word
-    unsetopt menu_complete
 
     # Correction
     setopt correct
@@ -77,8 +76,9 @@ alias mkdir='mkdir -pv'
 alias rmdir='rmdir -pv'
 alias mv='mv -v'
 alias cp='cp -v'
-alias l='ls -1'
+alias ls='ls --group-directories-first --color=auto'
 alias la='ls -lah'
+alias l='ls -1'
 
 # grep
 alias egrep='grep -E'
