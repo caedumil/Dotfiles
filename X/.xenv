@@ -25,9 +25,6 @@ xset +fp /usr/share/fonts/local
 xset +fp /usr/share/fonts/artwiz-fonts
 xset fp rehash
 
-# X f.lux
-command -v xflux >/dev/null 2>&1 && xflux -l -23.3 -g 46.4 -k 5000 || true
-
 #
 # Env vars
 #
