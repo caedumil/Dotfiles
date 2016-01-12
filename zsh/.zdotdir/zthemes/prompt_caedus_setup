@@ -2,132 +2,114 @@
 # Caedus theme
 # fork of Minimal theme (https://github.com/S1cK94/minimal)
 #
+#
+# Colors
+#    0 - black
+#    1 - red
+#    2 - green
+#    3 - yellow
+#    4 - blue
+#    5 - magenta
+#    6 - cyan
+#    7 - white
+#    8 - bright black
+#    9 - bright red
+#   10 - bright green
+#   11 - bright yellow
+#   12 - bright blue
+#   13 - bright magenta
+#   14 - bright cyan
+#   15 - bright white
+#
 
-caedus_remote() {
-  print "${SSH_TTY:+"%{${cae_on_color}%}%n@%M%{%f%}"}"
+prompt_caedus_remote() {
+    [[ -n ${SSH_TTY} ]] && print " %F{9}%n%f ${stop} %F{1}%m%f ${stop}"
 }
 
-caedus_user() {
-  print "%(!.%{${cae_on_color}%}.%{${cae_off_color}%})${cae_prompt_char}%{%f%}"
+prompt_caedus_path() {
+    local -a wd
+    local path_c="%F{4}"
+    local sep="%F{8}/${path_c}"
+
+    for d in "${(s:/:)${PWD/#$HOME/~}}"; do
+        if [[ ${#d} -gt 10 ]]; then
+            d="${d:0:3}…"
+        fi
+
+        wd+="${d}"
+    done
+
+    print " ${path_c}$(sed "s_/_${sep}_g" <<< ${(j:/:)wd})%f ${stop}"
 }
 
-caedus_jobs() {
-  print "%(1j.%{${cae_on_color}%}.%{${cae_off_color}%})${cae_prompt_char}%{%f%}"
+prompt_caedus_git() {
+    if [[ -n ${vcs_info_msg_0_} ]]; then
+        print " $(sed -r "s_(:|\[|\]|\|)+_%F{8}\1%f_g" <<< ${vcs_info_msg_0_}) ${stop}"
+    fi
 }
 
-caedus_vimode() {
-  local ret=""
++vi-git-branch() {
+    local ahead behind
+    local -a gitstatus
 
-  case ${KEYMAP} in
-    main|viins)
-      ret+="${cae_on_color}"
-      ;;
-    vicmd)
-      ret+="${cae_off_color}"
-      ;;
-  esac
+    ahead=$(git rev-list --count ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null)
+    (( $ahead )) && gitstatus+=( "⇡${ahead}" )
 
-  print "%{${ret}%}${cae_prompt_char}%{%f%}"
+    behind=$(git rev-list --count HEAD..${hook_com[branch]}@{upstream} 2>/dev/null)
+    (( $behind )) && gitstatus+=( "⇣${behind}" )
+
+    if (( ${#gitstatus[@]} )); then
+        hook_com[branch]+="%F{2}(%f%F{6}${(j:/:)gitstatus}%f%F{2})%f"
+    fi
 }
 
-caedus_status() {
-  print "%(0?.%{${cae_on_color}%}.%{${cae_err_color}%})${cae_prompt_char}%{%f%}"
++vi-git-stash() {
+    local stashes
+
+    if [[ -s ${hook_com[base]}/.git/refs/stash ]]; then
+        stashes=$(git stash list 2>/dev/null | wc -l)
+        hook_com[misc]+="${stashes}⟅"
+    fi
 }
 
--caedus_ellipse() {
-  local string=${1}
-  local sep="${rsc}..${path_color}"
-  if [[ ${#string} -gt 10 ]]; then
-    print "${string:0:4}${sep}${string: -4}"
-  else
-    print ${string}
-  fi
-}
++vi-git-dirty() {
+    local -i untracked
 
-caedus_path() {
-  local path_color="%F{8}"
-  local sep="%{%F{7}%}/%{${path_color}%}"
-
-  local pwd="${PWD/#$HOME/~}"
-
-  if [[ "$pwd" == [/~] ]]; then
-    print "%{${path_color}%}$(sed s_/_${sep}_g <<< ${pwd})%{%f%}"
-  else
-    local head="${${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}//\%/%%}"
-    local tail="$(-caedus_ellipse "${${pwd:t}//\%/%%}")"
-
-    print "%{$path_color%}$(sed s_/_${sep}_g <<< ${head}/${tail})%{%f%}"
-  fi
-}
-
-git_branch_name() {
-  local branch_name="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
-  [[ -n ${branch_name} ]] && print "${branch_name}"
-}
-
-git_repo_status() {
-  local rs="$(git status --porcelain -b)"
-
-  if $(print "${rs}" | grep -v '^##' &> /dev/null); then # is dirty
-    print "%{%F{1}%}"
-  elif $(print "${rs}" | grep '^## .*diverged' &> /dev/null); then # has diverged
-    print "%{%F{1}%}"
-  elif $(print "${rs}" | grep '^## .*behind' &> /dev/null); then # is behind
-    print "%{%F{3}%}"
-  elif $(print "${rs}" | grep '^## .*ahead' &> /dev/null); then # is ahead
-    print "%{%F{7}%}"
-  else # is clean
-    print "%{%F{2}%}"
-  fi
-}
-
-caedus_git() {
-  local bname=$(git_branch_name)
-  if [[ -n ${bname} ]]; then
-    local infos="$(git_repo_status)${bname}"
-    print " ${infos}%{%f%}"
-  fi
-}
-
-function zle-line-init zle-line-finish zle-keymap-select {
-  zle reset-prompt
-  zle -R
+    untracked=$(git status --porcelain -u | grep '^??' | wc -l)
+    (( $untracked )) && hook_com[unstaged]="✗${hook_com[unstaged]}"
 }
 
 prompt_caedus_precmd() {
-  zle -N zle-line-init
-  zle -N zle-keymap-select
-  zle -N zle-line-finish
+    vcs_info
 
-  PROMPT='$(caedus_remote)$(caedus_user)$(caedus_jobs)$(caedus_vimode)$(caedus_status) '
-  RPROMPT='$(caedus_path)$(caedus_git)'
+    PROMPT='\
+${stop}$(prompt_caedus_remote)$(prompt_caedus_path)$(prompt_caedus_git)%f
+ %(1j.${stop/$color/6}.${stop}) %(!.%F{1}.%F{$color})λ%f '
+    RPROMPT='%(?.${stop}.${stop/$color/1})'
+    SPROMPT='zsh: correct %F{1}%R%f to %F{2}%r%f [nyae]? '
 }
 
 function prompt_caedus_setup() {
-  cae_prompt_char="❯"
+    color="3"
+    stop="%F{$color}◆%f"
 
-  # Colors
-  # range from 0 to 255, on supported terminals
-  # range from 0 to 15, on all terminals
-  #
-  # 0 = black         |   8  = bright black
-  # 1 = red           |   9  = bright red
-  # 2 = green         |   10 = bright green
-  # 3 = yellow        |   11 = bright yellow
-  # 4 = blue          |   12 = bright blue
-  # 5 = magenta       |   13 = bright magenta
-  # 6 = cyan          |   14 = bright cyan
-  # 7 = white         |   15 = bright white
-  cae_on_color="%F{3}"
-  cae_off_color="%F{7}"
-  cae_err_color="%F{1}"
+    autoload -Uz add-zsh-hook
+    autoload -Uz vcs_info
 
-  autoload -Uz add-zsh-hook
+    zstyle ':vcs_info:*' enable git
+    zstyle ':vcs_info:*' get-revision true
+    zstyle ':vcs_info:*' check-for-changes true                 # enable both '%u' and '%c'
+    zstyle ':vcs_info:*' check-for-staged-changes false         # enable only '%c'
+    zstyle ':vcs_info:*' unstagedstr "⚡"
+    zstyle ':vcs_info:*' stagedstr "→"
+    zstyle ':vcs_info:git:*' formats "%F{2}%.7i%f:%F{2}%b%f [%F{1}%m%u%f%F{2}%c%f]"
+    zstyle ':vcs_info:git:*' actionformats "%F{5}%a%f|%F{2}%b%f [%F{1}%m%u%f%F{2}c%f]"
+    zstyle ':vcs_info:git*+set-message:*' hooks git-branch git-stash git-dirty
 
-  add-zsh-hook precmd prompt_caedus_precmd
-  prompt_opts=(cr subst percent)
+    add-zsh-hook precmd prompt_caedus_precmd
+    prompt_opts=(cr subst percent)
 }
 
 prompt_caedus_setup "${@}"
 
-# vim:filetype=zsh:tabstop=2:shiftwidth=2
+# vim:filetype=zsh:textwidth=100
