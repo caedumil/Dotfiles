@@ -5,14 +5,12 @@
 # History settings
 HISTSIZE=100
 SAVEHIST=100
+HISTFILE=${ZDOTDIR:-$HOME}/.zhistory
 
 # Source Zim
 if [[ -s ${ZDOTDIR:-$HOME}/.zim/init.zsh ]]; then
     source ${ZDOTDIR:-$HOME}/.zim/init.zsh
 else
-    # Silent
-    setopt nobeep
-
     # Changing Directories
     setopt auto_cd
     setopt pushd_ignore_dups
@@ -49,6 +47,12 @@ else
     zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
     zstyle ':completion:*:warning' '%BSorry, no matches for: %d%b'
 fi
+
+# Silent shell
+setopt nobeep
+
+# Remove any RPROMPT from display when accepting a command.
+setopt transient_rprompt
 
 # Add custom path
 fpath=( ${ZDOTDIR}/zthemes $fpath )
