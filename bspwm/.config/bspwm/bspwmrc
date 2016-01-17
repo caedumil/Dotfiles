@@ -38,6 +38,3 @@ command -v dunst >/dev/null 2>&1 && dunst &
 
 # Background
 command -v feh >/dev/null 2>&1 && ~/.fehbg
-
-# Screen locker
-command -v xss-lock >/dev/null 2>&1 && xss-lock -- lock ~/.config/screenlock.png &
