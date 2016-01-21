@@ -95,8 +95,5 @@ sub-auto = fuzzy
 # misc settings #
 #################
 
-# Less output
-quiet
-
 # Pause video on start
 pause
