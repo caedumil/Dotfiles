@@ -32,7 +32,7 @@ set modelines=1
 call plug#begin('~/.vim/plugged')
 
 " Plugins on GitHub
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -45,6 +45,7 @@ Plug 'calebsmith/vim-lambdify'
 
 " Color schemes
 Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline-themes'
 
 " Add plugins to &runtimepath
 call plug#end()
