@@ -118,6 +118,7 @@ function prompt_caedus_setup() {
     zstyle ':vcs_info:git:*' formats "%F{2}%.7i%f:%F{2}%b%f [%F{1}%m%u%f%F{2}%c%f]"
     zstyle ':vcs_info:git:*' actionformats "%F{5}%a%f|%F{2}%b%f [%F{1}%m%u%f%F{2}c%f]"
     zstyle ':vcs_info:git*+set-message:*' hooks git-branch git-stash git-dirty
+    zstyle ':vcs_info:git:*:-all-' command =git
 
     add-zsh-hook precmd prompt_caedus_precmd
     prompt_opts=(cr subst percent)
