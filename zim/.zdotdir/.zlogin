@@ -32,7 +32,7 @@
   zcompare ${zim_mods}/completion/init.zsh
 
   # zcompile all .zsh files in the custom module
-  for file in ${zim_mods}/custom/**/*.zsh; do
+  for file in ${zim_mods}/custom/**/^(README.md|*.zwc)(.); do
     zcompare ${file}
   done
 
@@ -44,6 +44,6 @@
 
   # zsh-histery-substring-search
   zcompare ${zim_mods}/history-substring-search/external/zsh-history-substring-search.zsh
-  
+
 
 ) &!
