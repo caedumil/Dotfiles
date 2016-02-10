@@ -122,10 +122,10 @@ super + Return
 super + F2
     lock ~/.config/screenlock.png
 
-Pause
+super + Pause
     disks
 
-super + Pause
+super + shift + Pause
     disks --umount
 
 super + space
