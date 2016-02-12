@@ -74,11 +74,8 @@ prompt_caedus_git() {
 }
 
 +vi-git-stash() {
-    local stashes
-
     if [[ -s ${hook_com[base]}/.git/refs/stash ]]; then
-        stashes=$(git stash list 2>/dev/null | wc -l)
-        hook_com[misc]+="${stashes}⟅"
+        hook_com[unstaged]+="±${hook_com[unstaged]}"
     fi
 }
 
@@ -94,8 +91,8 @@ prompt_caedus_precmd() {
 
     PROMPT='\
 ${stop}$(prompt_caedus_remote)$(prompt_caedus_path)$(prompt_caedus_git)%f
- %(1j.${stop/$default_c/$jobs_c}.${stop}) %(!.%F{$root_c}.%F{$default_c})λ%f '
-    RPROMPT='%(?.${stop}.${stop/$default_c/$error_c})'
+ %(1j.${stop/$default_c/$jobs_c}.${stop}) %(!.%F{$root_c}.%F{$default_c})>%f%(?.%F{$default_c}.%F{$error_c})>%f '
+    RPROMPT=''
     SPROMPT='zsh: correct %F{$error_c}%R%f to %F{$default_c}%r%f [nyae]? '
 }
 
@@ -104,7 +101,7 @@ function prompt_caedus_setup() {
     error_c="1"
     root_c="1"
     jobs_c="6"
-    stop="%F{$default_c}◆%f"
+    stop="%F{$default_c}::%f"
 
     autoload -Uz add-zsh-hook
     autoload -Uz vcs_info
@@ -115,8 +112,9 @@ function prompt_caedus_setup() {
     zstyle ':vcs_info:*' check-for-staged-changes false         # enable only '%c'
     zstyle ':vcs_info:*' unstagedstr "⚡"
     zstyle ':vcs_info:*' stagedstr "→"
-    zstyle ':vcs_info:git:*' formats "%F{2}%.7i%f:%F{2}%b%f [%F{1}%m%u%f%F{2}%c%f]"
-    zstyle ':vcs_info:git:*' actionformats "%F{5}%a%f|%F{2}%b%f [%F{1}%m%u%f%F{2}c%f]"
+    zstyle ':vcs_info:*' patch-format "(%n/%c)"
+    zstyle ':vcs_info:git:*' formats "%F{2}%.7i%f:%F{2}%b%f [%F{1}%u%f%F{2}%c%f]"
+    zstyle ':vcs_info:git:*' actionformats "%F{5}%a%m%f|%F{2}%b%f [%F{1}%u%f%F{2}%c%f]"
     zstyle ':vcs_info:git*+set-message:*' hooks git-branch git-stash git-dirty
     zstyle ':vcs_info:git:*:-all-' command =git
 
