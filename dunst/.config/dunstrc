@@ -115,7 +115,7 @@
 
 [frame]
     width = 1
-    color = "#c0c5ce"
+    color = "#dfe1e8"           # foreground
 
 [shortcuts]
     # shortcuts are specified as [modifier+][modifier+]...key
@@ -139,18 +139,18 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the '#' and following  would be interpreted as a comment.
-    background = "#2b303b"
-    foreground = "#eff1f5"
+    background = "#343d46"      # background
+    foreground = "#a7adba"      # color8
     timeout = 10
 
 [urgency_normal]
-    background = "#2b303b"
-    foreground = "#c0c5ce"
+    background = "#343d46"      # background
+    foreground = "#dfe1e8"      # foreground
     timeout = 10
 
 [urgency_critical]
-    background = "#c0c5ce"
-    foreground = "#2b303b"
+    background = "#dfe1e8"      # foreground
+    foreground = "#343d46"      # background
     timeout = 0
 
 
@@ -171,3 +171,6 @@
 # NOTE: if you don't want a notification to be displayed, set the format to ""
 # NOTE: It might be helpful to run dunst -print in a terminal in order to find
 # fitting options for rules.
+
+
+# vim:filetype=conf
