@@ -25,10 +25,10 @@
 #
 
 prompt_caedus_remote() {
-    local user_c="%F{9}"
-    local host_c="%F{1}"
+    local sep_c="%F{8}"
+    local rem_c="%F{9}"
 
-    [[ -n ${SSH_TTY} ]] && print " ${user_c}%n%f ${stop} ${host_c}%m%f ${stop}"
+    [[ -n ${SSH_TTY} ]] && print " ${rem_c}%n%f${sep_c}@%f${rem_c}%m%f ${stop}"
 }
 
 prompt_caedus_path() {
