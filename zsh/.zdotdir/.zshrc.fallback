@@ -1,0 +1,39 @@
+#
+# ZSH options - fallback settings
+#
+
+# Changing Directories
+setopt auto_cd
+setopt pushd_ignore_dups
+
+# Expansion and Globing
+setopt extended_glob
+setopt nomatch
+
+# History
+setopt append_history
+setopt hist_expire_dups_first
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt hist_verify
+
+# Completion
+setopt always_to_end
+setopt auto_menu
+setopt complete_aliases
+setopt complete_in_word
+
+# Correction
+setopt correct
+
+# Command completion
+autoload -Uz compinit && compinit
+
+# rehash path
+zstyle ':completion:*' rehash true
+
+# cd style
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warning' '%BSorry, no matches for: %d%b'
