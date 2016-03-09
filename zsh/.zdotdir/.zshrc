@@ -85,3 +85,15 @@ fi
 alias -s gz='tar -xzvf'
 alias -s bz2='tar -xjvf'
 alias -s pdf='zathura'
+
+# Start tmux in remote shell
+if command -v tmux >/dev/null && [[ -z ${TMUX} ]] && [[ -n ${SSH_TTY} ]]; then
+    tmux start-server
+
+    if ! tmux has-session 2> /dev/null; then
+        tmux new-session -d -s ${HOST} \; \
+        set-option -t ${HOST} destroy-unattached off &> /dev/null
+    fi
+
+    exec tmux attach-session
+fi
