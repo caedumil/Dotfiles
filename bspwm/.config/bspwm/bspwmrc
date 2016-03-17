@@ -16,12 +16,12 @@ bspc config focus_by_distance   true
 bspc monitor -d 000 001 010 011 100 101 110 111
 
 # Rules
-bspc rule -a Firefox desktop=^1
+bspc rule -a Firefox desktop='^1'
 
-bspc rule -a feh floating=on
-bspc rule -a mpv floating=on
-bspc rule -a zathura floating=on
-bspc rule -a Gimp-2.8 floating=on
+bspc rule -a feh state=floating
+bspc rule -a mpv state=floating
+bspc rule -a zathura state=floating
+bspc rule -a Gimp-2.8 state=floating
 
 # Status Bar
 ~/.config/bspwm/bin/panel &

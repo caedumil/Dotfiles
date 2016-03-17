@@ -1,12 +1,6 @@
 #!/bin/bash
-# vim: set tw=95:
 
-# Highlight
-H="#FF$(getXresColor color7)"
-# Urgent
-U="#FF$(getXresColor color15)"
-# Free
-F="#FF$(getXresColor color8)"
+montors=$(bspc query -M | wc -l)
 
 while read -r line; do
     case ${line} in
@@ -14,25 +8,70 @@ while read -r line; do
             clock="${line#?}"
             ;;
         S*) #system information
-            sys_info="${line#?}"
+            sys="${line#?}"
             ;;
         W*) #bspwm internal state
-            wm_infos=""
+            wm=""
             IFS=":"
             set -- ${line#?}
             while [ $# -gt 0 ]; do
                 item=${1}
                 name=${item#?}
-                case $item in
-                    [OFU]*) wm_infos+="%{F${H}}%{U${H}}%{+o} \uE190 %{-o}%{U-}%{F-}" ;;
-                    u*) wm_infos+="%{F${U}} \uE190 %{F-}" ;;
-                    o*) wm_infos+="%{F${H}} \uE190 %{F-}" ;;
-                    f*) wm_infos+="%{F${F}} \uE190 %{F-}" ;;
+                case ${item} in
+                    [mM]*)
+                        [[ ${monitors} -lt 2 ]] && shift && continue
+                        case ${item} in
+                            m*)
+                                # monitor
+                                ;;
+                            M*)
+                                # focused monitor
+                                ;;
+                        esac
+                        wm+=""
+                        ;;
+                    [fFoOuU]*)
+                        case ${item} in
+                            [FOU]*)
+                                # focused desktop
+                                icon="%{+o} \uE190 %{-o}"
+                                fg="#FF$(getXresColor color7)"
+                                bg="-"
+                                ul="${fg}"
+                                ;;
+                            f*)
+                                # free desktop
+                                icon=" \uE190 "
+                                fg="#FF$(getXresColor color8)"
+                                bg="-"
+                                ul="-"
+                                ;;
+                            o*)
+                                # occupied desktop
+                                icon=" \uE190 "
+                                fg="#FF$(getXresColor color7)"
+                                bg="-"
+                                ul="-"
+                                ;;
+                            u*)
+                                # urgent desktop
+                                icon=" \uE190 "
+                                fg="#FF$(getXresColor color15)"
+                                bg="-"
+                                ul="-"
+                                ;;
+                        esac
+                        wm+="%{B${bg}}%{F${fg}}%{U${ul}}${icon}%{U-}%{F-}%{B-}"
+                        ;;
+                    [LTG]*)
+                        # layout, state and flags
+                        wm+=""
+                        ;;
                 esac
                 shift
             done
             ;;
-        esac
+    esac
 
-    printf "%b\n" "%{l}${clock} %{c}${wm_infos} %{r}${sys_info}"
+    printf "%b\n" "%{l}${clock} %{c}${wm} %{r}${sys}"
 done

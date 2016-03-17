@@ -5,8 +5,8 @@ set -e
 PANEL_FIFO="/tmp/bspwm.fifo"
 DIR="${HOME}/.config/bspwm/bin"
 
-FG="#$(getXresColor foreground)"
-BG="#$(getXresColor background)"
+FG="#FF$(getXresColor foreground)"
+BG="#FF$(getXresColor background)"
 
 if [[ $(pgrep -cx panel) -gt 1 ]]; then
     printf "%s\n" "The panel is already running." >&2
@@ -21,10 +21,9 @@ mkfifo ${PANEL_FIFO}
 bspc config top_padding 20
 
 conky -c ${DIR}/conkyrc > ${PANEL_FIFO} &
-bspc control --subscribe > ${PANEL_FIFO} &
+bspc subscribe report > ${PANEL_FIFO} &
 
-cat ${PANEL_FIFO} \
-    | ${DIR}/workspace \
+${DIR}/workspace < ${PANEL_FIFO} \
     | lemonbar -g "x20++" -u 3 -F "${FG}" -B "${BG}" \
         -f "-*-siji-medium-*-normal-*-*-*-*-*-c-*-*-*"\
         -f "-*-lime-medium-*-normal-*-*-*-*-*-*-*-*-*"
