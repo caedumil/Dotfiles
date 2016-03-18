@@ -1,6 +1,6 @@
 #!/bin/bash
 
-montors=$(bspc query -M | wc -l)
+monitors=$(bspc query -M | wc -l)
 
 while read -r line; do
     case ${line} in
@@ -21,14 +21,22 @@ while read -r line; do
                     [mM]*)
                         [[ ${monitors} -lt 2 ]] && shift && continue
                         case ${item} in
-                            m*)
-                                # monitor
-                                ;;
                             M*)
                                 # focused monitor
+                                icon=" \uE1D7 "
+                                fg="#FF$(getXresColor color7)"
+                                bg="-"
+                                ul="-"
+                                ;;
+                            m*)
+                                # monitor
+                                icon=" \uE1D7 "
+                                fg="#FF$(getXresColor color8)"
+                                bg="-"
+                                ul="-"
                                 ;;
                         esac
-                        wm+=""
+                        wm+="%{B${bg}}%{F${fg}}%{U${ul}}${icon}%{U-}%{F-}%{B-}"
                         ;;
                     [fFoOuU]*)
                         case ${item} in

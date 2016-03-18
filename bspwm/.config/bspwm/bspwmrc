@@ -13,8 +13,14 @@ bspc config borderless_monocle  true
 bspc config gapless_monocle     true
 bspc config focus_by_distance   true
 
+bspc config focus_follows_pointer   true
+bspc config pointer_follows_monitor true
+
 # Workspaces
-bspc monitor -d 000 001 010 011 100 101 110 111
+bspc monitor LVDS -n 0 -d 000 001 010 011
+bspc monitor VGA-0 -n 1 -d 100 101 110 111
+
+bspc monitor 0 --focus
 
 # Rules
 bspc rule -a Firefox desktop='^1'
