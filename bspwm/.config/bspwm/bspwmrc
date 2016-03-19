@@ -17,8 +17,12 @@ bspc config focus_follows_pointer   true
 bspc config pointer_follows_monitor true
 
 # Workspaces
-bspc monitor LVDS -n 0 -d 000 001 010 011
-bspc monitor VGA-0 -n 1 -d 100 101 110 111
+if xrandr -q | grep "VGA-0 connected" > /dev/null 2>&1; then
+    bspc monitor LVDS --rename 0 --reset-desktops 000 001 010 011
+    bspc monitor VGA-0 --rename 1 --reset-desktops 100 101 110 111
+else
+    bspc monitor --rename 0 000 001 010 011 100 101 110 111
+fi
 
 bspc monitor 0 --focus
 
