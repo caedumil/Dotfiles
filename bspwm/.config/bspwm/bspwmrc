@@ -21,7 +21,7 @@ if xrandr -q | grep "VGA-0 connected" > /dev/null 2>&1; then
     bspc monitor LVDS --rename 0 --reset-desktops 000 001 010 011
     bspc monitor VGA-0 --rename 1 --reset-desktops 100 101 110 111
 else
-    bspc monitor --rename 0 000 001 010 011 100 101 110 111
+    bspc monitor --rename 0 --reset-desktops 000 001 010 011 100 101 110 111
 fi
 
 bspc monitor 0 --focus
