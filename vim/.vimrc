@@ -42,6 +42,7 @@ Plug 'tpope/vim-endwise'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'embear/vim-localvimrc'
 Plug 'calebsmith/vim-lambdify'
+Plug 'majutsushi/tagbar'            " requires ctags
 
 " Color schemes
 Plug 'chriskempson/base16-vim'
@@ -201,6 +202,10 @@ let g:syntastic_cpp_compiler_options='-std=c++14'
 
 " Vim LocalVimRC {{{
 let g:localvimrc_name=[ '.lvimrc', '.vimrc.local' ]
+" }}}
+
+" Vim TagBar {{{
+nmap <F8> :TagbarToggle<CR>
 " }}}
 
 " Custom functions {{{
