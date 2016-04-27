@@ -6,7 +6,7 @@
 ##################
 
 # Specify default video driver (see -vo help for a list).
-vo = xv,opengl
+vo = opengl:backend=x11
 
 # Start in fullscreen mode by default.
 fs = no
