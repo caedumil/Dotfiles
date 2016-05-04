@@ -8,6 +8,9 @@
 # Specify default video driver (see -vo help for a list).
 vo = opengl:backend=x11
 
+# Multithreaded decoding of H264/MPEG-1/2 (valid: 1-16, 0 for autodetect)
+vd-lavc-threads = 0
+
 # Start in fullscreen mode by default.
 fs = no
 
@@ -29,9 +32,6 @@ ontop = no
 
 # Specify default audio driver (see -ao help for a list).
 ao = pulse
-
-# Multithreaded decoding of H264/MPEG-1/2 (valid: 1-16, 0 for autodetect)
-vd-lavc-threads = 0
 
 # 2 channels = stereo, 6 = 5.1
 audio-channels = 2
@@ -90,6 +90,9 @@ alang = eng
 
 # Subtitle matching fuzzines
 sub-auto = fuzzy
+
+# Change how some video outputs render OSD and subtiles.
+force-rgba-osd-rendering = no
 
 #################
 # misc settings #
