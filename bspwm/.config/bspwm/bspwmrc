@@ -31,7 +31,7 @@ bspc rule --add Firefox desktop='^1'
 
 bspc rule --add feh state=floating
 bspc rule --add mpv state=floating
-bspc rule --add zathura state=floating
+bspc rule --add Zathura state=floating
 bspc rule --add Gimp-2.8 state=floating
 
 # Status Bar
