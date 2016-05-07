@@ -258,8 +258,8 @@ key_info=(
   'ControlRight' '\e[1;5C \e[5C \e\e[C \eOc \eOC'
   'Escape'       '\e'
   'Meta'         '\M-'
-  'Backspace'    "^?"
-  'Delete'       "^[[3~"
+  'Backspace'    "${terminfo[kbs]}"
+  'Delete'       "${terminfo[kdch1]}"
   'F1'           "${terminfo[kf1]}"
   'F2'           "${terminfo[kf2]}"
   'F3'           "${terminfo[kf3]}"
@@ -284,7 +284,6 @@ key_info=(
   'BackTab'      "${terminfo[kcbt]}"
 )
 
-local key
 for key in "${(s: :)key_info[ControlLeft]}"; do
     bindkey ${key} backward-word
 done
