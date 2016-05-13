@@ -2,9 +2,7 @@
 # ZSH options
 #
 
-#
-# Env variables
-#
+# Env variables {{{
 export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
 
 export PAGER="less"
@@ -12,10 +10,9 @@ export LESSHISTFILE="-"
 
 export EDITOR="vim"
 export VISUAL="${EDITOR}"
+# }}}
 
-#
-# Prompt
-#
+# Prompt {{{
 setopt PROMPT_SUBST
 setopt TRANSIENT_RPROMPT
 
@@ -129,10 +126,9 @@ precmd() {
     vcs_info
     setprompt
 }
+# }}}
 
-#
-# History
-#
+# History {{{
 HISTFILE=${ZDOTDIR:-${HOME}}/.zhistory
 HISTSIZE=100
 SAVEHIST=100
@@ -151,26 +147,23 @@ autoload -Uz up-line-or-beginning-search
 autoload -Uz down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
+# }}}
 
-#
-# Globbing and FDs
-#
+# Globbing and FDs {{{
 setopt EXTENDED_GLOB
 setopt MULTIOS
 setopt CLOBBER
+# }}}
 
-#
-# Directory
-#
+# Directory {{{
 setopt AUTO_CD
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 setopt PUSHD_SILENT
 setopt PUSHD_TO_HOME
+# }}}
 
-#
-# Environment
-#
+# Environment {{{
 setopt AUTO_RESUME
 setopt LONG_LIST_JOBS
 setopt NOTIFY
@@ -184,10 +177,9 @@ if [[ -s ${ZDOTDIR:-${HOME}}/.dircolors ]]; then
 else
     source <(dircolors --sh)
 fi
+# }}}
 
-#
-# Completion
-#
+# Completion {{{
 autoload -Uz compinit && compinit -C -d ${ZDOTDIR:-${HOME}}/.zcompdump
 
 setopt HASH_LIST_ALL
@@ -246,10 +238,9 @@ zstyle ':completion:*:rm:*' file-patterns '*:all-files'
 
 # smart editor completion
 zstyle ':completion:*:(nano|vim|nvim|vi|emacs|e):*' ignored-patterns '*.(wav|mp3|flac|ogg|mp4|avi|mkv|webm|iso|dmg|so|o|a|bin|exe|dll|pcap|7z|zip|tar|gz|bz2|rar|deb|pkg|gzip|pdf|mobi|epub|png|jpeg|jpg|gif)'
+# }}}
 
-#
-# Input
-#
+# Input {{{
 zmodload zsh/terminfo
 typeset -gA key_info
 key_info=(
@@ -344,10 +335,9 @@ zle-line-finish() {
 }
 zle -N zle-line-init
 zle -N zle-line-finish
+# }}}
 
-#
-# Utility
-#
+# Utility {{{
 setopt NOBEEP
 setopt CORRECT
 
@@ -396,10 +386,9 @@ if command -v gpg-exec >/dev/null 2>&1; then
     alias gfm="gpg-exec git pull"
     alias gp="gpg-exec git push"
 fi
+# }}}
 
-#
-# Color man pages
-#
+# Color man pages {{{
 function man() {
     env LESS_TERMCAP_mb=$'\E[01;31m' \
     LESS_TERMCAP_md=$'\E[01;38;5;74m' \
@@ -410,10 +399,9 @@ function man() {
     LESS_TERMCAP_us=$'\E[04;38;5;146m' \
     man "$@"
 }
+# }}}
 
-#
-# Tmux
-#
+# Tmux {{{
 if command -v tmux >/dev/null && [[ -z ${TMUX} ]] && [[ -n ${SSH_TTY} ]]; then
     tmux start-server
 
@@ -424,3 +412,6 @@ if command -v tmux >/dev/null && [[ -z ${TMUX} ]] && [[ -n ${SSH_TTY} ]]; then
 
     exec tmux attach-session
 fi
+# }}}
+
+# vim:foldmethod=marker:foldlevel=0
