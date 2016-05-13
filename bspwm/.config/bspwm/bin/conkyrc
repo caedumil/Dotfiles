@@ -22,7 +22,7 @@ ${time %H:%M} \
 %{F\#FFf0c674}\uE192%{F-}
 S%{F\#FFf0c674}\uE192%{F-} \
 \uE026 \
-${cpu cpu0}% \
+${freq_g} \
 \uE01D \
 ${hwmon 0 temp 1}C \
 %{F\#FFf0c674}\uE192%{F-} \
