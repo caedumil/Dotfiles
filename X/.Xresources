@@ -25,7 +25,7 @@ URxvt.font:                     -*-tewi-medium-*-normal-*-11-*-*-*-*-*-*-*, -*-u
 URxvt.boldFont:                 -*-tewi-bold-*-normal-*-11-*-*-*-*-*-*-*, -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 URxvt.letterSpace:              0
 URxvt.saveLines:                500
-URxvt.fading:                   25
+URxvt.fading:                   5
 !extensions
 URxvt.perl-ext-common:          default,url-select,keyboard-select,clipboard
 !perls -- url-select
