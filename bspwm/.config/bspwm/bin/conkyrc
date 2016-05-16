@@ -13,34 +13,34 @@ conky.config = {
 }
 
 conky.text = [[
-C%{F\#FFf0c674}\uE192%{F-} \
+C%{F\#FFa06e3b}\uE192%{F-} \
 \uE225 \
 ${time %A, %d %B %Y} \
-%{F\#FFf0c674}\uE192%{F-} \
+%{F\#FFa06e3b}\uE192%{F-} \
 \uE017 \
 ${time %H:%M} \
-%{F\#FFf0c674}\uE192%{F-}
-S%{F\#FFf0c674}\uE192%{F-} \
+%{F\#FFa06e3b}\uE192%{F-}
+S%{F\#FFa06e3b}\uE192%{F-} \
 \uE026 \
 ${freq_g} \
 \uE01D \
 ${hwmon 0 temp 1}C \
-%{F\#FFf0c674}\uE192%{F-} \
+%{F\#FFa06e3b}\uE192%{F-} \
 \uE05D \
 ${execi 3 ponymix get-volume}% \
-%{F\#FFf0c674}\uE192%{F-}\
+%{F\#FFa06e3b}\uE192%{F-}\
 ${if_up wlp2s0} \
 \uE048 \
 ${wireless_essid wlp2s0} \
 \uE12F \
 [${downspeedf wlp2s0}/${upspeedf wlp2s0}] \
-%{F\#FFf0c674}\uE192%{F-}\
+%{F\#FFa06e3b}\uE192%{F-}\
 ${endif}\
 ${if_up enp8s2} \
 \uE148 \
 Cable \
 \uE12F \
 [${downspeedf enp8s2}/${upspeedf enp8s2}] \
-%{F\#FFf0c674}\uE192%{F-}\
+%{F\#FFa06e3b}\uE192%{F-}\
 ${endif}
 ]]
