@@ -65,6 +65,9 @@ syntax enable
 set background=light
 let base16colorspace=256
 colorscheme base16-default
+
+" Change highlight colors
+highlight Search cterm=NONE ctermfg=white ctermbg=grey
 " }}}
 
 " Spaces & Tabs {{{
@@ -154,9 +157,9 @@ set foldmethod=indent
 " }}}
 
 " Movement {{{
-" Move vertically by visual line
-nnoremap j gj
-nnoremap k gk
+" Move vertically by visual line, even with 'relativenumber' set
+nnoremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+nnoremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " Highlight last inserted text
 nnoremap gV `[v`]
@@ -167,7 +170,7 @@ nnoremap gV `[v`]
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
-let g:ctrp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 " }}}
 
 " Vim Airline {{{
@@ -208,11 +211,15 @@ let g:localvimrc_name=[ '.lvimrc', '.vimrc.local' ]
 nmap <F8> :TagbarToggle<CR>
 " }}}
 
-" Custom functions {{{
+" Custom functions & mappings {{{
 " Don't open command history
 map q: :q
 
+" Make 'Y' yank everything from cursor to end of line
+noremap Y y$
+
 " Toggle relativenumber
+nnoremap <leader>l :call ToggleNumber()<CR>
 function! ToggleNumber()
     if(&relativenumber == 1)
         set norelativenumber
@@ -223,6 +230,7 @@ function! ToggleNumber()
 endfunction
 
 " Strips trailing whitespaces.
+nnoremap <leader>w :call <SID>StripWhitespaces()<CR>
 function! <SID>StripWhitespaces()
     let _s=@/
     let l = line(".")
