@@ -1,5 +1,5 @@
 !! Color Theme -------------------------------------------------------------- !!
-#include ".config/Xres-base16/base16-ateliercave.light.256.xresources"
+#include ".config/Xres-base16/base16-harmonic16.light.256.xresources"
 
 !! Xcursor ------------------------------------------------------------------ !!
 Xcursor.theme: Adwaita
@@ -10,11 +10,6 @@ Xft.rgba:                       rgb
 Xft.hinting:                    true
 Xft.hintstyle:                  hintfull
 Xft.lcdfilter:                  lcdlight
-
-!! UXTerm ------------------------------------------------------------------- !!
-UXTerm*termName:                xterm-256color
-UXTerm*font:                    -*-tewi-medium-*-normal-*-11-*-*-*-*-*-*-*
-UXTerm*saveLines:               500
 
 !! URxvt -------------------------------------------------------------------- !!
 URxvt.geometry:                 100x30
