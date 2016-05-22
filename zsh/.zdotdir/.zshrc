@@ -322,6 +322,17 @@ if [[ -n "${key_info[BackTab]}" ]]; then
     bindkey "${key_info[BackTab]}" reverse-menu-complete
 fi
 
+# Double-dot parent directory expansion
+double-dot-expand() {
+    if [[ ${LBUFFER} == *.. ]]; then
+        LBUFFER+='/..'
+    else
+        LBUFFER+='.'
+    fi
+}
+zle -N double-dot-expand
+bindkey '.' double-dot-expand
+
 # Put into application mode and validate ${terminfo}
 zle-line-init() {
     if (( ${+terminfo[smkx]} )); then
