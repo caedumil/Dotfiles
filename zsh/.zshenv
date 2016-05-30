@@ -7,3 +7,14 @@
 if [[ -z ${ZDOTDIR} ]]; then
     export ZDOTDIR="${HOME}/.zdotdir"
 fi
+
+# SSH agent
+export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+
+# Pager
+export PAGER="less"
+export LESSHISTFILE="-"
+
+# Editor
+export EDITOR="vim"
+export VISUAL="${EDITOR}"

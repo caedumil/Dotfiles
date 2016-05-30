@@ -2,16 +2,6 @@
 # ZSH options
 #
 
-# Env variables {{{
-export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
-
-export PAGER="less"
-export LESSHISTFILE="-"
-
-export EDITOR="vim"
-export VISUAL="${EDITOR}"
-# }}}
-
 # Prompt {{{
 setopt PROMPT_SUBST
 setopt TRANSIENT_RPROMPT
