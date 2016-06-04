@@ -49,11 +49,14 @@ volume = 95
 # Don't use cache on local files
 cache = auto
 
-# Use 25MB input cache by default
-cache-default = 25600
+# Use 75MB input cache by default
+cache-default = 75000
 
-# Playback will start with 20MB on cache
-cache-initial = 20480
+# Playback will start with 50MB on cache
+cache-initial = 50000
+
+# Create a cache file on the filesystem (/tmp)
+cache-file=TMP
 
 # Pause player when the cache runs low and unpause once data is avaliable
 cache-pause = yes
