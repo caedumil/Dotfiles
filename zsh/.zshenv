@@ -18,3 +18,6 @@ export LESSHISTFILE="-"
 # Editor
 export EDITOR="vim"
 export VISUAL="${EDITOR}"
+
+# Pacaur
+export AURDEST="${HOME}/Build"
