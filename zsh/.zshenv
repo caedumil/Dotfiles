@@ -20,4 +20,6 @@ export EDITOR="vim"
 export VISUAL="${EDITOR}"
 
 # Pacaur
-export AURDEST="${HOME}/Build"
+if [[ -f /etc/arch-release ]]; then
+    export AURDEST="${HOME}/Build"
+fi
