@@ -8,8 +8,9 @@ if [[ -z ${ZDOTDIR} ]]; then
     export ZDOTDIR="${HOME}/.zdotdir"
 fi
 
-# SSH agent
-export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+# GPG agent
+export GNUPGHOME="/run/user/${UID}/gnupg"
+source <(envoy --defer --print)
 
 # Pager
 export PAGER="less"
