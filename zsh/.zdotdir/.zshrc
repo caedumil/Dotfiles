@@ -371,7 +371,9 @@ alias feh='feh --scale-down'
 alias trc='transmission-remote-cli'
 
 # tmux
-alias tmux='tmux -2'
+if command -v tmux >/dev/null 2>&1; then
+    alias tmux='tmux -2'
+fi
 
 # gpg-exec
 if command -v gpg-exec >/dev/null 2>&1; then
