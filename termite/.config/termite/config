@@ -12,7 +12,7 @@ font = tewi, siji 8
 scrollback_lines = 1000
 search_wrap = true
 geometry = 600x350
-#icon_name = terminal
+icon_name = terminal
 
 # "system", "on" or "off"
 cursor_blink = system
@@ -21,7 +21,7 @@ cursor_blink = system
 cursor_shape = block
 
 # $BROWSER is used by default
-#browser = firefox
+browser = xdg-open
 
 # set size hints for the window
 #size_hints = false
