@@ -374,21 +374,6 @@ alias trc='transmission-remote-cli'
 if command -v tmux >/dev/null 2>&1; then
     alias tmux='tmux -2'
 fi
-
-# envoy-exec
-if command -v envoy-exec >/dev/null 2>&1; then
-    # openssh
-    alias ssh='envoy-exec ssh'
-    alias scp='envoy-exec scp'
-
-    # rsync
-    alias rsync='envoy-exec rsync'
-
-    # git
-    alias gf="envoy-exec git fetch"
-    alias gfm="envoy-exec git pull"
-    alias gp="envoy-exec git push"
-fi
 # }}}
 
 # Color man pages {{{
