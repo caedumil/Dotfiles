@@ -4,10 +4,7 @@
 
 # terminal emulator
 super + Return
-    urxvtc
-
-XF86Launcher1
-    urxvt
+    termite
 
 # program launcher
 super + space
