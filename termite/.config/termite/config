@@ -41,36 +41,36 @@ browser = xdg-open
 #roundness = 2.0
 
 [colors]
-# Base16 Ocean
-# Scheme: Chris Kempson (http://chriskempson.com)
+# Base16 harmonic16 light
+# Scheme: Jannik Siebert (https://github.com/janniks)
 
-foreground      = #c0c5ce
-foreground_bold = #c0c5ce
-cursor          = #c0c5ce
-background      = #2b303b
+foreground      = #405c79
+foreground_bold = #405c79
+cursor          = #405c79
+background      = #f7f9fb
 
 # 16 color space
-color0  = #2b303b
-color1  = #bf616a
-color2  = #a3be8c
-color3  = #ebcb8b
-color4  = #8fa1b3
-color5  = #b48ead
-color6  = #96b5b4
-color7  = #c0c5ce
-color8  = #65737e
-color9  = #bf616a
-color10 = #a3be8c
-color11 = #ebcb8b
-color12 = #8fa1b3
-color13 = #b48ead
-color14 = #96b5b4
-color15 = #eff1f5
+color0  = #0b1c2c
+color1  = #bf8b56
+color2  = #56bf8b
+color3  = #8bbf56
+color4  = #8b56bf
+color5  = #bf568b
+color6  = #568bbf
+color7  = #cbd6e2
+color8  = #627e99
+color9  = #bf8b56
+color10 = #56bf8b
+color11 = #8bbf56
+color12 = #8b56bf
+color13 = #bf568b
+color14 = #568bbf
+color15 = #f7f9fb
 
 # 256 color space
-color16 = #d08770
-color17 = #ab7967
-color18 = #343d46
-color19 = #4f5b66
-color20 = #a7adba
-color21 = #dfe1e8
+color16 = #bfbf56
+color17 = #bf5656
+color18 = #223b54
+color19 = #405c79
+color20 = #aabcce
+color21 = #e5ebf1
