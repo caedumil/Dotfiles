@@ -9,6 +9,7 @@ setopt TRANSIENT_RPROMPT
 autoload -Uz colors && colors
 autoload -Uz vcs_info
 
+# vcs_info {{{
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' get-revision true
 zstyle ':vcs_info:git:*' check-for-changes true
@@ -58,7 +59,9 @@ zstyle ':vcs_info:git:*:-all-' command =git
     untracked=$(git status --porcelain -u | grep '^??' | wc -l)
     (( $untracked )) && hook_com[unstaged]+="%F{1}●%f"
 }
+# }}}
 
+# setprompt() {{{
 setprompt() {
     local -a info cmd lines wd
     local sep
@@ -111,6 +114,7 @@ setprompt() {
     RPROMPT=''
     SPROMPT='zsh: correct %F{1}%R%f to %F{2}%r%f [nyae]?'
 }
+# }}}
 
 precmd() {
     # update tty info on gpg-agent
