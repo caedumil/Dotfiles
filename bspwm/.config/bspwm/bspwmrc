@@ -49,7 +49,7 @@ bspc rule --add Gimp-2.8 state=floating
 # Startup
 #
 # Terminal daemon
-#command -v urxvt >/dev/null 2>&1 && urxvtd --quiet --opendisplay --fork
+command -v urxvt >/dev/null 2>&1 && urxvtd --quiet --opendisplay --fork
 
 # Notification daemon
 command -v dunst >/dev/null 2>&1 && dunst &
