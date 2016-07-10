@@ -13,7 +13,7 @@
 
 " VIM mode {{{
 " Force 256 colors
-set t_Co=256
+"set t_Co=256
 
 " Disable VI compatibility mode
 set nocompatible
@@ -62,8 +62,7 @@ let mapleader=","
 syntax enable
 
 " Set color scheme
-set background=light
-let base16colorspace=256
+"let base16colorspace=256
 colorscheme base16-default
 
 " Change highlight colors
