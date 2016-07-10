@@ -61,6 +61,14 @@ let mapleader=","
 " Enable Syntax highlighting
 syntax enable
 
+" Set color mode
+let term=$TERM
+if term == 'linux'
+    set background=dark
+else
+    set background=light
+endif
+
 " Set color scheme
 "let base16colorspace=256
 colorscheme base16-default
