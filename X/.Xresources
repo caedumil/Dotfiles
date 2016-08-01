@@ -1,5 +1,5 @@
 !! Color Theme -------------------------------------------------------------- !!
-#include ".config/Xres-base16/base16-harmonic16.light.xresources"
+#include ".config/Xres-base16/base16-harmonic16.light.256.xresources"
 
 !! Xcursor ------------------------------------------------------------------ !!
 Xcursor.theme: Adwaita

@@ -70,7 +70,7 @@ else
 endif
 
 " Set color scheme
-"let base16colorspace=256
+let base16colorspace=256
 colorscheme base16-default
 
 " Change highlight colors
