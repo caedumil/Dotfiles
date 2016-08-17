@@ -56,7 +56,7 @@ zstyle ':vcs_info:git:*:-all-' command =git
 +vi-git-dirty() {
     local -i untracked
 
-    untracked=$(git status --porcelain -u | grep '^??' | wc -l)
+    untracked=$(git status --porcelain --untracked-files --ignore-submodules | grep '^??' | wc -l)
     (( $untracked )) && hook_com[unstaged]+="%F{1}●%f"      # red
 }
 # }}}
