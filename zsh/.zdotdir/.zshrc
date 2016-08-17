@@ -390,16 +390,25 @@ if command -v tmux >/dev/null 2>&1; then
 fi
 # }}}
 
-# Color man pages {{{
+# Colorized man pages {{{
 function man() {
-    env LESS_TERMCAP_mb=$'\E[01;31m' \
-    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
-    LESS_TERMCAP_me=$'\E[0m' \
-    LESS_TERMCAP_se=$'\E[0m' \
-    LESS_TERMCAP_so=$'\E[38;5;246m' \
-    LESS_TERMCAP_ue=$'\E[0m' \
-    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
-    man "$@"
+    # Modes:
+    # mb = begin blinking
+    # md = begin bold
+    # me = end mode
+    # so = begin standout-mode
+    # se = end standout-mode
+    # us = begin underline
+    # ue = end underline
+
+    LESS_TERMCAP_mb=$'\e[1m'     \
+    LESS_TERMCAP_md=$'\e[01;36m' \
+    LESS_TERMCAP_me=$'\e[0m'     \
+    LESS_TERMCAP_so=$'\e[00;37m' \
+    LESS_TERMCAP_se=$'\e[0m'     \
+    LESS_TERMCAP_us=$'\e[04;36m' \
+    LESS_TERMCAP_ue=$'\e[0m'     \
+    command man "$@"
 }
 # }}}
 
