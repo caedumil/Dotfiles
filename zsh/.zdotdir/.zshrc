@@ -13,8 +13,8 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' get-revision true
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' unstagedstr "%F{3}●%f"
-zstyle ':vcs_info:git:*' stagedstr "%F{2}●%f"
+zstyle ':vcs_info:git:*' unstagedstr "%F{3}●%f"             # yellow
+zstyle ':vcs_info:git:*' stagedstr "%F{2}●%f"               # green
 zstyle ':vcs_info:git:*' patch-format "(%n/%c)"
 zstyle ':vcs_info:git:*' formats "[%.7i:%b] [%c%u] [%m]"
 zstyle ':vcs_info:git:*' actionformats "[%a:%m] [%b] [%c%u]"
@@ -36,10 +36,10 @@ zstyle ':vcs_info:git:*:-all-' command =git
     fi
 
     ahead=$(git rev-list --count ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null)
-    (( $ahead )) && gitstatus+=( "%F{2}+${ahead}%f" )
+    (( $ahead )) && gitstatus+=( "%F{2}+${ahead}%f" )       # green
 
     behind=$(git rev-list --count HEAD..${hook_com[branch]}@{upstream} 2>/dev/null)
-    (( $behind )) && gitstatus+=( "%F{1}-${behind}%f" )
+    (( $behind )) && gitstatus+=( "%F{1}-${behind}%f" )     # red
 
     hook_com[branch]+=" [${remote}] [${(j:/:)gitstatus}]"
 }
@@ -57,7 +57,7 @@ zstyle ':vcs_info:git:*:-all-' command =git
     local -i untracked
 
     untracked=$(git status --porcelain -u | grep '^??' | wc -l)
-    (( $untracked )) && hook_com[unstaged]+="%F{1}●%f"
+    (( $untracked )) && hook_com[unstaged]+="%F{1}●%f"      # red
 }
 # }}}
 
@@ -66,13 +66,14 @@ setprompt() {
     local -a info cmd lines wd
     local sep
 
+    # Sections separator - cyan
     sep="%F{6}::%f"
 
     # Top line
     # Prefix
     info+=( "${sep} " )
 
-    # Current dir, yellow if not writable
+    # Current dir - blue if writable, yellow if not writable
     [[ -w ${PWD} ]] && info+=( "%F{4}" ) || info+=( "%F{3}" )
     for dir in "${(s:/:)${PWD/#$HOME/~}}"; do
         [[ ${#dir} -gt 10 ]] && dir="${dir:0:5}..."
@@ -80,7 +81,7 @@ setprompt() {
     done
     info+=( "${(j:/:)wd}%f" )
 
-    # Git information
+    # Git information - bright black
     if [[ -n ${vcs_info_msg_0_} ]]; then
         info+=( " ${sep} " )
         info+=( "%F{8}$(sed -r 's/ \[\]//g;s/(%f)([^%])/\1%F{8}\2/g' <<< ${vcs_info_msg_0_})%f" )
@@ -100,10 +101,10 @@ setprompt() {
     cmd+=( "%(!.%F{1}.%F{4})%n%f" )
     [[ -n ${SSH_CLIENT} ]] && cmd+=( "%F{8}@%f%F{1}%m%f" )
 
-    # Jobs runnings
+    # Jobs runnings - yellow
     cmd+=( "%(1j. %F{3}%jj%f.)" )
 
-    # Suffix and last command return status
+    # Suffix and last command return status - red if error
     cmd+=( " %(?.${sep}.${sep/6/1}) " )
 
     # Assemble line
