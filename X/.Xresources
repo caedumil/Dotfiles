@@ -1,5 +1,5 @@
 !! Color Theme -------------------------------------------------------------- !!
-#include ".config/Xres-base16/base16-harmonic16.light.256.xresources"
+#include ".config/Xres-base16/base16-harmonic16-light-256.Xresources"
 
 !! Xcursor ------------------------------------------------------------------ !!
 Xcursor.theme: Adwaita
@@ -37,22 +37,22 @@ URxvt.clipboard.pastecmd:       xclip -o -selection clipboard
 
 !! Dzen --------------------------------------------------------------------- !!
 dzen2.font:                     -*-lime-medium-*-normal-*-10-*-*-*-*-*-*-*
-dzen2.background:               base07
-dzen2.foreground:               base02
+dzen2.background:               base00
+dzen2.foreground:               base05
 
 !! Dmenu2
 dmenu.font:                     -*-lime-medium-*-normal-*-10-*-*-*-*-*-*-*
 dmenu.background:               base07
-dmenu.foreground:               base02
-dmenu.selbackground:            base02
-dmenu.selforeground:            base07
+dmenu.foreground:               base05
+dmenu.selbackground:            base05
+dmenu.selforeground:            base00
 
 !! Rofi --------------------------------------------------------------------- !!
 rofi.hide-scrollbar:            true
 rofi.font:                      lime 8
 rofi.terminal:                  urxvtc
 rofi.color-enabled:             true
-rofi.color-normal:              base07,base02,base07,base02,base07
-rofi.color-urgent:              base07,base08,base07,base08,base07
-rofi.color-active:              base07,base0C,base07,base0C,base07
-rofi.color-window:              base07,base02
+rofi.color-normal:              base00,base05,base00,base05,base00
+rofi.color-urgent:              base00,base08,base00,base08,base00
+rofi.color-active:              base00,base0D,base00,base0D,base00
+rofi.color-window:              base00,base05

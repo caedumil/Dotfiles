@@ -65,16 +65,15 @@ syntax enable
 let term=$TERM
 if term == 'linux'
     set background=dark
+    colorscheme base16-default-dark
 else
     set background=light
+    let base16colorspace=256
+    colorscheme base16-default-light
 endif
 
-" Set color scheme
-let base16colorspace=256
-colorscheme base16-default
-
 " Change highlight colors
-highlight Search cterm=NONE ctermfg=white ctermbg=grey
+highlight Search cterm=NONE ctermfg=8 ctermbg=18
 " }}}
 
 " Spaces & Tabs {{{
