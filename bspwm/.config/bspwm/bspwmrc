@@ -35,10 +35,12 @@ bspc monitor 0 --focus
 # Rules
 bspc rule --add Firefox desktop='^1'
 bspc rule --add Opera desktop='^1'
+bspc rule --add chromium desktop='^1'
 bspc rule --add feh state=floating
 bspc rule --add mpv state=floating
 bspc rule --add Zathura state=floating
 bspc rule --add Gimp-2.8 state=floating
+bspc rule --add mgba state=floating
 
 #
 # Status Bar
