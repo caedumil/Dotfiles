@@ -291,11 +291,11 @@ if [[ -n "${key_info[Home]}" ]]; then
 fi
 
 if [[ -n "${key_info[PageUp]}" ]]; then
-    bindkey "${key_info[PageUp]}" beginning-of-history
+    bindkey "${key_info[PageUp]}" up-line-or-history
 fi
 
 if [[ -n "${key_info[PageDown]}" ]]; then
-    bindkey "${key_info[PageDown]}" end-of-history
+    bindkey "${key_info[PageDown]}" down-line-or-history
 fi
 
 if [[ -n "${key_info[End]}" ]]; then
