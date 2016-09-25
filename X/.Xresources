@@ -32,8 +32,8 @@ URxvt.keysym.M-s:               perl:keyboard-select:activate
 !perls -- clipboard
 URxvt.keysym.M-c:               perl:clipboard:copy
 URxvt.keysym.M-v:               perl:clipboard:paste
-URxvt.clipboard.copycmd:        xclip -i -selection clipboard
-URxvt.clipboard.pastecmd:       xclip -o -selection clipboard
+URxvt.clipboard.copycmd:        xsel -bi
+URxvt.clipboard.pastecmd:       xsel -bo
 
 !! Dzen --------------------------------------------------------------------- !!
 dzen2.font:                     -*-lime-medium-*-normal-*-10-*-*-*-*-*-*-*
