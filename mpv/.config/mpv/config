@@ -103,3 +103,7 @@ force-rgba-osd-rendering = no
 
 # Pause video on start
 pause
+
+# Youtube-dl hook. Video format/quality.
+# Download best format available but not better than 480p¬
+ytdl-format = bestvideo[height<=720]+bestaudio/best[height<=720]¬
