@@ -6,7 +6,7 @@
 ##################
 
 # Specify default video driver (see -vo help for a list).
-vo = opengl:backend=x11
+vo = opengl
 
 # Multithreaded decoding of H264/MPEG-1/2 (valid: 1-16, 0 for autodetect)
 vd-lavc-threads = 0
@@ -26,6 +26,13 @@ monitoraspect = 16:10
 # Keep the player window on top of all other windows.
 ontop = no
 
+###################
+# opengl settings #
+###################
+
+# Windowing backend.
+opengl-backend = auto
+
 ##################
 # audio settings #
 ##################
@@ -35,9 +42,6 @@ ao = pulse
 
 # 2 channels = stereo, 6 = 5.1
 audio-channels = 2
-
-# Use volume filter instead of audio driver controls
-softvol = yes
 
 # Volume on startup
 volume = 95
