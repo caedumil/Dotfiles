@@ -1,5 +1,5 @@
 Net/ThemeName       "Arc"
-Net/IconThemeName   "Vertex-Icons"
+Net/IconThemeName   "Arc"
 Gtk/CursorThemeName "Adwaita"
 Gtk/FontName        "Open Sans 8"
 
