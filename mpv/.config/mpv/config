@@ -8,13 +8,13 @@
 # Specify default video driver (see -vo help for a list).
 vo = opengl
 
-# Multithreaded decoding of H264/MPEG-1/2 (valid: 1-16, 0 for autodetect)
+# Multithreaded decoding of H264/MPEG-1/2 (valid: 1-16, 0 for autodetect).
 vd-lavc-threads = 0
 
 # Start in fullscreen mode by default.
 fs = no
 
-# Which screen to go fullscreen
+# Which screen to go fullscreen.
 fs-screen = current
 
 # Change to a different videomode when going fullscreen.
@@ -40,49 +40,52 @@ opengl-backend = auto
 # Specify default audio driver (see -ao help for a list).
 ao = pulse
 
-# 2 channels = stereo, 6 = 5.1
+# 2 channels = stereo, 6 = 5.1.
 audio-channels = 2
 
-# Volume on startup
+# Volume on startup.
 volume = 95
 
 ##################
 # cache settings #
 ##################
 
-# Don't use cache on local files
+# Don't use cache on local files.
 cache = auto
 
-# Use 75MB input cache by default
+# Use 75MB input cache by default.
 cache-default = 75000
 
-# Playback will start with 50MB on cache
+# Playback will start with 50MB on cache.
 cache-initial = 50000
 
-# Create a cache file on the filesystem (/tmp)
+# Create a cache file on the filesystem (/tmp).
 cache-file=TMP
 
-# Pause player when the cache runs low and unpause once data is avaliable
+# Maximum size of the file created with 'cache-file'.
+#cache-file-size = 100000¬
+
+# Pause player when the cache runs low and unpause once data is avaliable.
 cache-pause = yes
 
 #######################
 # screenchot settings #
 #######################
 
-# Screenshot format
+# Screenshot format.
 screenshot-format = png
 
-# Screenshot filename
+# Screenshot filename.
 screenshot-template = "%F-%n"
 
 ####################
 # devices settings #
 ####################
 
-# CD device
+# CD device.
 cdrom-device = /dev/cdrom
 
-# DVD device
+# DVD device.
 dvd-device = /dev/cdrom
 
 # DVD: Display English subtitles if available.
@@ -95,8 +98,13 @@ alang = eng
 # subtitles settings #
 ######################
 
-# Subtitle matching fuzzines
+# Subtitle matching fuzzines.
 sub-auto = fuzzy
+
+# Extra directories to search for subtitles matching the video.
+# Multiple directories can be separated by ':'.
+# Paths can be relative to the file directory or absolute.
+sub-paths = Subs
 
 # Change how some video outputs render OSD and subtiles.
 force-rgba-osd-rendering = no
@@ -105,9 +113,9 @@ force-rgba-osd-rendering = no
 # misc settings #
 #################
 
-# Pause video on start
+# Pause video on start.
 pause
 
 # Youtube-dl hook. Video format/quality.
-# Download best format available but not better than 480p¬
-ytdl-format = bestvideo[height<=720]+bestaudio/best[height<=720]¬
+# Download best format available but not better than 480p.
+ytdl-format = bestvideo[height<=720]+bestaudio/best[height<=720]
