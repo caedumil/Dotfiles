@@ -3,7 +3,7 @@ mpd_crossfade_time = "3"
 mpd_music_dir = "~/Media/Music"
 
 #Lyrics Settings
-lyrics_directory = "~/.config/music/lyrics"
+lyrics_directory = "~/.local/share/mpd/ncmpcpp-lyrics"
 follow_now_playing_lyrics = "yes"
 
 #Visualizer
