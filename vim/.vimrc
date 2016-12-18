@@ -39,8 +39,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'embear/vim-localvimrc'
 Plug 'calebsmith/vim-lambdify'
 Plug 'majutsushi/tagbar'            " requires ctags
 
@@ -171,14 +169,6 @@ nnoremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap gV `[v`]
 " }}}
 
-" Vim CtrlP {{{
-" Settings
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-" }}}
-
 " Vim Airline {{{
 set laststatus=2
 set ttimeoutlen=50
@@ -207,10 +197,6 @@ let g:syntastic_mode_map={
 " C++14
 let g:syntastic_cpp_compiler='g++'
 let g:syntastic_cpp_compiler_options='-std=c++14'
-" }}}
-
-" Vim LocalVimRC {{{
-let g:localvimrc_name=[ '.lvimrc', '.vimrc.local' ]
 " }}}
 
 " Vim TagBar {{{
