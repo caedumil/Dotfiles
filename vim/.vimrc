@@ -50,6 +50,24 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 " }}}
 
+" Backup {{{
+" viminfo stores the the state of your previous editing session
+set viminfo+=n~/.vim/viminfo
+
+" Store swap files in fixed location, not current directory
+if isdirectory($HOME . '/.vim/swap') == 0
+    :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
+endif
+set directory=~/.vim/swap//
+
+" Allows you to use undos after exiting and restarting
+if isdirectory($HOME . '/.vim/undo') == 0
+    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+endif
+set undodir=~/.vim/undo//
+set undofile
+"}}}
+
 " Misc {{{
 " Leader is comma
 let mapleader=","
