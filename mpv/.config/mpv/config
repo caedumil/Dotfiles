@@ -40,6 +40,12 @@ opengl-backend = auto
 # Specify default audio driver (see -ao help for a list).
 ao = pulse
 
+# Specify a list of audio filters to apply to the audio stream.
+# drc = Dynamic range compression. Maximizes the volume by compressing the
+# audio signal's dynamic range. Note: Can cause distortion with audio signals
+# that have a very large dynamic range.
+af = drc
+
 # 2 channels = stereo, 6 = 5.1.
 audio-channels = 2
 
