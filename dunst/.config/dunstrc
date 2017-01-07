@@ -1,5 +1,5 @@
 [global]
-    font = Lime 8
+    font = artwiz lime 8
 
     # The format of the message. Possible variables are:
     #   %a  appname
