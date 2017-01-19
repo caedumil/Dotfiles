@@ -2,6 +2,8 @@
 # wm independent hotkeys
 #
 
+# The commands are executed via `$SHELL -c COMMAND`
+
 # terminal emulator
 super + Return
     urxvtc
@@ -19,8 +21,8 @@ alt + Tab
 
 # screenshot
 super + Print
-    maim ~/$(date +%Y-%m-%d-%H:%M:%S).png; \
-    notify-send -a "SSHot" "Save to" "~/$(date +%Y-%m-%d-%H:%M:%S).png"
+    maim ~/(date +%Y-%m-%d-%H:%M:%S).png; \
+    notify-send -a "SSHot" "Save to" ~/(date +%Y-%m-%d-%H:%M:%S).png
 
 # multimedia keys
 XF86AudioMute

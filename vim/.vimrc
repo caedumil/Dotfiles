@@ -26,6 +26,11 @@ set modeline
 
 " Look for modeline in the final line
 set modelines=1
+
+" Set a POSIX shell if needed
+if &shell =~# 'fish$'
+    set shell=/bin/zsh
+endif
 " }}}
 
 " Vim Plug {{{
@@ -41,6 +46,9 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise'
 Plug 'calebsmith/vim-lambdify'
 Plug 'majutsushi/tagbar'            " requires ctags
+
+" Syntax highlighters
+Plug 'dag/vim-fish'
 
 " Color schemes
 Plug 'chriskempson/base16-vim'
