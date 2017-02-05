@@ -49,7 +49,7 @@
     # The width can be negative. In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
     # geometry = "300x5-30+20"
-    geometry = "320x15+480+11"
+    geometry = "320x15+560+11"
 
     # The transparency of the window. range: [0; 100]
     # This option will only work if a compositing windowmanager is present (e.g. xcompmgr, compiz, etc..)
@@ -115,7 +115,7 @@
 
 [frame]
     width = 1
-    color = "#dfe1e8"           # foreground
+    color = "#405c79"
 
 [shortcuts]
     # shortcuts are specified as [modifier+][modifier+]...key
@@ -139,18 +139,18 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the '#' and following  would be interpreted as a comment.
-    background = "#f7f9fb"      # background
-    foreground = "#627e99"      # color8
+    background = "#f7f9fb"
+    foreground = "#aabcce"
     timeout = 10
 
 [urgency_normal]
-    background = "#f7f9fb"      # background
-    foreground = "#405c79"      # foreground
+    background = "#f7f9fb"
+    foreground = "#405c79"
     timeout = 10
 
 [urgency_critical]
-    background = "#405c79"      # foreground
-    foreground = "#f7f9fb"      # background
+    background = "#405c79"
+    foreground = "#f7f9fb"
     timeout = 0
 
 
