@@ -21,5 +21,5 @@ export VISUAL="${EDITOR}"
 
 # Pacaur
 if [[ -f /etc/arch-release ]]; then
-    export AURDEST="${HOME}/Build"
+    export AURDEST="${HOME}/Build/AUR"
 fi
