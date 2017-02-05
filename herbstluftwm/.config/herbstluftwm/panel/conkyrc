@@ -1,0 +1,48 @@
+-- vim: syntax=lua
+-- Output to console
+conky.config = {
+    out_to_x = false,
+    out_to_console =  true,
+
+    -- Behaviour
+    update_interval = 1,
+    if_up_strictness = 'link',
+
+    -- Force UTF8? note that UTF8 support required XFT
+    override_utf8_locale = true
+}
+
+conky.text = [[
+C%{F\#FF8bbf56}\uE192%{F-} \
+\uE225 \
+${time %A, %d %B %Y} \
+%{F\#FF8bbf56}\uE192%{F-} \
+\uE017 \
+${time %H:%M} \
+%{F\#FF8bbf56}\uE192%{F-}
+S%{F\#FF8bbf56}\uE192%{F-} \
+\uE026 \
+${cpu cpu1}% \
+\uE026 \
+${cpu cpu2}% \
+\uE01D \
+${hwmon 0 temp 1}C \
+%{F\#FF8bbf56}\uE192%{F-} \
+\uE05D \
+${execi 3 ponymix get-volume}% \
+%{F\#FF8bbf56}\uE192%{F-}\
+${if_up wlp0s29f7u2} \
+\uE048 \
+${wireless_essid wlp0s29f7u2} \
+\uE12F \
+[${downspeedf wlp0s29f7u2}/${upspeedf wlp0s29f7u2}] \
+%{F\#FF8bbf56}\uE192%{F-}\
+${endif}\
+${if_up enp2s0} \
+\uE148 \
+Cable \
+\uE12F \
+[${downspeedf enp2s0}/${upspeedf enp2s0}] \
+%{F\#FF8bbf56}\uE192%{F-}\
+${endif}
+]]
