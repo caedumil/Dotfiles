@@ -13,44 +13,26 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' get-revision true
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' unstagedstr "%F{3}●%f"             # yellow
 zstyle ':vcs_info:git:*' stagedstr "%F{2}●%f"               # green
-zstyle ':vcs_info:git:*' patch-format "(%n/%c)"
-zstyle ':vcs_info:git:*' formats "[%.7i:%b] [%c%u] [%m]"
-zstyle ':vcs_info:git:*' actionformats "[%a:%m] [%b] [%c%u]"
+zstyle ':vcs_info:git:*' unstagedstr "%F{3}●%f"             # yellow
+zstyle ':vcs_info:git:*' patch-format "%n/%c"
+zstyle ':vcs_info:git:*' formats "%F{3}%b%f|%c%u"
+zstyle ':vcs_info:git:*' actionformats "%F{3}%b%f|%c%u|%a %m"
 
 zstyle ':vcs_info:git*+set-message:*' hooks git-branch git-stash git-dirty
 zstyle ':vcs_info:git:*:-all-' command =git
 
 +vi-git-branch() {
-    local ahead behind remote
+    local ahead behind
     local -a gitstatus
 
-    remote=$(git rev-parse --verify ${hook_com[branch]}@{upstream} \
-        --symbolic-full-name 2>/dev/null)
-
-    if grep "refs/remotes" <<< ${remote} >/dev/null 2>&1; then
-        remote="${remote/refs\/remotes\/}"
-    else
-        remote="${remote/refs\/heads\/}"
-    fi
-
     ahead=$(git rev-list --count ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null)
-    (( $ahead )) && gitstatus+=( "%F{2}+${ahead}%f" )       # green
+    (( $ahead )) && gitstatus+=( "%F{2}↑${ahead}%f" )       # green
 
     behind=$(git rev-list --count HEAD..${hook_com[branch]}@{upstream} 2>/dev/null)
-    (( $behind )) && gitstatus+=( "%F{1}-${behind}%f" )     # red
+    (( $behind )) && gitstatus+=( "%F{1}↓${behind}%f" )     # red
 
-    hook_com[branch]+=" [${remote}] [${(j:/:)gitstatus}]"
-}
-
-+vi-git-stash() {
-    local -a stashes
-
-    if [[ -s ${hook_com[base]}/.git/refs/stash ]] ; then
-        stashes=$(git stash list 2>/dev/null | wc -l)
-        hook_com[misc]+="${stashes} stashed"
-    fi
+    hook_com[branch]+="${(j::)gitstatus}"
 }
 
 +vi-git-dirty() {
@@ -59,71 +41,60 @@ zstyle ':vcs_info:git:*:-all-' command =git
     untracked=$(git status --porcelain --untracked-files --ignore-submodules | grep '^??' | wc -l)
     (( $untracked )) && hook_com[unstaged]+="%F{1}●%f"      # red
 }
+
++vi-git-stash() {
+    if [[ -s ${hook_com[base]}/.git/refs/stash ]] ; then
+        hook_com[unstaged]+="%F{4}●%f"                      # blue
+    fi
+}
 # }}}
 
 # setprompt() {{{
 setprompt() {
-    local -a info cmd lines wd
-    local sep
+    local -a info
+    local cwd arrows
 
-    # Sections separator - cyan
-    sep="%F{6}::%f"
+    # Remote connection - red@yellow
+    [[ -n ${SSH_TTY} ]] && info+=( "%F{1}%n%f@%F{3}%m%f" )
 
-    # Top line
-    # Prefix
-    info+=( "${sep} " )
-
-    # Current dir - blue if writable, yellow if not writable
-    [[ -w ${PWD} ]] && info+=( "%F{4}" ) || info+=( "%F{3}" )
-    for dir in "${(s:/:)${PWD/#$HOME/~}}"; do
-        [[ ${#dir} -gt 10 ]] && dir="${dir:0:5}..."
-        wd+="${dir}"
-    done
-    info+=( "${(j:/:)wd}%f" )
+    # Current dir - cyan if writable, yellow if not writable
+    [[ -w ${PWD} ]] && info+=( "%F{6}" ) || info+=( "%F{3}" )
+    cwd="${PWD/#${HOME}/~}"
+    # if we aren't in ~
+    if [[ ${cwd} != '~' ]]; then
+        cwd="${${${${(@j:/:M)${(@s:/:)cwd}##.#?}:h}%/}//\%/%%}/${${cwd:t}//\%/%%}"
+    fi
+    info+=( "${cwd}%f" )
 
     # Git information - bright black
     if [[ -n ${vcs_info_msg_0_} ]]; then
-        info+=( " ${sep} " )
-        info+=( "%F{8}$(sed -r 's/ \[\]//g;s/(%f)([^%])/\1%F{8}\2/g' <<< ${vcs_info_msg_0_})%f" )
+        info+=( "[${vcs_info_msg_0_}]" )
     fi
 
-    # Suffix
-    info+=( " ${sep}" )
+    # Key bindings mode
+    arrows="%F{1}❯%f%F{3}❯%f%F{2}❯%f"
+    [[ ${KEYMAP} == "vicmd" ]] && arrows="%F{2}❮%f%F{3}❮%f%F{1}❮%f"
+    info+=( "${arrows}" )
 
-    # Assemble line
-    lines+=( ${(j::)info} )
-
-    # Bottom line
-    # Prefix
-    cmd+=( " ${sep} " )
-
-    # User & hostname
-    cmd+=( "%(!.%F{1}.%F{4})%n%f" )
-    [[ -n ${SSH_CLIENT} ]] && cmd+=( "%F{8}@%f%F{1}%m%f" )
-
-    # Jobs runnings - yellow
-    cmd+=( "%(1j. %F{3}%jj%f.)" )
-
-    # Suffix and last command return status - red if error
-    cmd+=( " %(?.${sep}.${sep/6/1}) " )
-
-    # Assemble line
-    lines+=( "${(j::)cmd}" )
+    # User
+    [[ ${USER} == "root" ]] && info+=( "%F{1}#%f" )
 
     # Set the prompt
-    PROMPT=${(F)lines}
+    PROMPT="${(j: :)info} "
     RPROMPT=''
     SPROMPT='zsh: correct %F{1}%R%f to %F{2}%r%f [nyae]?'
 }
 # }}}
 
-precmd() {
-    # update tty info on gpg-agent
-    if pgrep gpg-agent >/dev/null; then
-        export GPG_TTY="${TTY}"
-        gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
-    fi
+zle-keymap-select() {
+    # update prompt for new keymap
+    setprompt
 
+    zle reset-prompt
+}
+zle -N zle-keymap-select
+
+precmd() {
     # get git info
     vcs_info
 
@@ -181,6 +152,15 @@ if [[ -s ${ZDOTDIR:-${HOME}}/.dircolors ]]; then
 else
     source <(dircolors --sh)
 fi
+
+# Update $GPG_TTY before executing a command
+preexec() {
+    # update tty info on gpg-agent
+    if pgrep gpg-agent >/dev/null; then
+        export GPG_TTY="${TTY}"
+        gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
+    fi
+}
 # }}}
 
 # Completion {{{
