@@ -340,13 +340,12 @@ setopt CORRECT
 alias chmod='chmod --preserve-root -v'
 alias chown='chown --preserve-root -v'
 alias cp='cp -v'
-alias df='df -kh'
-alias du='du -kh'
+alias df='df -h'
+alias du='du -h'
 alias ln='ln -v'
 alias ls='ls --group-directories-first --color=auto'
-alias la='ls -lah'
+alias la='ls -alh'
 alias ll='ls -lh'
-alias l='ls -1'
 alias mkdir='mkdir -pv'
 alias mv='mv -v'
 alias rmdir='rmdir -pv'
@@ -356,19 +355,11 @@ alias grep='grep --color=auto'
 alias egrep='grep -E'
 alias fgrep='grep -F'
 
-# atool
-alias axe='aunpack -e'
-
-# feh
+# misc
+alias aup='aunpack -e'
 alias feh='feh --scale-down'
-
-# transmission-remote-cli
+alias tmux='tmux -2'
 alias trc='transmission-remote-cli'
-
-# tmux
-if command -v tmux >/dev/null 2>&1; then
-    alias tmux='tmux -2'
-fi
 # }}}
 
 # Colorized man pages {{{
