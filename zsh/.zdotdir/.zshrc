@@ -52,19 +52,19 @@ zstyle ':vcs_info:git:*:-all-' command =git
 # setprompt() {{{
 setprompt() {
     local -a info
-    local cwd arrows git_info
+    local dir_color cwd git_info arrows
 
     # Remote connection - red@yellow
     [[ -n ${SSH_TTY} ]] && info+=( "%F{1}%n%f@%F{3}%m%f" )
 
     # Current dir - cyan if writable, yellow if not writable
-    [[ -w ${PWD} ]] && info+=( "%F{6}" ) || info+=( "%F{3}" )
+    [[ -w ${PWD} ]] && dir_color="%F{6}" || dir_color="%F{3}"
     cwd="${PWD/#${HOME}/~}"
     # if we aren't in ~
     if [[ ${cwd} != '~' ]]; then
         cwd="${${${${(@j:/:M)${(@s:/:)cwd}##.#?}:h}%/}//\%/%%}/${${cwd:t}//\%/%%}"
     fi
-    info+=( "${cwd}%f" )
+    info+=( "${dir_color}${cwd}%f" )
 
     # Git information - bright black
     if [[ -n ${vcs_info_msg_0_} ]]; then
@@ -81,7 +81,7 @@ setprompt() {
     [[ ${USER} == "root" ]] && info+=( "%F{1}#%f" )
 
     # Set the prompt
-    PROMPT="${(j: :)info} "
+    PROMPT=" ${(j: :)info} "
     RPROMPT=''
     SPROMPT='zsh: correct %F{1}%R%f to %F{2}%r%f [nyae]?'
 }
