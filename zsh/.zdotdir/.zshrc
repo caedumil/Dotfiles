@@ -16,8 +16,8 @@ zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr "%F{2}●%f"               # green
 zstyle ':vcs_info:git:*' unstagedstr "%F{3}●%f"             # yellow
 zstyle ':vcs_info:git:*' patch-format "%n/%c"
-zstyle ':vcs_info:git:*' formats "%F{3}%b%f|%c%u"
-zstyle ':vcs_info:git:*' actionformats "%F{3}%b%f|%c%u|%a %m"
+zstyle ':vcs_info:git:*' formats "%F{3}%b%f|%c%u:"
+zstyle ':vcs_info:git:*' actionformats "%F{3}%b%f|%c%u|%a %m:"
 
 zstyle ':vcs_info:git*+set-message:*' hooks git-branch git-stash git-dirty
 zstyle ':vcs_info:git:*:-all-' command =git
@@ -52,7 +52,7 @@ zstyle ':vcs_info:git:*:-all-' command =git
 # setprompt() {{{
 setprompt() {
     local -a info
-    local cwd arrows
+    local cwd arrows git_info
 
     # Remote connection - red@yellow
     [[ -n ${SSH_TTY} ]] && info+=( "%F{1}%n%f@%F{3}%m%f" )
@@ -68,7 +68,8 @@ setprompt() {
 
     # Git information - bright black
     if [[ -n ${vcs_info_msg_0_} ]]; then
-        info+=( "[${vcs_info_msg_0_}]" )
+        git_info="$(sed -r 's/[| ]://;s/://' <<< ${vcs_info_msg_0_})"
+        info+=( "[${git_info}]" )
     fi
 
     # Key bindings mode
