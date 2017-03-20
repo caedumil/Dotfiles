@@ -181,9 +181,8 @@ panel=~/.config/herbstluftwm/panel/panel.sh
 
 # misc keybindings
 # launcher
-hc keybind $Mod-space spawn j4-dmenu-desktop --no-generic --term=urxvtc --dmenu="rofi -dmenu -i -p 'run:'"
-hc keybind $Mod-Shift-space spawn rofi -show run
 hc keybind XF86Search spawn rofi -modi drun -show drun
+hc keybind $Mod-XF86Search spawn rofi -show run
 
 # multimedia
 hc keybind XF86AudioLowerVolume spawn dvol --decrease 5
@@ -191,6 +190,7 @@ hc keybind XF86AudioRaiseVolume spawn dvol --increase 5
 hc keybind XF86AudioMute spawn dvol --toggle
 
 hc keybind XF86AudioPlay spawn mpc toggle
+hc keybind $Mod-XF86AudioPlay spawn mpc stop
 hc keybind XF86AudioPrev spawn mpc prev
 hc keybind XF86AudioNext spawn mpc next
 
