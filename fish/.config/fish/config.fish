@@ -21,7 +21,10 @@ set -x EDITOR vim
 set -x VISUAL $EDITOR
 
 # Pacaur
-test -f /etc/arch-release; and set -x AURDEST $HOME/Build/AUR
+if test -f /etc/arch-release
+    set -x AURDEST $HOME/Dev/Build/AUR
+    set -x ASPROOT $HOME/Dev/Build/ABS
+end
 
 
 #
