@@ -40,7 +40,7 @@ fi
 xsetroot -cursor_name left_ptr
 
 # set keyboard layout
-setxkbmap -model acer_laptop -layout br
+setxkbmap -layout br
 
 # adjust X screen saver
 xset s off
