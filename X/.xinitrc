@@ -56,5 +56,8 @@ numlockx on
 # X11 settings daemon
 xsettingsd &
 
+# URxvt daemon
+urxvtd --quiet --opendisplay --fork
+
 # Load WM
 exec herbstluftwm
