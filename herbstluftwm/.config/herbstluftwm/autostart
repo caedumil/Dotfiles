@@ -74,9 +74,13 @@ for i in ${!tag_names[@]} ; do
     fi
 done
 hc load 1 '(clients max:0)' # Browser
-hc load 6 '(clients max:0)' # LibreOffice
+# Terminal
+# Terminal
+hc load 4 '(clients max:0)' # Music/Video
+hc load 5 '(clients max:0)' # VM
+hc load 6 '(clients max:0)' # Office
 hc load 7 '(clients max:0)' # GIMP
-hc load 8 '(clients max:0)' # mpv
+# Misc
 
 # cycle through tags
 hc keybind $Mod-period use_index +1 --skip-visible
@@ -147,23 +151,28 @@ hc set mouse_recenter_gap 0
 hc unrule -F
 hc rule focus=on # normally focus new clients
 
-# give focus to most common terminals
-#hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 
+# tag rules
 hc rule class=Firefox tag=1
 hc rule not windowrole=browser class=Firefox pseudotile=on
 hc rule class=Chromium tag=1
 hc rule class=Opera tag=1
 
-hc rule instance=libreoffice tag=6
-hc rule class=Gimp-2.8 tag=7
-hc rule class=mpv tag=8 switchtag=on pseudotile=on
+hc rule class=mpv tag=4 switchtag=on pseudotile=on
 
+hc rule class=VirtualBox tag=5
+
+hc rule instance=libreoffice tag=6
+
+hc rule class=Gimp-2.8 tag=7
+
+# behaviour rules
 hc rule class=feh pseudotile=on
 hc rule class=Wine pseudotile=on
+hc rule class=Pinentry pseudotile=on
 
 # unlock, just to be sure
 hc unlock
