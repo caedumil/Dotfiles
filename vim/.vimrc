@@ -29,7 +29,7 @@ set modelines=1
 
 " Set a POSIX shell if needed
 if &shell =~# 'fish$'
-    set shell=/bin/zsh
+    set shell=/bin/bash
 endif
 " }}}
 
@@ -130,11 +130,13 @@ set listchars=trail:·,tab:»·,eol:¬
 " Show line numbers
 set number
 
-" 80 char a line, no more!
-set textwidth=80
+" Max width of text. Longer line will be broken after white space.
+set textwidth=0
 
-" Mark the column after textwidth
-set colorcolumn=+1
+" Comma separated list of screen columns that are highloghted.
+" Can be an absolute number, or a number preceded with '+' or '-', which is
+" added to or substracted from 'textwidth'.
+set colorcolumn=81,101
 
 " Show command in bottom bar
 set showcmd
