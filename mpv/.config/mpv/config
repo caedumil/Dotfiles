@@ -40,17 +40,24 @@ opengl-backend = auto
 # Specify default audio driver (see -ao help for a list).
 ao = pulse
 
-# Specify a list of audio filters to apply to the audio stream.
-# drc = Dynamic range compression. Maximizes the volume by compressing the
-# audio signal's dynamic range. Note: Can cause distortion with audio signals
-# that have a very large dynamic range.
-af = drc
-
 # 2 channels = stereo, 6 = 5.1.
 audio-channels = 2
 
 # Volume on startup.
 volume = 95
+
+####################
+# track selections #
+####################
+
+# DVDs use ISO 639-1 two-letter codes, Matroska use ISO 639-2 three-letter codes
+# while OGM uses a free-form identifier.
+
+# Priority list of subtitle languages to use.
+slang = por,eng
+
+# Priority list of audio languages to use.
+alang = eng
 
 ##################
 # cache settings #
@@ -75,7 +82,7 @@ cache-file=TMP
 cache-pause = yes
 
 #######################
-# screenchot settings #
+# screenshot settings #
 #######################
 
 # Screenshot format.
@@ -83,22 +90,6 @@ screenshot-format = png
 
 # Screenshot filename.
 screenshot-template = "%F-%n"
-
-####################
-# devices settings #
-####################
-
-# CD device.
-cdrom-device = /dev/cdrom
-
-# DVD device.
-dvd-device = /dev/cdrom
-
-# DVD: Display English subtitles if available.
-slang = por,eng
-
-# DVD: Play English audio tracks if available.
-alang = eng
 
 ######################
 # subtitles settings #
