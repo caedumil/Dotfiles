@@ -1,25 +1,29 @@
-! Base16 Marrakesh
-! Scheme: Alexandre Gavioli (http://github.com/Alexx2/)
+! Base16 Harmonic16 Light
+! Scheme: Jannik Siebert (https://github.com/janniks)
 
-#define base00 #201602
-#define base01 #302e00
-#define base02 #5f5b17
-#define base03 #6c6823
-#define base04 #86813b
-#define base05 #948e48
-#define base06 #ccc37a
-#define base07 #faf0a5
-#define base08 #c35359
-#define base09 #b36144
-#define base0A #a88339
-#define base0B #18974e
-#define base0C #75a738
-#define base0D #477ca1
-#define base0E #8868b3
-#define base0F #b3588e
+#define base00 #f7f9fb
+#define base01 #e5ebf1
+#define base02 #cbd6e2
+#define base03 #aabcce
+#define base04 #627e99
+#define base05 #405c79
+#define base06 #223b54
+#define base07 #0b1c2c
+#define base08 #bf8b56
+#define base09 #bfbf56
+#define base0A #8bbf56
+#define base0B #56bf8b
+#define base0C #568bbf
+#define base0D #8b56bf
+#define base0E #bf568b
+#define base0F #bf5656
 
 *.foreground:   base05
+#ifdef background_opacity
+*.background:   [background_opacity]base00
+#else
 *.background:   base00
+#endif
 *.cursorColor:  base05
 
 *.color0:       base00
