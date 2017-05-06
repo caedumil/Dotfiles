@@ -1,18 +1,21 @@
-# vim: ft=dosini cms=#%s
 [options]
-scroll_on_output = false
-scroll_on_keystroke = true
-audible_bell = false
-mouse_autohide = false
 allow_bold = true
-dynamic_title = true
-urgent_on_bell = true
+audible_bell = false
 clickable_url = true
-font = tewi, siji 8
-scrollback_lines = 1000
-search_wrap = true
+dynamic_title = true
+font = Lucy Tewi, Wuncon Siji 8
+fullscreen = false
 geometry = 600x350
 icon_name = terminal
+mouse_autohide = false
+scroll_on_output = false
+scroll_on_keystroke = true
+scrollback_lines = 1000
+search_wrap = true
+urgent_on_bell = true
+
+# $BROWSER is used by default if set, with xdg-open as a fallback
+browser = xdg-open
 
 # "system", "on" or "off"
 cursor_blink = system
@@ -20,14 +23,14 @@ cursor_blink = system
 # "block", "underline" or "ibeam"
 cursor_shape = block
 
-# $BROWSER is used by default
-browser = xdg-open
+# Hide links that are no longer valid in url select overlay mode
+filter_unmatched_urls = true
+
+# Emit escape sequences for extra modified keys
+modify_other_keys = false
 
 # set size hints for the window
-#size_hints = false
-
-# emit escape sequences for other keys modified by Control
-#modify_other_keys = false
+size_hints = false
 
 [hints]
 #font = Monospace 12
@@ -41,36 +44,52 @@ browser = xdg-open
 #roundness = 2.0
 
 [colors]
-# Base16 harmonic16 light
-# Scheme: Jannik Siebert (https://github.com/janniks)
+# Base16 Harmonic16 Light
+# Author: Jannik Siebert (https://github.com/janniks)
 
 foreground      = #405c79
-foreground_bold = #405c79
+foreground_bold = #223b54
 cursor          = #405c79
 background      = #f7f9fb
 
 # 16 color space
-color0  = #0b1c2c
-color1  = #bf8b56
-color2  = #56bf8b
-color3  = #8bbf56
-color4  = #8b56bf
-color5  = #bf568b
-color6  = #568bbf
-color7  = #cbd6e2
-color8  = #627e99
-color9  = #bf8b56
-color10 = #56bf8b
-color11 = #8bbf56
-color12 = #8b56bf
-color13 = #bf568b
-color14 = #568bbf
-color15 = #f7f9fb
 
-# 256 color space
+# Black, Gray, Silver, White
+color0  = #f7f9fb
+color8  = #aabcce
+color7  = #405c79
+color15 = #0b1c2c
+
+# Red
+color1  = #bf8b56
+color9  = #bf8b56
+
+# Green
+color2  = #56bf8b
+color10 = #56bf8b
+
+# Yellow
+color3  = #8bbf56
+color11 = #8bbf56
+
+# Blue
+color4  = #8b56bf
+color12 = #8b56bf
+
+# Purple
+color5  = #bf568b
+color13 = #bf568b
+
+# Teal
+color6  = #568bbf
+color14 = #568bbf
+
+# Extra colors
 color16 = #bfbf56
 color17 = #bf5656
-color18 = #223b54
-color19 = #405c79
-color20 = #aabcce
-color21 = #e5ebf1
+color18 = #e5ebf1
+color19 = #cbd6e2
+color20 = #627e99
+color21 = #223b54
+
+# vim: ft=dosini cms=#%s
