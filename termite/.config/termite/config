@@ -3,7 +3,7 @@ allow_bold = true
 audible_bell = false
 clickable_url = true
 dynamic_title = true
-font = Lucy Tewi, Wuncon Siji 8
+font = Lucy Tewi, Unifont 8
 fullscreen = false
 geometry = 600x350
 icon_name = terminal
@@ -21,7 +21,7 @@ browser = xdg-open
 cursor_blink = system
 
 # "block", "underline" or "ibeam"
-cursor_shape = block
+cursor_shape = underline
 
 # Hide links that are no longer valid in url select overlay mode
 filter_unmatched_urls = true
