@@ -211,9 +211,6 @@ hc keybind $Mod-Print chain \
 # lockscreen
 hc keybind XF86Mail spawn lock.sh $HOME/.config/screenlock.png
 
-# file manager
-hc keybind XF86HomePage spawn urxvtc -name Ranger -e ranger
-
 # autostart applications
 command -v compton >/dev/null 2>&1 && pgrep compton || compton --daemon
 command -v feh >/dev/null 2>&1 && ~/.fehbg
