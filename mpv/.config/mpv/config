@@ -6,7 +6,7 @@
 ##################
 
 # Specify default video driver (see -vo help for a list).
-vo = opengl
+vo = opengl,xv
 
 # Multithreaded decoding of H264/MPEG-1/2 (valid: 1-16, 0 for autodetect).
 vd-lavc-threads = 0
