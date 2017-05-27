@@ -56,8 +56,8 @@ numlockx on
 # X11 settings daemon
 xsettingsd &
 
-# URxvt daemon
-urxvtd --quiet --opendisplay --fork
+# Composite manager
+compton --daemon
 
 # Load WM
 exec herbstluftwm
