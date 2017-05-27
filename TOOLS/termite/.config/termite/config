@@ -44,52 +44,52 @@ size_hints = false
 #roundness = 2.0
 
 [colors]
-# Base16 Harmonic16 Light
-# Author: Jannik Siebert (https://github.com/janniks)
+# Base16 Materia
+# Author: Defman21
 
-foreground      = #405c79
-foreground_bold = #223b54
-cursor          = #405c79
-background      = #f7f9fb
+foreground      = #CDD3DE
+foreground_bold = #D5DBE5
+cursor          = #D5DBE5
+background      = #263238
 
 # 16 color space
 
 # Black, Gray, Silver, White
-color0  = #f7f9fb
-color8  = #aabcce
-color7  = #405c79
-color15 = #0b1c2c
+color0  = #263238
+color8  = #707880
+color7  = #CDD3DE
+color15 = #FFFFFF
 
 # Red
-color1  = #bf8b56
-color9  = #bf8b56
+color1  = #EC5F67
+color9  = #EC5F67
 
 # Green
-color2  = #56bf8b
-color10 = #56bf8b
+color2  = #8BD649
+color10 = #8BD649
 
 # Yellow
-color3  = #8bbf56
-color11 = #8bbf56
+color3  = #FFCC00
+color11 = #FFCC00
 
 # Blue
-color4  = #8b56bf
-color12 = #8b56bf
+color4  = #89DDFF
+color12 = #89DDFF
 
 # Purple
-color5  = #bf568b
-color13 = #bf568b
+color5  = #82AAFF
+color13 = #82AAFF
 
 # Teal
-color6  = #568bbf
-color14 = #568bbf
+color6  = #80CBC4
+color14 = #80CBC4
 
 # Extra colors
-color16 = #bfbf56
-color17 = #bf5656
-color18 = #e5ebf1
-color19 = #cbd6e2
-color20 = #627e99
-color21 = #223b54
+color16 = #EA9560
+color17 = #EC5F67
+color18 = #2C393F
+color19 = #37474F
+color20 = #C9CCD3
+color21 = #D5DBE5
 
 # vim: ft=dosini cms=#%s

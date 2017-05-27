@@ -1,22 +1,22 @@
-! Base16 Harmonic16 Light
-! Scheme: Jannik Siebert (https://github.com/janniks)
+! Base16 Materia
+! Scheme: Defman21
 
-#define base00 #f7f9fb
-#define base01 #e5ebf1
-#define base02 #cbd6e2
-#define base03 #aabcce
-#define base04 #627e99
-#define base05 #405c79
-#define base06 #223b54
-#define base07 #0b1c2c
-#define base08 #bf8b56
-#define base09 #bfbf56
-#define base0A #8bbf56
-#define base0B #56bf8b
-#define base0C #568bbf
-#define base0D #8b56bf
-#define base0E #bf568b
-#define base0F #bf5656
+#define base00 #263238
+#define base01 #2C393F
+#define base02 #37474F
+#define base03 #707880
+#define base04 #C9CCD3
+#define base05 #CDD3DE
+#define base06 #D5DBE5
+#define base07 #FFFFFF
+#define base08 #EC5F67
+#define base09 #EA9560
+#define base0A #FFCC00
+#define base0B #8BD649
+#define base0C #80CBC4
+#define base0D #89DDFF
+#define base0E #82AAFF
+#define base0F #EC5F67
 
 *.foreground:   base05
 #ifdef background_opacity
