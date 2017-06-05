@@ -1,6 +1,8 @@
 *.swp
 
-mpd/.config/mpd/mpdstate
-mpd/.config/mpd/mpd.db
-mpd/.config/mpd/mpd.pid
-mpd/.config/mpd/mpd.log
+MEDIA/mpd/.config/mpd/mpdstate
+MEDIA/mpd/.config/mpd/mpd.db
+MEDIA/mpd/.config/mpd/mpd.pid
+MEDIA/mpd/.config/mpd/mpd.log
+
+WMs/awesomewm/.config/awesome/themes/*/wall.png
