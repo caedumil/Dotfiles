@@ -19,6 +19,11 @@ export LESSHISTFILE="-"
 export EDITOR="vim"
 export VISUAL="${EDITOR}"
 
+# Path
+if [[ -d ${HOME}/.local/bin ]]; then
+    export PATH="${HOME}/.local/bin:${PATH}"
+fi
+
 # Pacaur
 if [[ -f /etc/arch-release ]]; then
     export AURDEST="${HOME}/Dev/Build/AUR"
