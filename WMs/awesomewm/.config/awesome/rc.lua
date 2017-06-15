@@ -371,12 +371,12 @@ globalkeys = gears.table.join(
         {description = "open a terminal", group = "launcher"}
     ),
     awful.key(
-        { modkey, "Shift"   }, "Escape",
+        { modkey,           }, "Escape",
         awesome.restart,
         {description = "reload awesome", group = "awesome"}
     ),
     awful.key(
-        { modkey,           }, "Escape",
+        { modkey, "Shift"   }, "Escape",
         awesome.quit,
         {description = "quit awesome", group = "awesome"}
     ),
