@@ -105,6 +105,15 @@ precmd() {
     # format info for prompt
     setprompt
 }
+
+# Update $GPG_TTY before executing a command
+preexec() {
+    # update tty info on gpg-agent
+    if pgrep gpg-agent >/dev/null; then
+        export GPG_TTY="${TTY}"
+        gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
+    fi
+}
 # }}}
 
 # History {{{
@@ -156,15 +165,6 @@ if [[ -s ${ZDOTDIR:-${HOME}}/.dircolors ]]; then
 else
     source <(dircolors --sh)
 fi
-
-# Update $GPG_TTY before executing a command
-preexec() {
-    # update tty info on gpg-agent
-    if pgrep gpg-agent >/dev/null; then
-        export GPG_TTY="${TTY}"
-        gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
-    fi
-}
 # }}}
 
 # Completion {{{
