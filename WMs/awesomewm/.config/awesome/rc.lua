@@ -436,7 +436,7 @@ globalkeys = gears.table.join(
     ),
     awful.key(
         { }, "XF86Mail",
-        function() awful.spawn.with_shell("lock.sh ${HOME}/.config/screenlock.png") end,
+        function() awful.spawn("sxlock -f '-lucy-tewi-medium-*-normal-*-11-*-*-*-*-*-*-*'", false) end,
         {description = "lock screen", group = "launcher"}
     )
 )
