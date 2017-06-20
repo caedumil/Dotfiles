@@ -159,6 +159,12 @@ setopt NO_BG_NICE
 setopt NO_HUP
 setopt NO_CHECK_JOBS
 
+# 256 colors workaround for Base16
+base="${ZDOTDIR:-${HOME}}/.base16-colors.sh"
+if [[ -x ${base} ]]; then
+    eval ${base}
+fi
+
 # ls colors
 if [[ -s ${ZDOTDIR:-${HOME}}/.dircolors ]]; then
     source <(dircolors --sh ${ZDOTDIR:-${HOME}}/.dircolors)
