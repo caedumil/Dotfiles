@@ -91,9 +91,9 @@ if term == 'linux'
     set background=dark
     colorscheme base16-default-dark
 else
-    set background=light
+    set background=dark
     let base16colorspace=256
-    colorscheme base16-default-light
+    colorscheme base16-default-dark
 endif
 
 " Change highlight colors
