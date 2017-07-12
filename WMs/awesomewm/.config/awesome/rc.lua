@@ -96,8 +96,8 @@ awful.layout.layouts = {
 layouts = awful.layout.layouts
 tags = {
     names = awful.util.tagnames,
-    layout = { layouts[1], layouts[5], layouts[5], layouts[4],
-               layouts[1], layouts[1], layouts[1], layouts[2] }
+    layout = { layouts[1], layouts[5], layouts[2], layouts[4],
+               layouts[1], layouts[1], layouts[1], layouts[1] }
 }
 -- }}}
 
