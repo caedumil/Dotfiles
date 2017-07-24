@@ -6,7 +6,10 @@
 ##################
 
 # Specify default video driver (see -vo help for a list).
-vo = opengl,xv
+vo = vdpau
+
+# Specify the hardware video decoding API.
+hwdec = vdpau
 
 # Multithreaded decoding of H264/MPEG-1/2 (valid: 1-16, 0 for autodetect).
 vd-lavc-threads = 0
@@ -25,13 +28,6 @@ monitoraspect = 16:10
 
 # Keep the player window on top of all other windows.
 ontop = no
-
-###################
-# opengl settings #
-###################
-
-# Windowing backend.
-opengl-backend = auto
 
 ##################
 # audio settings #
@@ -101,7 +97,7 @@ sub-auto = fuzzy
 # Extra directories to search for subtitles matching the video.
 # Multiple directories can be separated by ':'.
 # Paths can be relative to the file directory or absolute.
-sub-paths = Subs
+sub-file-paths = Subs
 
 # Change how some video outputs render OSD and subtiles.
 force-rgba-osd-rendering = no
