@@ -75,9 +75,19 @@ setprompt() {
         info+=( "[${git_info}]" )
     fi
 
+    # Last command status
+    if (( ${RETVAL} )); then
+        # fail - red / red
+        d_arrows="%F{1}❯❯❯%f"
+        v_arrows="%F{1}❮❮❮%f"
+    else
+        # success - red,yellow,green / green,yellow,red
+        d_arrows="%F{1}❯%f%F{3}❯%f%F{2}❯%f"
+        v_arrows="%F{2}❮%f%F{3}❮%f%F{1}❮%f"
+    fi
+
     # Key bindings mode
-    arrows="%F{1}❯%f%F{3}❯%f%F{2}❯%f"
-    [[ ${KEYMAP} == "vicmd" ]] && arrows="%F{2}❮%f%F{3}❮%f%F{1}❮%f"
+    [[ ${KEYMAP} == "vicmd" ]] && arrows="${v_arrows}" || arrows="${d_arrows}"
     info+=( "${arrows}" )
 
     # User
@@ -93,12 +103,14 @@ setprompt() {
 zle-keymap-select() {
     # update prompt for new keymap
     setprompt
-
     zle reset-prompt
 }
 zle -N zle-keymap-select
 
 precmd() {
+    # get last command exit status
+    RETVAL="${?}"
+
     # get git info
     vcs_info
 
