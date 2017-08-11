@@ -26,6 +26,6 @@ fi
 
 # Pacaur
 if [[ -f /etc/arch-release ]]; then
-    export AURDEST="${HOME}/Dev/Build/AUR"
-    export ASPROOT="${HOME}/Dev/Build/ABS"
+    export AURDEST="${HOME}/Code/Build/AUR"
+    export ASPROOT="${HOME}/Code/Build/ABS"
 fi
