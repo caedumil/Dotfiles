@@ -13,8 +13,8 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' get-revision true
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{2}●%f"               # green
-zstyle ':vcs_info:git:*' unstagedstr "%F{3}●%f"             # yellow
+zstyle ':vcs_info:git:*' stagedstr "%F{2}*%f"               # green
+zstyle ':vcs_info:git:*' unstagedstr "%F{3}*%f"             # yellow
 zstyle ':vcs_info:git:*' patch-format "%n/%c"
 zstyle ':vcs_info:git:*' formats "%F{3}%b%f|%c%u:"
 zstyle ':vcs_info:git:*' actionformats "%F{3}%b%f|%c%u|%a %m:"
@@ -27,10 +27,10 @@ zstyle ':vcs_info:git:*:-all-' command =git
     local -a gitstatus
 
     ahead=$(git rev-list --count ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null)
-    (( $ahead )) && gitstatus+=( "%F{2}↑${ahead}%f" )       # green
+    (( $ahead )) && gitstatus+=( "%F{2}#${ahead}%f" )       # green
 
     behind=$(git rev-list --count HEAD..${hook_com[branch]}@{upstream} 2>/dev/null)
-    (( $behind )) && gitstatus+=( "%F{1}↓${behind}%f" )     # red
+    (( $behind )) && gitstatus+=( "%F{1}#${behind}%f" )     # red
 
     hook_com[branch]+="${(j::)gitstatus}"
 }
@@ -39,12 +39,12 @@ zstyle ':vcs_info:git:*:-all-' command =git
     local -i untracked
 
     untracked=$(git status --porcelain --untracked-files --ignore-submodules | grep '^??' | wc -l)
-    (( $untracked )) && hook_com[unstaged]+="%F{1}●%f"      # red
+    (( $untracked )) && hook_com[unstaged]+="%F{1}*%f"      # red
 }
 
 +vi-git-stash() {
     if [[ -s ${hook_com[base]}/.git/refs/stash ]] ; then
-        hook_com[unstaged]+="%F{4}●%f"                      # blue
+        hook_com[unstaged]+="%F{4}*%f"                      # blue
     fi
 }
 # }}}
@@ -78,12 +78,12 @@ setprompt() {
     # Last command status
     if (( ${RETVAL} )); then
         # fail - red / red
-        d_arrows="%F{1}❯❯❯%f"
-        v_arrows="%F{1}❮❮❮%f"
+        d_arrows="%F{1}>>>%f"
+        v_arrows="%F{1}<<<%f"
     else
         # success - red,yellow,green / green,yellow,red
-        d_arrows="%F{1}❯%f%F{3}❯%f%F{2}❯%f"
-        v_arrows="%F{2}❮%f%F{3}❮%f%F{1}❮%f"
+        d_arrows="%F{1}>%f%F{3}>%f%F{2}>%f"
+        v_arrows="%F{2}<%f%F{3}<%f%F{1}<%f"
     fi
 
     # Key bindings mode
