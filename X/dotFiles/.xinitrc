@@ -44,7 +44,7 @@ setxkbmap -layout br
 
 # adjust X screen saver
 xset s off
-xset dpms 900 1800 3600
+xset dpms 1800 2700 3600
 
 # add fonts path to X
 xset +fp /usr/share/fonts/artwiz-fonts
