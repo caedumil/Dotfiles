@@ -62,7 +62,9 @@ setprompt() {
     cwd="${PWD/#${HOME}/~}"
     # if we aren't in ~
     if [[ ${cwd} != '~' ]]; then
-        cwd="${${${${(@j:/:M)${(@s:/:)cwd}##.#?}:h}%/}//\%/%%}/${${cwd:t}//\%/%%}"
+        head="${${${${(@j:/:M)${(@s:/:)cwd}##.#?}:h}%/}//\%/%%}"
+        tail="$(cut -c -20 <<< ${${cwd:t}//\%/%%} | sed -r 's/[[:space:]]$//')"
+        cwd="${head}/${tail}"
     fi
     info+=( "${dir_color}${cwd}%f" )
 
