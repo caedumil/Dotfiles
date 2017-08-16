@@ -54,9 +54,6 @@ setprompt() {
     local -a info
     local dir_color cwd git_info arrows
 
-    # Python virtualenv - magenta
-    [[ -n ${VIRTUAL_ENV} ]] && info+=( "(%F{5}${VIRTUAL_ENV:t}%f)" )
-
     # Remote connection - red@yellow
     [[ -n ${SSH_TTY} ]] && info+=( "%F{1}%n%f@%F{3}%m%f" )
 
@@ -74,6 +71,9 @@ setprompt() {
         git_info="$(sed -r 's/[| ]://;s/://' <<< ${vcs_info_msg_0_})"
         info+=( "[${git_info}]" )
     fi
+
+    # Python virtualenv - magenta
+    [[ -n ${VIRTUAL_ENV} ]] && info+=( "[%F{5}${VIRTUAL_ENV:t}%f]" )
 
     # Last command status
     if (( ${RETVAL} )); then
