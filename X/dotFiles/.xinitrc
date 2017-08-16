@@ -48,6 +48,7 @@ xset dpms 900 1800 3600
 
 # add fonts path to X
 xset +fp /usr/share/fonts/artwiz-fonts
+xset +fp /usr/share/fonts/local
 xset fp rehash
 
 # turn on numlock key
