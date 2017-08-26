@@ -383,7 +383,6 @@ alias fgrep='grep -F'
 alias aup='aunpack -e'
 alias feh='feh --scale-down'
 alias tmux='tmux -2'
-alias trc='transmission-remote-cli'
 # }}}
 
 # Colorized man pages {{{
