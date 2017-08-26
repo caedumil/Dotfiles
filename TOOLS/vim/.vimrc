@@ -136,7 +136,7 @@ set textwidth=0
 " Comma separated list of screen columns that are highloghted.
 " Can be an absolute number, or a number preceded with '+' or '-', which is
 " added to or substracted from 'textwidth'.
-set colorcolumn=81,101
+set colorcolumn=80,100
 
 " Show command in bottom bar
 set showcmd
