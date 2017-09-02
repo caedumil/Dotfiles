@@ -37,7 +37,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugins on GitHub
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -52,7 +52,7 @@ Plug 'dag/vim-fish'
 
 " Color schemes
 Plug 'chriskempson/base16-vim'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'mike-hearn/base16-vim-lightline'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -193,20 +193,27 @@ nnoremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap gV `[v`]
 " }}}
 
-" Vim Airline {{{
+" Vim Lightline {{{
+" Always show statusline
 set laststatus=2
-set ttimeoutlen=50
 
-let g:airline_theme='base16'
-let g:airline_powerline_fonts=0
-let g:airline_symbols_ascii=0
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+" Show mode only on statusline
+set noshowmode
 
-let g:airline#extensions#tabline#enabled=1
-
-let g:airline#extensions#branch#enabled=1
-let g:airline#extensions#branch#empty_message=''
+" Lightline config
+let g:lightline = {
+    \ 'colorscheme': 'base16_default_dark',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+    \   'right': [ [ 'lineinfo' ],
+    \              [ 'percent' ],
+    \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'fugitive#head'
+    \ },
+    \ }
 " }}}
 
 " Vim Syntastic {{{
