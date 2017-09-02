@@ -1,4 +1,5 @@
 #MPD Settings
+mpd_connection_timeout = "3"
 mpd_crossfade_time = "3"
 mpd_music_dir = "~/Private/Music"
 
