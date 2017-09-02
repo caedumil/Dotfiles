@@ -44,7 +44,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise'
-Plug 'calebsmith/vim-lambdify'
 Plug 'majutsushi/tagbar'            " requires ctags
 
 " Syntax highlighters
