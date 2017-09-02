@@ -85,19 +85,15 @@ let mapleader=","
 " Enable Syntax highlighting
 syntax enable
 
+" Set background mode
+set background=dark
+
 " Set color mode
 let term=$TERM
-if term == 'linux'
-    set background=dark
-    colorscheme base16-default-dark
-else
-    set background=dark
+if term != 'linux'
     let base16colorspace=256
-    colorscheme base16-default-dark
 endif
-
-" Change highlight colors
-highlight Search cterm=NONE ctermfg=8 ctermbg=18
+colorscheme base16-default-dark
 " }}}
 
 " Spaces & Tabs {{{
