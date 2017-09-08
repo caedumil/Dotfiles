@@ -639,7 +639,14 @@ awful.rules.rules = {
             placement = awful.placement.centered
         }
     },
-
+    {
+        rule = { class = "Vmware" },
+        properties = {
+            screen = 1,
+            tag = tags.names[5],
+            placement = awful.placement.centered
+        }
+    },
     -- Map applications to tag 6.
     {
         rule = { instance = "libreoffice" },
