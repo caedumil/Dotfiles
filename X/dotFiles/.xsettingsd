@@ -1,5 +1,5 @@
-Net/ThemeName       "Vertex"
-Net/IconThemeName   "Vertex-Icons"
+Net/ThemeName       "Plano"
+Net/IconThemeName   "Papirus-Light"
 Gtk/CursorThemeName "Adwaita"
 Gtk/FontName        "Open Sans 8"
 
