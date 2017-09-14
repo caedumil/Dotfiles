@@ -202,7 +202,7 @@ local pulseicon = wibox.widget({
     font = theme.icon_font,
     widget = wibox.widget.textbox
 })
-local pulsevol = lain.widget.pulseaudio({
+local pulsevol = lain.widget.pulse({
     settings = function()
         local fg = volume_now.muted == "no" and white or gray
         local info = string.format("%s:%s", volume_now.left, volume_now.right)
