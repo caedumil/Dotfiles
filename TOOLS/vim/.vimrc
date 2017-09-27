@@ -52,6 +52,7 @@ Plug 'dag/vim-fish'
 " Color schemes
 Plug 'chriskempson/base16-vim'
 Plug 'mike-hearn/base16-vim-lightline'
+Plug 'arcticicestudio/nord-vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -88,11 +89,7 @@ syntax enable
 set background=dark
 
 " Set color mode
-let term=$TERM
-if term != 'linux'
-    let base16colorspace=256
-endif
-colorscheme base16-default-dark
+colorscheme nord
 " }}}
 
 " Spaces & Tabs {{{
@@ -201,7 +198,7 @@ set noshowmode
 
 " Lightline config
 let g:lightline = {
-    \ 'colorscheme': 'base16_default_dark',
+    \ 'colorscheme': 'nord',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
