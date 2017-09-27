@@ -95,6 +95,10 @@ theme.titlebar_maximized_button_normal_inactive = theme.default_dir.."/titlebar/
 theme.titlebar_maximized_button_focus_inactive  = theme.default_dir.."/titlebar/maximized_focus_inactive.png"
 theme.titlebar_maximized_button_normal_active   = theme.default_dir.."/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active    = theme.default_dir.."/titlebar/maximized_focus_active.png"
+theme.notification_bg                           = theme.bg_normal
+theme.notification_fg                           = theme.fg_focus
+theme.notification_border_color                 = theme.bg_focus
+theme.notification_border_width                 = theme.border_width
 
 local markup = lain.util.markup
 local white  = theme.fg_focus
