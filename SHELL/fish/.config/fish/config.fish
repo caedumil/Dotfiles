@@ -2,6 +2,15 @@
 # Fish Environment
 #
 
+# Disable greeting
+set fish_greeting ""
+
+# Enable vi mode
+fish_vi_cursor
+set -U fish_cursor_default line
+set -U fish_cursor_insert line
+set -U fish_cursor_visual line
+
 # SSH & GPG-agent
 set -x SSH_AUTH_SOCK /run/user/(id -u $USER)/gnupg/S.gpg-agent.ssh
 
@@ -20,10 +29,15 @@ set -x LESSHISTFILE -
 set -x EDITOR vim
 set -x VISUAL $EDITOR
 
+# Path
+if test -d $HOME/.local/bin
+    set -x PATH $HOME/.local/bin $PATH
+end
+
 # Pacaur
 if test -f /etc/arch-release
-    set -x AURDEST $HOME/Dev/Build/AUR
-    set -x ASPROOT $HOME/Dev/Build/ABS
+    set -x AURDEST $HOME/Code/Build/AUR
+    set -x ASPROOT $HOME/Code/Build/ABS
 end
 
 
@@ -42,9 +56,9 @@ set __fish_git_prompt_color_upstream_behind red
 
 # Status chars
 set __fish_git_prompt_char_stateseparator "|"
-set __fish_git_prompt_char_stagedstate (set_color green)"●"(set_color normal)
-set __fish_git_prompt_char_dirtystate (set_color yellow)"●"(set_color normal)
-set __fish_git_prompt_char_untrackedfiles (set_color red)"●"(set_color normal)
-set __fish_git_prompt_char_stashstate (set_color blue)"●"(set_color normal)
-set __fish_git_prompt_char_upstream_ahead (set_color green)"↑"(set_color normal)
-set __fish_git_prompt_char_upstream_behind (set_color red)"↓"(set_color normal)
+set __fish_git_prompt_char_stagedstate (set_color green)"*"(set_color normal)
+set __fish_git_prompt_char_dirtystate (set_color yellow)"*"(set_color normal)
+set __fish_git_prompt_char_untrackedfiles (set_color red)"*"(set_color normal)
+set __fish_git_prompt_char_stashstate (set_color blue)"*"(set_color normal)
+set __fish_git_prompt_char_upstream_ahead (set_color green)"+"(set_color normal)
+set __fish_git_prompt_char_upstream_behind (set_color red)"-"(set_color normal)

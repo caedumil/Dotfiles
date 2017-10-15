@@ -1,4 +1,4 @@
-function axe
+function aup
     aunpack -e $argv
 end
 
