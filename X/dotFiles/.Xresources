@@ -41,8 +41,23 @@ URxvt.clipboard.pastecmd:       xsel -bo
 rofi.hide-scrollbar:            true
 rofi.font:                      artwiz lime 8
 rofi.terminal:                  termite
-rofi.color-enabled:             true
-rofi.color-normal:              nord0,nord5,nord0,nord5,nord0
-rofi.color-urgent:              nord0,nord8,nord0,nord8,nord0
-rofi.color-active:              nord0,nord12,nord0,nord12,nord0
-rofi.color-window:              nord0,nord5
+!-------------------------------------------------------------------------------
+! Rofi color theme
+!
+! Based on the Gruvbox color scheme for Vim by morhetz
+! https://github.com/morhetz/gruvbox
+!
+! File: gruvbox-dark.theme
+! Desc: Gruvbox dark color theme for Rofi
+! Author: bardisty <b@bah.im>
+! Source: https://github.com/bardisty/gruvbox-rofi
+! Modified: Sat Oct 22 2016 03:11:40 PDT -0700
+!-------------------------------------------------------------------------------
+! Enable the extended coloring options
+rofi.color-enabled: true
+!                  bg       border   separator
+rofi.color-window: #282828, #a89984, #a89984
+!                  bg       fg       bg-alt   hl-bg    hl-fg
+rofi.color-normal: #282828, #ebdbb2, #32302f, #665c54, #fbf1c7
+rofi.color-active: #d79921, #282828, #d79921, #fabd2f, #282828
+rofi.color-urgent: #cc241d, #282828, #cc241d, #fb4934, #282828

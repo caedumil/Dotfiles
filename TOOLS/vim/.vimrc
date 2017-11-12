@@ -53,6 +53,7 @@ Plug 'dag/vim-fish'
 Plug 'chriskempson/base16-vim'
 Plug 'mike-hearn/base16-vim-lightline'
 Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -89,7 +90,7 @@ syntax enable
 set background=dark
 
 " Set color mode
-colorscheme nord
+colorscheme gruvbox
 " }}}
 
 " Spaces & Tabs {{{
@@ -198,7 +199,7 @@ set noshowmode
 
 " Lightline config
 let g:lightline = {
-    \ 'colorscheme': 'nord',
+    \ 'colorscheme': 'gruvbox',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
