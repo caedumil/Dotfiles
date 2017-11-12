@@ -173,10 +173,16 @@ setopt NO_BG_NICE
 setopt NO_HUP
 setopt NO_CHECK_JOBS
 
-# 256 colors workaround for Base16
+# 256 colors workaround for some terminal emulators
+# base16 shell colorscheme
 base="${ZDOTDIR:-${HOME}}/.base16-colors.sh"
 if [[ -x ${base} ]]; then
     eval ${base}
+fi
+# shell colorscheme
+colors="${ZDOTDIR:-${HOME}}/.colors.sh"
+if [[ -x ${colors} ]]; then
+    eval ${colors}
 fi
 
 # ls colors
