@@ -199,7 +199,7 @@ awful.util.tasklist_buttons = gears.table.join(
 --    end
 --end
 function set_wallpaper(s)
-    awful.spawn.with_shell("${HOME}/.fehbg")
+    awful.spawn.with_shell("sh -c '${HOME}/.fehbg'")
 end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
