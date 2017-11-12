@@ -13,7 +13,7 @@
 
 " VIM mode {{{
 " Force 256 colors
-"set t_Co=256
+set t_Co=256
 
 " Disable VI compatibility mode
 set nocompatible
