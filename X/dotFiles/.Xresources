@@ -36,3 +36,13 @@ URxvt.keysym.M-c:               perl:clipboard:copy
 URxvt.keysym.M-v:               perl:clipboard:paste
 URxvt.clipboard.copycmd:        xsel -bi
 URxvt.clipboard.pastecmd:       xsel -bo
+
+!! Rofi --------------------------------------------------------------------- !!
+rofi.hide-scrollbar:            true
+rofi.font:                      artwiz lime 8
+rofi.terminal:                  termite
+rofi.color-enabled:             true
+rofi.color-normal:              nord0,nord5,nord0,nord5,nord0
+rofi.color-urgent:              nord0,nord8,nord0,nord8,nord0
+rofi.color-active:              nord0,nord12,nord0,nord12,nord0
+rofi.color-window:              nord0,nord5
