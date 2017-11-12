@@ -36,16 +36,3 @@ URxvt.keysym.M-c:               perl:clipboard:copy
 URxvt.keysym.M-v:               perl:clipboard:paste
 URxvt.clipboard.copycmd:        xsel -bi
 URxvt.clipboard.pastecmd:       xsel -bo
-
-!! Dzen --------------------------------------------------------------------- !!
-dzen2.font:                     -artwiz-lime-medium-*-normal-*-10-*-*-*-*-*-*-*
-dzen2.background:               nord0
-dzen2.foreground:               nord5
-
-!! Dmenu2 ------------------------------------------------------------------- !!
-dmenu.font:                     -artwiz-lime-medium-*-normal-*-10-*-*-*-*-*-*-*
-dmenu.background:               nord7
-dmenu.foreground:               nord5
-dmenu.selbackground:            nord5
-dmenu.selforeground:            nord0
-
