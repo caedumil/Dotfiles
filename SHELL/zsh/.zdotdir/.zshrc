@@ -182,7 +182,7 @@ fi
 # shell colorscheme
 colors="${ZDOTDIR:-${HOME}}/.colors.sh"
 if [[ -x ${colors} ]]; then
-    eval ${colors}
+    source ${colors}
 fi
 
 # ls colors
