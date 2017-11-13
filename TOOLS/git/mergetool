@@ -1,0 +1,9 @@
+#diffconflicts -> 'https://github.com/whiteinge/dotfiles/blob/master/bin/diffconflicts'
+
+[merge]
+tool = diffconflicts
+
+[mergetool "diffconflicts"]
+cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+trustExitCode = true
+keepBackup = false
