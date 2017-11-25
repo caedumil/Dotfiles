@@ -64,16 +64,16 @@ call plug#end()
 set viminfo+=n~/.vim/viminfo
 
 " Store swap files in fixed location, not current directory
-if isdirectory($HOME . '/.vim/swap') == 0
-    :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
+set directory=~/.vim/tmp/swap//
+if !isdirectory(expand(&directory))
+    call mkdir(expand(&directory), 'p')
 endif
-set directory=~/.vim/swap//
 
 " Allows you to use undos after exiting and restarting
-if isdirectory($HOME . '/.vim/undo') == 0
-    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+set undodir=~/.vim/tmp/undo//
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), 'p')
 endif
-set undodir=~/.vim/undo//
 set undofile
 "}}}
 
