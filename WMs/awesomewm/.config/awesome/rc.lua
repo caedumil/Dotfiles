@@ -438,6 +438,16 @@ globalkeys = gears.table.join(
         { }, "XF86Mail",
         function() awful.spawn("sxlock -f '-misc-ohsnap-medium-*-normal-*-11-*-*-*-*-*-*-*'", false) end,
         {description = "lock screen", group = "launcher"}
+    ),
+    awful.key(
+        { modkey, }, "XF86HomePage",
+        function() awful.spawn("firefox") end,
+        {description = "Firefox Web Browser", group = "launcher"}
+    ),
+    awful.key(
+        { modkey, "Shift" }, "XF86HomePage",
+        function() awful.spawn("firefox --private-window") end,
+        {description = "Firefox Web Browser - Private Window", group = "launcher"}
     )
 )
 
