@@ -46,43 +46,51 @@ size_hints = false
 #roundness = 2.0
 
 [colors]
-# hard contrast:
-#background = #1d2021
-# default contrast
-background = #282828
-# soft contrast:
-#background = #32302f
-foreground = #ebdbb2
-foreground_bold = #ebdbb2
+# Base16 Tomorrow
+# Author: Chris Kempson (http://chriskempson.com)
 
-# dark0 + gray
-color0 = #282828
-color8 = #928374
+foreground          = #4d4d4c
+foreground_bold     = #282a2e
+cursor              = #282a2e
+cursor_foreground   = #ffffff
+background          = rgba(255, 255, 255)
 
-# neutral_red + bright_red
-color1 = #cc241d
-color9 = #fb4934
+# 16 color space
 
-# neutral_green + bright_green
-color2 = #98971a
-color10 = #b8bb26
+# Black, Gray, Silver, White
+color0  = #ffffff
+color8  = #8e908c
+color7  = #4d4d4c
+color15 = #1d1f21
 
-# neutral_yellow + bright_yellow
-color3 = #d79921
-color11 = #fabd2f
+# Red
+color1  = #c82829
+color9  = #c82829
 
-# neutral_blue + bright_blue
-color4 = #458588
-color12 = #83a598
+# Green
+color2  = #718c00
+color10 = #718c00
 
-# neutral_purple + bright_purple
-color5 = #b16286
-color13 = #d3869b
+# Yellow
+color3  = #eab700
+color11 = #eab700
 
-# neutral_aqua + faded_aqua
-color6 = #689d6a
-color14 = #8ec07c
+# Blue
+color4  = #4271ae
+color12 = #4271ae
 
-# light4 + light1
-color7 = #a89984
-color15 = #ebdbb2
+# Purple
+color5  = #8959a8
+color13 = #8959a8
+
+# Teal
+color6  = #3e999f
+color14 = #3e999f
+
+# Extra colors
+color16 = #f5871f
+color17 = #a3685a
+color18 = #e0e0e0
+color19 = #d6d6d6
+color20 = #969896
+color21 = #282a2e

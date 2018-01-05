@@ -85,10 +85,11 @@ let mapleader=","
 syntax enable
 
 " Set background mode
-set background=dark
+set background=light
 
 " Set color mode
-colorscheme gruvbox
+let base16colorspace=256
+colorscheme base16-tomorrow
 " }}}
 
 " Spaces & Tabs {{{
@@ -197,7 +198,7 @@ set noshowmode
 
 " Lightline config
 let g:lightline = {
-    \ 'colorscheme': 'gruvbox',
+    \ 'colorscheme': 'base16_tomorrow',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
