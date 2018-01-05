@@ -52,8 +52,6 @@ Plug 'dag/vim-fish'
 " Color schemes
 Plug 'chriskempson/base16-vim'
 Plug 'mike-hearn/base16-vim-lightline'
-Plug 'arcticicestudio/nord-vim'
-Plug 'morhetz/gruvbox'
 
 " Add plugins to &runtimepath
 call plug#end()
