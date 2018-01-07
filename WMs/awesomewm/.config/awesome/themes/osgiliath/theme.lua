@@ -216,14 +216,6 @@ local pulsevol = lain.widget.pulse({
 })
 -- }}}
 
--- {{{ Prompt
-local prompticon = wibox.widget({
-    text = theme.widget_run,
-    font = theme.icon_font,
-    widget = wibox.widget.textbox
-})
--- }}}
-
 -- {{{ Separator
 local spricon = wibox.widget({
     text = theme.widget_sep,
@@ -247,9 +239,6 @@ function theme.at_screen_connect(s)
 
     -- Tags
     awful.tag(tags.names, s, tags.layout)
-
-    -- Create a promptbox for each screen
-    s.mypromptbox = awful.widget.prompt({ fg = white })
 
     -- Textual layoutbox
     s.mytxtlayoutbox = wibox.widget({
@@ -308,9 +297,6 @@ function theme.at_screen_connect(s)
             s.mytaglist,
             spr,
             s.mytxtlayoutbox,
-            spr,
-            prompticon,
-            s.mypromptbox,
             spr,
         },
         s.mytasklist, -- Middle widget
