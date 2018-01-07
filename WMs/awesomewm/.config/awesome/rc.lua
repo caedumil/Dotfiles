@@ -1,7 +1,8 @@
+-- vim:foldmethod=marker:foldlevel=0
 --  [[
---
+
 --  AwesomeWM configuration file
---
+
 --  ]]
 
 
@@ -29,7 +30,8 @@ require("awful.hotkeys_popup.keys.vim")
 -- Handle runtime errors after startup
 do
     local in_error = false
-    awesome.connect_signal("debug::error",
+    awesome.connect_signal(
+        "debug::error",
         function(err)
             -- Make sure we don't go into an endless error loop
             if in_error then return end
@@ -51,7 +53,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 theme_name = "osgiliath"
-beautiful.init(os.getenv("HOME").. "/.config/awesome/themes/" .. theme_name .. "/theme.lua")
+beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/" .. theme_name .. "/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "termite"
@@ -96,8 +98,16 @@ awful.layout.layouts = {
 layouts = awful.layout.layouts
 tags = {
     names = awful.util.tagnames,
-    layout = { layouts[1], layouts[5], layouts[2], layouts[4],
-               layouts[1], layouts[1], layouts[1], layouts[1] }
+    layout = {
+        layouts[1],
+        layouts[5],
+        layouts[2],
+        layouts[4],
+        layouts[1],
+        layouts[1],
+        layouts[1],
+        layouts[1]
+    }
 }
 -- }}}
 
@@ -125,6 +135,106 @@ mymainmenu = awful.menu(
 )
 -- }}}
 
+-- Wallpaper {{{
+function set_wallpaper(s)
+    -- Wallpaper
+    if beautiful.wallpaper then
+        local wallpaper = beautiful.wallpaper
+        -- If wallpaper is a function, call it with the screen
+        if type(wallpaper) == "function" then
+            wallpaper = wallpaper(s)
+        end
+        gears.wallpaper.maximized(wallpaper, s, true)
+    end
+end
+-- }}}
+
+-- {{{ Wibar
+local function update_txt_layoutbox(s)
+    -- Writes a string representation of the current layout in a textbox widget
+    local txt_l = beautiful["layout_txt_" .. awful.layout.getname(awful.layout.get(s))] or ""
+    local fg = beautiful["fg_normal_alt"]
+    local txt = "<span color='" .. fg .. "'>" .. txt_l .. "</span>"
+    s.mytxtlayoutbox:set_markup(txt)
+end
+
+function at_screen_connect(s)
+    -- Wallpaper
+    set_wallpaper(s)
+
+    -- Tags
+    awful.tag(tags.names, s, tags.layout)
+
+    -- Textual layoutbox
+    s.mytxtlayoutbox = wibox.widget({
+        font = beautiful.icon_font,
+        widget = wibox.widget.textbox
+    })
+    update_txt_layoutbox(s)
+    awful.tag.attached_connect_signal(
+        s,
+        "property::selected",
+        function() update_txt_layoutbox(s) end
+    )
+    awful.tag.attached_connect_signal(
+        s,
+        "property::layout",
+        function() update_txt_layoutbox(s) end
+    )
+    s.mytxtlayoutbox:buttons(
+        gears.table.join(
+            awful.button({}, 4, function() awful.layout.inc(-1) end),
+            awful.button({}, 5, function() awful.layout.inc(1) end)
+        )
+    )
+
+    -- Create a taglist widget
+    s.mytaglist = awful.widget.taglist(
+        s,
+        awful.widget.taglist.filter.all,
+        awful.util.taglist_buttons,
+        { font = beautiful.icon_font }
+    )
+
+    -- Create a tasklist widget
+    s.mytasklist = awful.widget.tasklist(
+        s,
+        awful.widget.tasklist.filter.currenttags,
+        awful.util.tasklist_buttons,
+        { align = "center" }
+    )
+
+    -- Create the wibox
+    s.mywibox = awful.wibar(
+        {
+            position = "top",
+            screen = s,
+            height = 20,
+            bg = beautiful.bg_normal,
+            fg = beautiful.fg_normal
+        }
+    )
+
+    -- Add widgets to the wibox
+    s.mywibox:setup {
+        layout = wibox.layout.align.horizontal,
+        {   -- Left widgets
+            layout = wibox.layout.fixed.horizontal,
+            beautiful.wibox.sep,
+            s.mytaglist,
+            beautiful.wibox.sep,
+            s.mytxtlayoutbox,
+            beautiful.wibox.sep,
+        },
+        s.mytasklist, -- Middle widget
+        {   -- Right widgets
+            layout = wibox.layout.fixed.horizontal,
+            unpack(beautiful.wibox.rightside)
+        },
+    }
+end
+-- }}}
+
 -- {{{ Wibar bindings
 -- Create a wibox for each screen and add it
 awful.util.taglist_buttons = gears.table.join(
@@ -144,8 +254,8 @@ awful.util.taglist_buttons = gears.table.join(
             end
         end
     ),
-    awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
-    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
+    awful.button({ }, 4, function(t) awful.tag.viewprev(t.screen) end),
+    awful.button({ }, 5, function(t) awful.tag.viewnext(t.screen) end)
 )
 
 awful.util.tasklist_buttons = gears.table.join(
@@ -168,32 +278,18 @@ awful.util.tasklist_buttons = gears.table.join(
         end
     ),
     awful.button({ }, 3, function(c) c:kill() end),
-    awful.button({ }, 4, function() awful.client.focus.byidx(1) end),
-    awful.button({ }, 5, function() awful.client.focus.byidx(-1) end)
+    awful.button({ }, 4, function() awful.client.focus.byidx(-1) end),
+    awful.button({ }, 5, function() awful.client.focus.byidx(1) end)
 )
 -- }}}
 
 -- {{{ Screen
---function set_wallpaper(s)
---    -- Wallpaper
---    if beautiful.wallpaper then
---        local wallpaper = beautiful.wallpaper
---        -- If wallpaper is a function, call it with the screen
---        if type(wallpaper) == "function" then
---            wallpaper = wallpaper(s)
---        end
---        gears.wallpaper.maximized(wallpaper, s, true)
---    end
---end
-function set_wallpaper(s)
-    awful.spawn.with_shell("sh -c '${HOME}/.fehbg'")
-end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
 -- Create wibox for each screen and add it
-awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
+awful.screen.connect_for_each_screen(function(s) at_screen_connect(s) end)
 -- }}}
 
 -- {{{ Mouse bindings
@@ -561,7 +657,8 @@ end
 clientbuttons = gears.table.join(
     awful.button({ }, 1, function(c) client.focus = c; c:raise() end),
     awful.button({ modkey }, 1, awful.mouse.client.move),
-    awful.button({ modkey }, 3, awful.mouse.client.resize))
+    awful.button({ modkey }, 3, awful.mouse.client.resize)
+)
 
 -- Set keys
 root.keys(globalkeys)
@@ -661,7 +758,8 @@ awful.rules.rules = {
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
-client.connect_signal("manage",
+client.connect_signal(
+    "manage",
     function(c)
         -- Set the windows at the slave,
         -- i.e. put it at the end of others instead of setting it master.
@@ -677,7 +775,8 @@ client.connect_signal("manage",
 )
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
-client.connect_signal("request::titlebars",
+client.connect_signal(
+    "request::titlebars",
     function(c)
         -- buttons for the titlebar
         local buttons = gears.table.join(
@@ -725,7 +824,8 @@ client.connect_signal("request::titlebars",
 )
 
 -- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter",
+client.connect_signal(
+    "mouse::enter",
     function(c)
         if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
         and awful.client.focus.filter(c) then
@@ -737,5 +837,3 @@ client.connect_signal("mouse::enter",
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
-
--- vim:foldmethod=marker:foldlevel=0
