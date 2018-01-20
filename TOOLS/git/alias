@@ -1,2 +1,2 @@
 [alias]
-	lg = log --graph --all --abbrev-commit --topo-order --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	lg = log --graph --all --abbrev-commit --topo-order --pretty=format:'%C(red)%h (%G?)%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)'
