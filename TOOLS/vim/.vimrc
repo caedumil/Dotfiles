@@ -45,6 +45,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise'
 Plug 'majutsushi/tagbar'            " requires ctags
+Plug 'bkad/CamelCaseMotion'
 
 " Syntax highlighters
 Plug 'dag/vim-fish'
@@ -237,6 +238,10 @@ let g:syntastic_cpp_compiler_options='-std=c++14'
 nmap <F8> :TagbarToggle<CR>
 " }}}
 
+" Vim CamelCaseMotion {{{
+call camelcasemotion#CreateMotionMappings('<leader>')
+" }}}
+
 " Custom functions & mappings {{{
 " Don't open command history
 map q: :q
@@ -256,8 +261,8 @@ function! ToggleNumber()
 endfunction
 
 " Strips trailing whitespaces.
-nnoremap <leader>w :call <SID>StripWhitespaces()<CR>
-function! <SID>StripWhitespaces()
+" nnoremap <leader>w :call StripWhitespaces()<CR>
+function! StripWhitespaces()
     let _s=@/
     let l = line(".")
     let c = col(".")
