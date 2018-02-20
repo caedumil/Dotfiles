@@ -183,8 +183,8 @@ function at_screen_connect(s)
     )
     s.mytxtlayoutbox:buttons(
         gears.table.join(
-            awful.button({}, 4, function() awful.layout.inc(-1) end),
-            awful.button({}, 5, function() awful.layout.inc(1) end)
+            awful.button({}, 1, function() awful.layout.inc(1) end),
+            awful.button({}, 3, function() awful.layout.inc(-1) end)
         )
     )
 
