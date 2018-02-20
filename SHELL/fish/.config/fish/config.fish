@@ -34,11 +34,8 @@ if test -d $HOME/.local/bin
     set -x PATH $HOME/.local/bin $PATH
 end
 
-# Pacaur
-if test -f /etc/arch-release
-    set -x AURDEST $HOME/Code/Build/AUR
-    set -x ASPROOT $HOME/Code/Build/ABS
-end
+# Go path
+set -x GOPATH $HOME/.local/go
 
 
 #
