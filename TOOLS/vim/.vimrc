@@ -46,6 +46,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise'
 Plug 'majutsushi/tagbar'            " requires ctags
 Plug 'bkad/CamelCaseMotion'
+Plug 'Yggdroot/indentLine'
 
 " Syntax highlighters
 Plug 'dag/vim-fish'
