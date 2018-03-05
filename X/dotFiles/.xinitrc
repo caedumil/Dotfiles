@@ -61,4 +61,4 @@ xsettingsd &
 compton --daemon
 
 # Load WM
-exec awesome
+exec herbstluftwm
