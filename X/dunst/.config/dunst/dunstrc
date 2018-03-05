@@ -1,3 +1,4 @@
+# vim:filetype=conf
 [global]
     font = artwiz lime 8
 
@@ -36,7 +37,6 @@
     # ignore newlines '\n' in notifications
     ignore_newline = no
 
-
     # the geometry of the window
     # geometry [{width}]x{height}][+/-{x}+/-{y}]
     # The geometry of the message window.
@@ -49,7 +49,7 @@
     # The width can be negative. In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
     # geometry = "300x5-30+20"
-    geometry = "320x15+560+11"
+    geometry = "350x3+545-30"
 
     # The transparency of the window. range: [0; 100]
     # This option will only work if a compositing windowmanager is present (e.g. xcompmgr, compiz, etc..)
@@ -82,17 +82,17 @@
     # The height of a single line. If the height is smaller than the font height,
     # it will get raised to the font height.
     # This adds empty space above and under the text.
-    line_height = 0
+    line_height = 30
 
     # Draw a line of 'separatpr_height' pixel height between two notifications.
     # Set to 0 to disable
     separator_height = 2;
 
     # padding between text and separator
-    padding = 8
+    padding = 10
 
     # horizontal padding
-    horizontal_padding = 8
+    horizontal_padding = 10
 
     # Define a color for the separator.
     # possible values are:
@@ -108,14 +108,14 @@
     startup_notification = false
 
     # dmenu path
-    #dmenu = /usr/bin/dmenu -p dunst:
+    dmenu = /usr/bin/rofi -dmenu -p 'dunst: '
 
     # browser for opening urls in context menu
-    #browser = /usr/bin/xdg-open
+    browser = /usr/bin/xdg-open
 
 [frame]
-    width = 1
-    color = "#405c79"
+    width = 4
+    color = "#8e908c"
 
 [shortcuts]
     # shortcuts are specified as [modifier+][modifier+]...key
@@ -130,47 +130,29 @@
     close_all = mod4+shift+n
 
     # redisplay last message(s)
-    # On the US keyboard layout 'grave' is normally above TAB and left of '1'.
-    history = mod4+ctrl+n
+    history = mod4+m
 
     # context menu
-    #context = mod4+apostrophe
+    context = mod4+shift+m
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the '#' and following  would be interpreted as a comment.
-    background = "#f7f9fb"
-    foreground = "#aabcce"
+    background = "#ffffff"
+    foreground = "#8e908c"
     timeout = 10
 
 [urgency_normal]
-    background = "#f7f9fb"
-    foreground = "#405c79"
+    background = "#ffffff"
+    foreground = "#4d4d4d"
     timeout = 10
 
 [urgency_critical]
-    background = "#405c79"
-    foreground = "#f7f9fb"
+    background = "#eab700"
+    foreground = "#4d4d4d"
     timeout = 0
 
-
-# Every section that isn't one of the above is interpreted as a rules
-# to override settings for certain messages.
-# Messages can be matched by 'appname', 'summary', 'body' or 'icon'
-# and you can override the 'timeout', 'urgency', 'foreground', 'background'
-# and 'format'.
-# Shell-like globbing will get expanded.
-#
-# SCRIPTING
-# you can specify a script that gets run when the rule matches by setting
-# the 'script' option.
-# The script will be called as follows:
-# script appname summary body icon urgency
-# where urgency can be "LOW", "NORMAL" or "CRITICAL".
-#
-# NOTE: if you don't want a notification to be displayed, set the format to ""
-# NOTE: It might be helpful to run dunst -print in a terminal in order to find
-# fitting options for rules.
-
-
-# vim:filetype=conf
+# RULES
+[wmtags]
+    appname = "wmtags"
+    format = "%b"
