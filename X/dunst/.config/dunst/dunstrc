@@ -1,6 +1,6 @@
 # vim:filetype=conf
 [global]
-    font = artwiz lime 8
+    font = Misc Ohsnap, Wuncon Siji 8
 
     # The format of the message. Possible variables are:
     #   %a  appname
@@ -49,7 +49,7 @@
     # The width can be negative. In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
     # geometry = "300x5-30+20"
-    geometry = "350x3+545-30"
+    geometry = "450x3+495-30"
 
     # The transparency of the window. range: [0; 100]
     # This option will only work if a compositing windowmanager is present (e.g. xcompmgr, compiz, etc..)
@@ -153,6 +153,24 @@
     timeout = 0
 
 # RULES
+# Messages can be matched by 'appname', 'summary', 'body' or 'icon'
+# and you can override the 'timeout', 'urgency', 'foreground', 'background'
+# and 'format'.
+# Shell-like globbing will be expanded.
 [wmtags]
     appname = "wmtags"
     format = "%b"
+    timeout = 1
+
+[wminfo]
+    appname = "wminfobar"
+    format = "%b"
+
+[volume-unmute]
+    appname = "ponymix"
+    format = "Volume: %p"
+
+[volume-mute]
+    appname = "ponymix"
+    icon = "notification-audio-volume-muted"
+    format = "Volume: %p (Muted)"
