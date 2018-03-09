@@ -1,5 +1,5 @@
 configuration {
-    font: "artwiz lime 8";
+    font: "misc ohsnap 8";
     terminal: "termite";
 }
 /**
@@ -122,7 +122,7 @@ configuration {
     text-color:       @selected-normal-foreground;
 }
 #inputbar {
-    spacing:    0;
+    spacing:    5;
     text-color: @normal-foreground;
     padding:    1px ;
 }
