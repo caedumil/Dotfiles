@@ -58,7 +58,7 @@ numlockx on
 xsettingsd &
 
 # Composite manager
-compton --daemon
+compton &
 
 # Load WM
 exec herbstluftwm
