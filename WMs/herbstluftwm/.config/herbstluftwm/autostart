@@ -218,8 +218,6 @@ hc keybind XF86AudioNext        spawn playerctl next
 hc keybind $Mod-XF86Mail spawn sxlock -f '-misc-ohsnap-medium-*-normal-*-11-*-*-*-*-*-*-*'
 
 # info bar
-FG="#$(getXresColor.sh color7)"
-BG="#$(getXresColor.sh color0)"
 hc keybind $Mod-F1 spawn ${HOME}/.config/herbstluftwm/bin/infobar.py
 
 # tags notification
