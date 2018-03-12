@@ -31,9 +31,13 @@ def datetime():
 def isConnected(technology):
     path = '/net/connman/technology/{}'.format(technology)
     bus = dbus.SystemBus()
-    obj = bus.get_object('net.connman', path)
-    iface = dbus.Interface(obj, 'net.connman.Technology')
-    return iface.GetProperties().get('Connected')
+    try:
+        obj = bus.get_object('net.connman', path)
+    except:
+        return False
+    else:
+        iface = dbus.Interface(obj, 'net.connman.Technology')
+        return iface.GetProperties().get('Connected')
 
 
 def connection():
