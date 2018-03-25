@@ -87,11 +87,11 @@ let mapleader=","
 syntax enable
 
 " Set background mode
-set background=light
+set background=dark
 
 " Set color mode
 let base16colorspace=256
-colorscheme base16-tomorrow
+colorscheme base16-ashes
 " }}}
 
 " Spaces & Tabs {{{
@@ -200,7 +200,7 @@ set noshowmode
 
 " Lightline config
 let g:lightline = {
-    \ 'colorscheme': 'base16_tomorrow',
+    \ 'colorscheme': 'base16_ashes',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],

@@ -1,30 +1,26 @@
-configuration {
-    font: "misc ohsnap 8";
-    terminal: "termite";
-}
 /**
- * Base16 Tomorrow ROFI Color theme
- * User: Chris Kempson (http://chriskempson.com)
+ * Base16 Ashes ROFI Color theme
+ * User: Jannik Siebert (https://github.com/janniks)
  * Copyright: Andrea Scarpino
  */
 * {
     selected-normal-foreground:  @lightbg;
-    foreground:                  rgba ( 77, 77, 76, 100 % );
+    foreground:                  rgba ( 199, 204, 209, 100 % );
     normal-foreground:           @foreground;
     alternate-normal-background: @lightbg;
-    red:                         rgba ( 200, 40, 41, 100 % );
+    red:                         rgba ( 199, 174, 149, 100 % );
     selected-urgent-foreground:  @background;
-    blue:                        rgba ( 66, 113, 174, 100 % );
+    blue:                        rgba ( 174, 149, 199, 100 % );
     urgent-foreground:           @red;
     alternate-urgent-background: @lightbg;
     active-foreground:           @blue;
-    lightbg:                     rgba ( 224, 224, 224, 100 % );
+    lightbg:                     rgba ( 57, 63, 69, 100 % );
     selected-active-foreground:  @background;
     alternate-active-background: @lightbg;
-    background:                  rgba ( 255, 255, 255, 100 % );
+    background:                  rgba ( 28, 32, 35, 100 % );
     alternate-normal-foreground: @foreground;
     normal-background:           @background;
-    lightfg:                     rgba ( 40, 42, 46, 100 % );
+    lightfg:                     rgba ( 223, 226, 229, 100 % );
     selected-normal-background:  @lightfg;
     border-color:                @foreground;
     spacing:                     2;
@@ -32,29 +28,30 @@ configuration {
     urgent-background:           @background;
     selected-urgent-background:  @red;
     alternate-urgent-foreground: @red;
-    background-color:            rgba ( 255, 255, 255, 0 % );
+    background-color:            rgba ( 28, 32, 35, 0 % );
     alternate-active-foreground: @blue;
     active-background:           @background;
     selected-active-background:  @blue;
 }
-#window {
+window {
+    font:             "misc ohsnap 8";
     background-color: @background;
     border:           1;
     padding:          5;
 }
-#mainbox {
+mainbox {
     border:  0;
     padding: 0;
 }
-#message {
+message {
     border:       1px dash 0px 0px ;
     border-color: @separatorcolor;
     padding:      1px ;
 }
-#textbox {
+textbox {
     text-color: @foreground;
 }
-#listview {
+listview {
     fixed-height: 0;
     border:       2px dash 0px 0px ;
     border-color: @separatorcolor;
@@ -62,79 +59,86 @@ configuration {
     scrollbar:    false;
     padding:      2px 0px 0px ;
 }
-#element {
+element {
     border:  0;
     padding: 1px ;
 }
-#element.normal.normal {
+element normal.normal {
     background-color: @normal-background;
     text-color:       @normal-foreground;
 }
-#element.normal.urgent {
+element normal.urgent {
     background-color: @urgent-background;
     text-color:       @urgent-foreground;
 }
-#element.normal.active {
+element normal.active {
     background-color: @active-background;
     text-color:       @active-foreground;
 }
-#element.selected.normal {
+element selected.normal {
     background-color: @selected-normal-background;
     text-color:       @selected-normal-foreground;
 }
-#element.selected.urgent {
+element selected.urgent {
     background-color: @selected-urgent-background;
     text-color:       @selected-urgent-foreground;
 }
-#element.selected.active {
+element selected.active {
     background-color: @selected-active-background;
     text-color:       @selected-active-foreground;
 }
-#element.alternate.normal {
+element alternate.normal {
     background-color: @alternate-normal-background;
     text-color:       @alternate-normal-foreground;
 }
-#element.alternate.urgent {
+element alternate.urgent {
     background-color: @alternate-urgent-background;
     text-color:       @alternate-urgent-foreground;
 }
-#element.alternate.active {
+element alternate.active {
     background-color: @alternate-active-background;
     text-color:       @alternate-active-foreground;
 }
-#scrollbar {
+scrollbar {
     width:        4px ;
     border:       0;
     handle-color: @normal-foreground;
     handle-width: 8px ;
     padding:      0;
 }
-#sidebar {
+sidebar {
     border:       2px dash 0px 0px ;
     border-color: @separatorcolor;
 }
-#button {
+button {
     spacing:    0;
     text-color: @normal-foreground;
 }
-#button.selected {
+button selected {
     background-color: @selected-normal-background;
     text-color:       @selected-normal-foreground;
 }
-#inputbar {
-    spacing:    5;
+inputbar {
+    spacing:    0px;
     text-color: @normal-foreground;
     padding:    1px ;
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
-#case-indicator {
+case-indicator {
     spacing:    0;
     text-color: @normal-foreground;
 }
-#entry {
+entry {
     spacing:    0;
     text-color: @normal-foreground;
 }
-#prompt {
+prompt {
     spacing:    0;
     text-color: @normal-foreground;
+}
+textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3000em 0.0000em 0.0000em ;
+    text-color: inherit;
 }
