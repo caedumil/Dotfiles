@@ -42,14 +42,17 @@ def isConnected(technology):
 
 def connection():
     lanIcon = '\uE19C'
-    wifiIcon = '\uE222'
-    ethIcon = '\uE148'
+    offIcon = '\uE217'
+    techIcons = {
+        'wifi': '\uE222',
+        'ethernet': '\uE148',
+        'bluetooth': '\uE00B'
+    }
     conn = []
-    if isConnected('wifi'):
-        conn.append(wifiIcon)
-    if isConnected('ethernet'):
-        conn.append(ethIcon)
-    fmt = '/'.join(conn) if conn else '\uE217'
+    for tech, icon in techIcons.items():
+        if isConnected(tech):
+            conn.append(icon)
+    fmt = '/'.join(conn) if conn else offIcon
     return '{}: {}'.format(lanIcon, fmt)
 
 
