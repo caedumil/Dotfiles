@@ -24,8 +24,5 @@ if [[ -d ${HOME}/.local/bin ]]; then
     export PATH="${HOME}/.local/bin:${PATH}"
 fi
 
-# Pacaur
-if [[ -f /etc/arch-release ]]; then
-    export AURDEST="${HOME}/Code/Build/AUR"
-    export ASPROOT="${HOME}/Code/Build/ABS"
-fi
+# Go path
+export GOPATH="${HOME}/.local/go"
