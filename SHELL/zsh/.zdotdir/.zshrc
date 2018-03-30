@@ -415,7 +415,7 @@ function man() {
 
 # Tmux {{{
 if command -v tmux >/dev/null && [[ -z ${TMUX} ]] && [[ -n ${SSH_TTY} ]]; then
-    CLIENT=$(cut -f 1 -d ' ' <<< ${SSH_CLIENT})
+    CLIENT=$(cut -f1 -d' ' <<< ${SSH_CLIENT} | sed "s/\./'/g")
 
     tmux start-server
     if ! tmux has-session 2> /dev/null; then
