@@ -46,6 +46,7 @@ done
 
 # set custom layout
 hc load 1 '(clients max:0)'
+hc load 6 '(clients max:0)'
 
 # tag modes
 hc keybind $Mod-F2 floating toggle
@@ -175,7 +176,6 @@ hc rule focus=on
 hc rule class=Firefox tag=1
 hc rule class=Chromium tag=1
 hc rule class=Opera tag=1
-hc rule class=VirtualBox tag=6
 
 # window rules
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
