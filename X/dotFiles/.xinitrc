@@ -39,9 +39,6 @@ fi
 # set mouse pointer
 xsetroot -cursor_name left_ptr
 
-# set keyboard layout
-setxkbmap -layout br
-
 # adjust X screen saver
 xset s off
 xset dpms 1800 2700 3600
