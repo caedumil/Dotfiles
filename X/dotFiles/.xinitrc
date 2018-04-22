@@ -30,12 +30,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
-# tweak touchpad
-#xinput set-prop --type=int --format=8 \
-#    "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 1 1 0
-#xinput set-prop --type=int --format=8 \
-#    "SynPS/2 Synaptics TouchPad" "Synaptics Tap Action" 2 3 0 0 1 3 2
-
 # set mouse pointer
 xsetroot -cursor_name left_ptr
 
