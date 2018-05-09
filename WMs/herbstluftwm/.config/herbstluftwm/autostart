@@ -45,8 +45,9 @@ for i in ${!tag_names[@]} ; do
 done
 
 # set custom layout
-hc load 1 '(clients max:0)'
-hc load 6 '(clients max:0)'
+for tag in 1 5 6; do
+    hc load ${tag} '(clients max:0)'
+done
 
 # tag modes
 hc keybind $Mod-F2 floating toggle
@@ -188,6 +189,7 @@ hc rule class=mpv pseudotile=on
 hc rule class=feh pseudotile=on
 hc rule class=Wine pseudotile=on
 hc rule class=Pinentry pseudotile=on
+hc rule class=Gcr-prompter pseudotile=on
 
 # unlock, just to be sure
 hc unlock
