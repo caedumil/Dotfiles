@@ -224,3 +224,7 @@ ${HOME}/.config/herbstluftwm/bin/tags.py &
 
 # set wallpaper
 command -v feh >/dev/null 2>&1 && ~/.fehbg
+
+# compositor
+pgrep compton >/dev/null 2>&1 && pkill compton
+command -v compton >/dev/null 2>&1 && compton --daemon
