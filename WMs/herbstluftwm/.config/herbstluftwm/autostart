@@ -189,6 +189,7 @@ hc rule class=mpv pseudotile=on
 hc rule class=feh pseudotile=on
 hc rule class=Wine pseudotile=on
 hc rule class=Pinentry pseudotile=on
+hc rule class=Pinentry-gtk-2 pseudotile=on
 hc rule class=Gcr-prompter pseudotile=on
 
 # unlock, just to be sure
