@@ -419,8 +419,8 @@ if command -v tmux >/dev/null && [[ -z ${TMUX} ]] && [[ -n ${SSH_TTY} ]]; then
 
     tmux start-server
     if ! tmux has-session 2> /dev/null; then
-        tmux new-session -d -s ${SSH} \; \
-        set-option -t ${SSH} destroy-unattached off &> /dev/null
+        tmux new-session -d -s ${SESSION} \; \
+        set-option -t ${SESSION} destroy-unattached off &> /dev/null
     fi
     exec tmux attach-session
 fi
