@@ -415,12 +415,12 @@ function man() {
 
 # Tmux {{{
 if command -v tmux >/dev/null && [[ -z ${TMUX} ]] && [[ -n ${SSH_TTY} ]]; then
-    CLIENT=$(cut -f1 -d' ' <<< ${SSH_CLIENT} | sed "s/\./'/g")
+    SESSION="SSH"
 
     tmux start-server
     if ! tmux has-session 2> /dev/null; then
-        tmux new-session -d -s ${CLIENT} \; \
-        set-option -t ${CLIENT} destroy-unattached off &> /dev/null
+        tmux new-session -d -s ${SSH} \; \
+        set-option -t ${SSH} destroy-unattached off &> /dev/null
     fi
     exec tmux attach-session
 fi
