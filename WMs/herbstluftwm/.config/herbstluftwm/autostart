@@ -196,7 +196,7 @@ hc rule class=Gcr-prompter pseudotile=on
 hc unlock
 
 # terminal emulator
-hc keybind $Mod-Return spawn termite
+hc keybind $Mod-Return spawn urxvt
 
 # application launcher
 hc keybind XF86Search spawn rofi -modi drun -show drun
