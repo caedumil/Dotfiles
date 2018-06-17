@@ -23,7 +23,7 @@
     startup_notification = false
     dmenu = /usr/bin/rofi -dmenu -p 'dunst: '
     browser = /usr/bin/xdg-open
-    frame_width = 4
+    frame_width = 5
     frame_color = "#c7ccd1"
 
 [shortcuts]

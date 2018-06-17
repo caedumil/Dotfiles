@@ -131,8 +131,8 @@ hc attr theme.floating.reset 1
 
 hc attr theme.background_color "#$(getXresColor.sh color7)"
 
-hc attr theme.border_width 9
-hc attr theme.inner_width 4
+hc attr theme.border_width 8
+hc attr theme.inner_width 3
 hc attr theme.outer_width 5
 hc attr theme.active.inner_color "#$(getXresColor.sh color15)"
 hc attr theme.active.outer_color "#$(getXresColor.sh color8)"
