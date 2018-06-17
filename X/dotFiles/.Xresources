@@ -12,6 +12,7 @@ Xft.hintstyle:                  hintfull
 Xft.lcdfilter:                  lcdlight
 
 !! URxvt -------------------------------------------------------------------- !!
+URxvt.cursorUnderline:          true
 URxvt.geometry:                 100x30
 URxvt.transparent:              false
 URxvt.scrollBar:                false
