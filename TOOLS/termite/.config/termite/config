@@ -15,6 +15,7 @@ scroll_on_keystroke = true
 scrollback_lines = 1000
 search_wrap = true
 urgent_on_bell = true
+hyperlinks = true
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
 browser = xdg-open
@@ -33,6 +34,9 @@ modify_other_keys = false
 
 # set size hints for the window
 size_hints = false
+
+# "off", "left" or "right"
+scrollbar = off
 
 [hints]
 #font = Monospace 12
