@@ -1,7 +1,7 @@
 Net/ThemeName       "Stylish-Light-Azul"
 Net/IconThemeName   "Papirus-Light"
 Gtk/CursorThemeName "Adwaita"
-Gtk/FontName        "Open Sans 8"
+Gtk/FontName        "Open Sans 10"
 
 Gtk/MenuImages      0
 Gtk/ButtonImages    0
