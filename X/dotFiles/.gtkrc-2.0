@@ -1,6 +1,6 @@
 style "user-font"
 {
-    font_name="Open Sans 8"
+    font_name="Open Sans 10"
 }
 widget_class "*" style "user-font"
-gtk-font-name = "Open Sans 8"
+gtk-font-name = "Open Sans 10"
