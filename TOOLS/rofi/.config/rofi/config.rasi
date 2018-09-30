@@ -1,6 +1,6 @@
 configuration {
     modi:           "drun,run";
-    font:           "misc ohsnap 8";
+    font:           "lucy tewi 8";
     theme:          "base16";
     hide-scrollbar: true;
 }
