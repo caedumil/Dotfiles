@@ -18,6 +18,14 @@ function fish_prompt
     # Git information.
     echo -n (set_color normal)(__fish_git_prompt "[%s]")" "
 
+    # Virtualenv information
+    set -g VIRTUAL_ENV_DISABLE_PROMPT 1
+    if test -n "$VIRTUAL_ENV"
+        echo -n (set_color normal)"["
+        echo -n (set_color magenta)(basename "$VIRTUAL_ENV")
+        echo -n (set_color normal)"] "
+    end
+
     # Key bindinds mode.
     ## Set style for default/vi keybindings.
     set -l key_mode (set_color red)">"(set_color yellow)">"(set_color green)">"
