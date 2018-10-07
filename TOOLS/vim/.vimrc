@@ -91,7 +91,7 @@ set background=dark
 
 " Set color mode
 let base16colorspace=256
-colorscheme base16-railscasts
+colorscheme base16-tomorrow-night
 " }}}
 
 " Spaces & Tabs {{{
@@ -200,7 +200,7 @@ set noshowmode
 
 " Lightline config
 let g:lightline = {
-    \ 'colorscheme': 'base16_railscasts',
+    \ 'colorscheme': 'base16_tomorrow_night',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
