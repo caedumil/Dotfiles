@@ -8,11 +8,13 @@ set fish_greeting ""
 # Set vi key bindings
 set -g fish_key_bindings fish_vi_key_bindings
 
-# Enable vi mode
-fish_vi_cursor
-set -U fish_cursor_default line
-set -U fish_cursor_insert line
-set -U fish_cursor_visual line
+# Cursor shape
+# values are 'block', 'line' or 'underscore'
+if status is-interactive
+    set -U fish_cursor_default line
+    set -U fish_cursor_insert line
+    set -U fish_cursor_visual line
+end
 
 # SSH & GPG-agent
 set -x SSH_AUTH_SOCK /run/user/(id -u $USER)/gnupg/S.gpg-agent.ssh
