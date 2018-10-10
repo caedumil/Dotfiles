@@ -5,6 +5,9 @@
 # Disable greeting
 set fish_greeting ""
 
+# Set vi key bindings
+set -g fish_key_bindings fish_vi_key_bindings
+
 # Enable vi mode
 fish_vi_cursor
 set -U fish_cursor_default line
