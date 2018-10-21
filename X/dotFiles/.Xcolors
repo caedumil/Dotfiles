@@ -1,22 +1,22 @@
-! Base16 Tomorrow Night
-! Scheme: Chris Kempson (http://chriskempson.com)
+! Base16 Harmonic16 Light
+! Scheme: Jannik Siebert (https://github.com/janniks)
 
-#define base00 #1d1f21
-#define base01 #282a2e
-#define base02 #373b41
-#define base03 #969896
-#define base04 #b4b7b4
-#define base05 #c5c8c6
-#define base06 #e0e0e0
-#define base07 #ffffff
-#define base08 #cc6666
-#define base09 #de935f
-#define base0A #f0c674
-#define base0B #b5bd68
-#define base0C #8abeb7
-#define base0D #81a2be
-#define base0E #b294bb
-#define base0F #a3685a
+#define base00 #f7f9fb
+#define base01 #e5ebf1
+#define base02 #cbd6e2
+#define base03 #aabcce
+#define base04 #627e99
+#define base05 #405c79
+#define base06 #223b54
+#define base07 #0b1c2c
+#define base08 #bf8b56
+#define base09 #bfbf56
+#define base0A #8bbf56
+#define base0B #56bf8b
+#define base0C #568bbf
+#define base0D #8b56bf
+#define base0E #bf568b
+#define base0F #bf5656
 
 *foreground:   base05
 #ifdef background_opacity

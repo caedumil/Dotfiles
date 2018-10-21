@@ -49,51 +49,51 @@ scrollbar = off
 #roundness = 2.0
 
 [colors]
-# Base16 Tomorrow Night
-# Author: Chris Kempson (http://chriskempson.com)
+# Base16 Harmonic16 Light
+# Author: Jannik Siebert (https://github.com/janniks)
 
-foreground          = #c5c8c6
-foreground_bold     = #e0e0e0
-cursor              = #e0e0e0
-cursor_foreground   = #1d1f21
-background          = rgba(29, 31, 33)
+foreground          = #405c79
+foreground_bold     = #223b54
+cursor              = #223b54
+cursor_foreground   = #f7f9fb
+background          = rgba(247, 249, 251)
 
 # 16 color space
 
 # Black, Gray, Silver, White
-color0  = #1d1f21
-color8  = #969896
-color7  = #c5c8c6
-color15 = #ffffff
+color0  = #f7f9fb
+color8  = #aabcce
+color7  = #405c79
+color15 = #0b1c2c
 
 # Red
-color1  = #cc6666
-color9  = #cc6666
+color1  = #bf8b56
+color9  = #bf8b56
 
 # Green
-color2  = #b5bd68
-color10 = #b5bd68
+color2  = #56bf8b
+color10 = #56bf8b
 
 # Yellow
-color3  = #f0c674
-color11 = #f0c674
+color3  = #8bbf56
+color11 = #8bbf56
 
 # Blue
-color4  = #81a2be
-color12 = #81a2be
+color4  = #8b56bf
+color12 = #8b56bf
 
 # Purple
-color5  = #b294bb
-color13 = #b294bb
+color5  = #bf568b
+color13 = #bf568b
 
 # Teal
-color6  = #8abeb7
-color14 = #8abeb7
+color6  = #568bbf
+color14 = #568bbf
 
 # Extra colors
-color16 = #de935f
-color17 = #a3685a
-color18 = #282a2e
-color19 = #373b41
-color20 = #b4b7b4
-color21 = #e0e0e0
+color16 = #bfbf56
+color17 = #bf5656
+color18 = #e5ebf1
+color19 = #cbd6e2
+color20 = #627e99
+color21 = #223b54
