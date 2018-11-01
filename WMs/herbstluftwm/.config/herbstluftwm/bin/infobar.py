@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 
-import sys
 import dbus
 import time
-import getopt
 import notify2
 import subprocess as proc
 
