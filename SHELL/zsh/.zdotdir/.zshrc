@@ -173,6 +173,10 @@ setopt NO_BG_NICE
 setopt NO_HUP
 setopt NO_CHECK_JOBS
 
+# Use smart URL pasting and escaping.
+autoload -Uz bracketed-paste-url-magic && zle -N bracketed-paste bracketed-paste-url-magic
+autoload -Uz url-quote-magic && zle -N self-insert url-quote-magic
+
 # 256 colors workaround for some terminal emulators
 # base16 shell colorscheme
 base="${ZDOTDIR:-${HOME}}/.base16-colors.sh"
@@ -183,13 +187,6 @@ fi
 colors="${ZDOTDIR:-${HOME}}/.colors.sh"
 if [[ -x ${colors} ]]; then
     source ${colors}
-fi
-
-# ls colors
-if [[ -s ${ZDOTDIR:-${HOME}}/.dircolors ]]; then
-    source <(dircolors --sh ${ZDOTDIR:-${HOME}}/.dircolors)
-else
-    source <(dircolors --sh)
 fi
 # }}}
 
@@ -255,7 +252,7 @@ zstyle ':completion:*:(nano|vim|nvim|vi|emacs|e):*' ignored-patterns '*.(wav|mp3
 # }}}
 
 # Input {{{
-zmodload zsh/terminfo
+zmodload -F zsh/terminfo +b:echoti +p:terminfo
 typeset -gA key_info
 key_info=(
   'Control'      '\C-'
@@ -264,7 +261,13 @@ key_info=(
   'Escape'       '\e'
   'Meta'         '\M-'
   'Backspace'    "${terminfo[kbs]}"
+  'BackTab'      "${terminfo[kcbt]}"
+  'Left'         "${terminfo[kcub1]}"
+  'Down'         "${terminfo[kcud1]}"
+  'Right'        "${terminfo[kcuf1]}"
+  'Up'           "${terminfo[kcuu1]}"
   'Delete'       "${terminfo[kdch1]}"
+  'End'          "${terminfo[kend]}"
   'F1'           "${terminfo[kf1]}"
   'F2'           "${terminfo[kf2]}"
   'F3'           "${terminfo[kf3]}"
@@ -277,53 +280,32 @@ key_info=(
   'F10'          "${terminfo[kf10]}"
   'F11'          "${terminfo[kf11]}"
   'F12'          "${terminfo[kf12]}"
-  'Insert'       "${terminfo[kich1]}"
   'Home'         "${terminfo[khome]}"
-  'PageUp'       "${terminfo[kpp]}"
-  'End'          "${terminfo[kend]}"
+  'Insert'       "${terminfo[kich1]}"
   'PageDown'     "${terminfo[knp]}"
-  'Up'           "${terminfo[kcuu1]}"
-  'Left'         "${terminfo[kcub1]}"
-  'Down'         "${terminfo[kcud1]}"
-  'Right'        "${terminfo[kcuf1]}"
-  'BackTab'      "${terminfo[kcbt]}"
+  'PageUp'       "${terminfo[kpp]}"
 )
 
-for key in "${(s: :)key_info[ControlLeft]}"; do
-    bindkey ${key} backward-word
-done
-for key in "${(s: :)key_info[ControlRight]}"; do
-    bindkey ${key} forward-word
-done
+local key
+for key (${(s: :)key_info[ControlLeft]}) bindkey ${key} backward-word
+for key (${(s: :)key_info[ControlRight]}) bindkey ${key} forward-word
 
-if [[ -n "${key_info[Home]}" ]]; then
-    bindkey "${key_info[Home]}" beginning-of-line
-fi
+[[ -n ${key_info[Home]} ]] && bindkey ${key_info[Home]} beginning-of-line
+[[ -n ${key_info[End]} ]] && bindkey ${key_info[End]} end-of-line
 
-if [[ -n "${key_info[PageUp]}" ]]; then
-    bindkey "${key_info[PageUp]}" up-line-or-history
-fi
+[[ -n ${key_info[PageUp]} ]] && bindkey ${key_info[PageUp]} up-line-or-history
+[[ -n ${key_info[PageDown]} ]] && bindkey ${key_info[PageDown]} down-line-or-history
 
-if [[ -n "${key_info[PageDown]}" ]]; then
-    bindkey "${key_info[PageDown]}" down-line-or-history
-fi
+[[ -n ${key_info[Insert]} ]] && bindkey ${key_info[Insert]} overwrite-mode
 
-if [[ -n "${key_info[End]}" ]]; then
-    bindkey "${key_info[End]}" end-of-line
-fi
+[[ -n ${key_info[Backspace]} ]] && bindkey ${key_info[Backspace]} backward-delete-char
+[[ -n ${key_info[Delete]} ]] && bindkey ${key_info[Delete]} delete-char
 
-if [[ -n "${key_info[Insert]}" ]]; then
-    bindkey "${key_info[Insert]}" overwrite-mode
-fi
+[[ -n ${key_info[Left]} ]] && bindkey ${key_info[Left]} backward-char
+[[ -n ${key_info[Right]} ]] && bindkey ${key_info[Right]} forward-char
 
-bindkey "${key_info[Delete]}" delete-char
-bindkey "${key_info[Backspace]}" backward-delete-char
-
-bindkey "${key_info[Left]}" backward-char
-bindkey "${key_info[Right]}" forward-char
-
-bindkey "${key_info[Up]}" up-line-or-beginning-search
-bindkey "${key_info[Down]}" down-line-or-beginning-search
+[[ -n ${key_info[Up]} ]] && bindkey "${key_info[Up]}" up-line-or-beginning-search
+[[ -n ${key_info[Down]} ]] && bindkey "${key_info[Down]}" down-line-or-beginning-search
 
 # Expandpace
 bindkey ' ' magic-space
@@ -332,9 +314,7 @@ bindkey ' ' magic-space
 bindkey "${key_info[Control]}L" clear-screen
 
 # Bind Shift + Tab to go to the previous menu item.
-if [[ -n "${key_info[BackTab]}" ]]; then
-    bindkey "${key_info[BackTab]}" reverse-menu-complete
-fi
+[[ -n ${key_info[BackTab]} ]] && bindkey ${key_info[BackTab]} reverse-menu-complete
 
 # Double-dot parent directory expansion
 double-dot-expand() {
@@ -366,6 +346,49 @@ zle -N zle-line-finish
 setopt NOBEEP
 setopt CORRECT
 
+if (( terminfo[colors] >= 8 )); then
+    # ls Colours
+    if (( ${+commands[dircolors]} )); then                                      # GNU
+        (( ! ${+LS_COLORS} )) && if [[ -s ${ZDOTDIR:-${HOME}}/.dir_colors ]]; then
+            eval "$(dircolors --sh ${ZDOTDIR:-${HOME}}/.dir_colors)"
+        else
+            export LS_COLORS='di=1;34:ln=35:so=32:pi=33:ex=31:bd=1;36:cd=1;33:su=30;41:sg=30;46:tw=30;42:ow=30;43'
+        fi
+        alias ls='ls --group-directories-first --color=auto'
+
+    else                                                                        # BSD
+        (( ! ${+LSCOLORS} )) && export LSCOLORS='ExfxcxdxbxGxDxabagacad'
+        # stock OpenBSD ls does not support colors at all, but colorls does.
+        if [[ ${OSTYPE} == openbsd* ]]; then
+            if (( ${+commands[colorls]} )); then
+                alias ls='colorls -G'
+            fi
+        else
+            alias ls='ls -G'
+        fi
+    fi
+
+    # grep Colours
+    (( ! ${+GREP_COLOR} )) && export GREP_COLOR='37;45'                         #BSD
+    (( ! ${+GREP_COLORS} )) && export GREP_COLORS="mt=${GREP_COLOR}"            #GNU
+    if [[ ${OSTYPE} == openbsd* ]]; then
+        (( ${+commands[ggrep]} )) && alias grep='ggrep --color=auto'
+    else
+        alias grep='grep --color=auto'
+    fi
+
+    # less Colours
+    if [[ ${PAGER} == 'less' ]]; then
+        (( ! ${+LESS_TERMCAP_mb} )) && export LESS_TERMCAP_mb=$'\E[1;31m'       # Begins blinking.
+        (( ! ${+LESS_TERMCAP_md} )) && export LESS_TERMCAP_md=$'\E[1;31m'       # Begins bold.
+        (( ! ${+LESS_TERMCAP_me} )) && export LESS_TERMCAP_me=$'\E[0m'          # Ends mode.
+        (( ! ${+LESS_TERMCAP_se} )) && export LESS_TERMCAP_se=$'\E[0m'          # Ends standout-mode.
+        (( ! ${+LESS_TERMCAP_so} )) && export LESS_TERMCAP_so=$'\E[7m'          # Begins standout-mode.
+        (( ! ${+LESS_TERMCAP_ue} )) && export LESS_TERMCAP_ue=$'\E[0m'          # Ends underline.
+        (( ! ${+LESS_TERMCAP_us} )) && export LESS_TERMCAP_us=$'\E[1;32m'       # Begins underline.
+    fi
+fi
+
 # coreutils
 alias chmod='chmod --preserve-root -v'
 alias chown='chown --preserve-root -v'
@@ -373,7 +396,6 @@ alias cp='cp -v'
 alias df='df -h'
 alias du='du -h'
 alias ln='ln -v'
-alias ls='ls --group-directories-first --color=auto'
 alias la='ls -alh'
 alias ll='ls -lh'
 alias mkdir='mkdir -pv'
@@ -381,7 +403,6 @@ alias mv='mv -v'
 alias rmdir='rmdir -pv'
 
 # grep
-alias grep='grep --color=auto'
 alias egrep='grep -E'
 alias fgrep='grep -F'
 
@@ -389,28 +410,6 @@ alias fgrep='grep -F'
 alias aup='aunpack -e'
 alias feh='feh --scale-down'
 alias tmux='tmux -2'
-# }}}
-
-# Colorized man pages {{{
-function man() {
-    # Modes:
-    # mb = begin blinking
-    # md = begin bold
-    # me = end mode
-    # so = begin standout-mode
-    # se = end standout-mode
-    # us = begin underline
-    # ue = end underline
-
-    LESS_TERMCAP_mb=$'\e[1m'     \
-    LESS_TERMCAP_md=$'\e[01;36m' \
-    LESS_TERMCAP_me=$'\e[0m'     \
-    LESS_TERMCAP_so=$'\e[01;30m' \
-    LESS_TERMCAP_se=$'\e[0m'     \
-    LESS_TERMCAP_us=$'\e[04;36m' \
-    LESS_TERMCAP_ue=$'\e[0m'     \
-    command man "$@"
-}
 # }}}
 
 # Tmux {{{
