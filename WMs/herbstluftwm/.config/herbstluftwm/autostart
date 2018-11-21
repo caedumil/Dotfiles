@@ -215,7 +215,7 @@ hc keybind XF86AudioMute        spawn ponymix -N toggle
 # hc keybind XF86AudioNext        spawn playerctl next
 
 # lockscreen
-hc keybind $Mod-XF86Mail spawn sxlock -f '-lucy-tewi-medium-*-normal-*-11-*-*-*-*-*-*-*'
+hc keybind $Mod-Control-l spawn sxlock -f '-lucy-tewi-medium-*-normal-*-11-*-*-*-*-*-*-*'
 
 # info bar
 hc keybind $Mod-F1 spawn ${HOME}/.config/herbstluftwm/bin/infobar.py
