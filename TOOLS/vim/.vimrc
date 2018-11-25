@@ -50,6 +50,7 @@ Plug 'Yggdroot/indentLine'
 
 " Syntax highlighters
 Plug 'dag/vim-fish'
+Plug 'baskerville/vim-sxhkdrc'
 
 " Color schemes
 Plug 'chriskempson/base16-vim'
