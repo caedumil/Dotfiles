@@ -218,10 +218,10 @@ hc keybind XF86AudioMute        spawn ponymix -N toggle
 hc keybind $Mod-Control-l spawn sxlock -f '-lucy-tewi-medium-*-normal-*-11-*-*-*-*-*-*-*'
 
 # info bar
-hc keybind $Mod-F1 spawn ${HOME}/.config/herbstluftwm/bin/infobar.py
+hc keybind $Mod-F1 spawn infobar.py
 
 # tags notification
-${HOME}/.config/herbstluftwm/bin/tags.py &
+${HOME}/.config/herbstluftwm/tags.py &
 
 # set wallpaper
 command -v feh >/dev/null 2>&1 && ~/.fehbg
