@@ -52,4 +52,4 @@ xsettingsd &
 #compton &
 
 # Load WM
-exec herbstluftwm
+exec bspwm
