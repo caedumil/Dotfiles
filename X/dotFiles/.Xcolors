@@ -1,22 +1,22 @@
-! Base16 Harmonic16 Light
-! Scheme: Jannik Siebert (https://github.com/janniks)
+! Base16 One Light
+! Scheme: Daniel Pfeifer (http://github.com/purpleKarrot)
 
-#define base00 #f7f9fb
-#define base01 #e5ebf1
-#define base02 #cbd6e2
-#define base03 #aabcce
-#define base04 #627e99
-#define base05 #405c79
-#define base06 #223b54
-#define base07 #0b1c2c
-#define base08 #bf8b56
-#define base09 #bfbf56
-#define base0A #8bbf56
-#define base0B #56bf8b
-#define base0C #568bbf
-#define base0D #8b56bf
-#define base0E #bf568b
-#define base0F #bf5656
+#define base00 #fafafa
+#define base01 #f0f0f1
+#define base02 #e5e5e6
+#define base03 #a0a1a7
+#define base04 #696c77
+#define base05 #383a42
+#define base06 #202227
+#define base07 #090a0b
+#define base08 #ca1243
+#define base09 #d75f00
+#define base0A #c18401
+#define base0B #50a14f
+#define base0C #0184bc
+#define base0D #4078f2
+#define base0E #a626a4
+#define base0F #986801
 
 *foreground:   base05
 #ifdef background_opacity
