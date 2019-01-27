@@ -407,9 +407,25 @@ alias egrep='grep -E'
 alias fgrep='grep -F'
 
 # misc
-alias aup='aunpack -e'
 alias feh='feh --scale-down'
 alias tmux='tmux -2'
+# }}}
+
+# Functions {{{
+tmux-dev() {
+    local dir=$(realpath $1)
+    if ! [[ -d $dir && -e $dir ]]; then
+        return 1
+    fi
+    tmux new-session -A -c $dir -s $(basename $dir)
+}
+
+yay() {
+    if [[ -d /opt/makepkg/gnupg ]]; then
+        local GNUPGHOME=/opt/makepkg/gnupg
+    fi
+    command yay $@
+}
 # }}}
 
 # Tmux {{{
