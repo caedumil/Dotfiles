@@ -49,51 +49,51 @@ scrollbar = off
 #roundness = 2.0
 
 [colors]
-# Base16 One Light
-# Author: Daniel Pfeifer (http://github.com/purpleKarrot)
+# Base16 OneDark
+# Author: Lalit Magant (http://github.com/tilal6991)
 
-foreground          = #383a42
-foreground_bold     = #202227
-cursor              = #202227
-cursor_foreground   = #fafafa
-background          = rgba(250, 250, 250)
+foreground          = #abb2bf
+foreground_bold     = #b6bdca
+cursor              = #b6bdca
+cursor_foreground   = #282c34
+background          = rgba(40, 44, 52)
 
 # 16 color space
 
 # Black, Gray, Silver, White
-color0  = #fafafa
-color8  = #a0a1a7
-color7  = #383a42
-color15 = #090a0b
+color0  = #282c34
+color8  = #545862
+color7  = #abb2bf
+color15 = #c8ccd4
 
 # Red
-color1  = #ca1243
-color9  = #ca1243
+color1  = #e06c75
+color9  = #e06c75
 
 # Green
-color2  = #50a14f
-color10 = #50a14f
+color2  = #98c379
+color10 = #98c379
 
 # Yellow
-color3  = #c18401
-color11 = #c18401
+color3  = #e5c07b
+color11 = #e5c07b
 
 # Blue
-color4  = #4078f2
-color12 = #4078f2
+color4  = #61afef
+color12 = #61afef
 
 # Purple
-color5  = #a626a4
-color13 = #a626a4
+color5  = #c678dd
+color13 = #c678dd
 
 # Teal
-color6  = #0184bc
-color14 = #0184bc
+color6  = #56b6c2
+color14 = #56b6c2
 
 # Extra colors
-color16 = #d75f00
-color17 = #986801
-color18 = #f0f0f1
-color19 = #e5e5e6
-color20 = #696c77
-color21 = #202227
+color16 = #d19a66
+color17 = #be5046
+color18 = #353b45
+color19 = #3e4451
+color20 = #565c64
+color21 = #b6bdca

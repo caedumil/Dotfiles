@@ -24,7 +24,7 @@
     dmenu = /usr/bin/rofi -dmenu -p 'dunst: '
     browser = /usr/bin/xdg-open
     frame_width = 5
-    frame_color = "#383a42"
+    frame_color = "#abb2bf"
 
 [shortcuts]
     close = mod4+n
@@ -33,18 +33,18 @@
     context = mod4+shift+m
 
 [urgency_low]
-    background = "#f0f0f1"
-    foreground = "#a0a1a7"
+    background = "#353b45"
+    foreground = "#545862"
     timeout = 10
 
 [urgency_normal]
-    background = "#e5e5e6"
-    foreground = "#383a42"
+    background = "#3e4451"
+    foreground = "#abb2bf"
     timeout = 10
 
 [urgency_critical]
-    background = "#ca1243"
-    foreground = "#202227"
+    background = "#e06c75"
+    foreground = "#b6bdca"
     timeout = 0
 
 [wmtags]

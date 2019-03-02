@@ -92,7 +92,7 @@ set background=light
 
 " Set color mode
 let base16colorspace=256
-colorscheme base16-one-light
+colorscheme base16-onedark
 " }}}
 
 " Spaces & Tabs {{{
@@ -201,7 +201,7 @@ set noshowmode
 
 " Lightline config
 let g:lightline = {
-    \ 'colorscheme': 'base16_one_light',
+    \ 'colorscheme': 'base16_onedark',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
