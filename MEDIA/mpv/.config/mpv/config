@@ -6,7 +6,7 @@
 ##################
 
 # Specify default video driver (see -vo help for a list).
-vo = vdpau
+vo = gpu,vdpau
 
 # Specify the hardware video decoding API.
 hwdec = vdpau
