@@ -1,6 +1,7 @@
 function tmux-dev --description "Start tmux session at specified directory"
-    if test ! \( -d $argv -a -e $argv \)
+    set -l dir (realpath $argv)
+    if test ! \( -d $dir -a -e $dir \)
         return 1
     end
-    tmux new-session -A -c $argv -s (basename $argv)
+    tmux new-session -A -c $dir -s (basename $dir)
 end
