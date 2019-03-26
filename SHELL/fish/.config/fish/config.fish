@@ -39,9 +39,6 @@ if test -d $HOME/.local/bin
     set -x PATH $HOME/.local/bin $PATH
 end
 
-# Go path
-set -x GOPATH $HOME/.local/go
-
 
 #
 # Fish git prompt
