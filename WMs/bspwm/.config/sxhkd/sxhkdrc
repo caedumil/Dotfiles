@@ -137,7 +137,7 @@ XF86AudioMute
 
 # lockscreen
 super + BackSpace
-    sxlock -f '-lucy-tewi-medium-*-normal-*-11-*-*-*-*-*-*-*'
+    sxlock -f '-gohu-gohufont-medium-*-normal-*-11-*-*-*-*-*-*-*'
 
 # infobar
 super + F1

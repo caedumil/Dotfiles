@@ -1,6 +1,6 @@
 configuration {
     modi:           "drun,run";
-    font:           "lucy tewi 8";
+    font:           "Gohu GohuFont 8";
     theme:          "colors";
     hide-scrollbar: true;
 }
