@@ -44,9 +44,12 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise'
-Plug 'majutsushi/tagbar'            " requires ctags
 Plug 'bkad/CamelCaseMotion'
 Plug 'Yggdroot/indentLine'
+
+" Requires ctags
+Plug 'majutsushi/tagbar'
+Plug 'ludovicchabant/vim-gutentags'
 
 " Syntax highlighters
 Plug 'dag/vim-fish'
@@ -238,6 +241,11 @@ let g:syntastic_cpp_compiler_options='-std=c++14'
 
 " Vim TagBar {{{
 nmap <F8> :TagbarToggle<CR>
+" }}}
+
+" Vim Gutentags {{{
+let g:gutentags_ctags_tagfile='.ctags'
+let g:gutentags_ctags_exclude=['venv']
 " }}}
 
 " Vim CamelCaseMotion {{{
