@@ -135,6 +135,10 @@ XF86Audio{Lower,Raise}Volume
 XF86AudioMute
     ponymix -N toggle
 
+# MPD player
+XF86Audio{Play,Prev,Next}
+    mpc --quiet {toggle,prev,next}
+
 # lockscreen
 super + BackSpace
     sxlock -f '-gohu-gohufont-medium-*-normal-*-11-*-*-*-*-*-*-*'
