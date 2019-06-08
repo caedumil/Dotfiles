@@ -244,8 +244,10 @@ nmap <F8> :TagbarToggle<CR>
 " }}}
 
 " Vim Gutentags {{{
+let g:gutentags_exclude_filetypes=['markdown', 'json']
+
 let g:gutentags_ctags_tagfile='.ctags'
-let g:gutentags_ctags_exclude=['venv']
+let g:gutentags_ctags_exclude=['venv', '*.md', '*.json']
 " }}}
 
 " Vim CamelCaseMotion {{{
