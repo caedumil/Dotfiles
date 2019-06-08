@@ -3,6 +3,7 @@ configuration {
     font:           "Gohu GohuFont 8";
     theme:          "colors";
     hide-scrollbar: true;
+    terminal:       "urxvt";
 }
 window {
     background-color: @background;
