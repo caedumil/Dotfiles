@@ -1,3 +1,3 @@
 function rmdir
-    command rmdir --verbose --parents $argv
+    command rmdir --verbose $argv
 end
