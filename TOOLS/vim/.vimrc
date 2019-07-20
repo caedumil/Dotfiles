@@ -15,6 +15,9 @@
 " Force 256 colors
 set t_Co=256
 
+" Reset terminal version string
+set t_RV=
+
 " Disable VI compatibility mode
 set nocompatible
 
