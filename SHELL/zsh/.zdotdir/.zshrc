@@ -409,22 +409,24 @@ alias fgrep='grep -F'
 # misc
 alias feh='feh --scale-down'
 alias tmux='tmux -2'
+alias mpa='mpv --no-pause --no-video'
 # }}}
 
 # Functions {{{
 tmux-dev() {
     local dir=$(realpath $1)
-    if ! [[ -d $dir && -e $dir ]]; then
+    if ! [[ -d $dir ]]; then
         return 1
     fi
     tmux new-session -A -c $dir -s $(basename $dir)
 }
 
-yay() {
-    if [[ -d /opt/makepkg/gnupg ]]; then
-        local GNUPGHOME=/opt/makepkg/gnupg
+byoubo-dev() {
+    local dir=$(realpath $1)
+    if ! [[ -d $dir ]]; then
+        return 1
     fi
-    command yay $@
+    byobu-tmux new-session -A -c $dir -s $(basename $dir)
 }
 # }}}
 
