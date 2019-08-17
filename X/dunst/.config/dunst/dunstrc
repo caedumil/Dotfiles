@@ -1,6 +1,6 @@
 # vim:filetype=conf
 [global]
-    font = Gohu GohuFont, Wuncon Siji 8
+    font = Envy Code R, Wuncon Siji 10
     format = "[%a] %s: %b"
     sort = yes
     indicate_hidden = yes

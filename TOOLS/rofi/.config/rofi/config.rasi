@@ -1,6 +1,6 @@
 configuration {
     modi:           "drun,run";
-    font:           "Gohu GohuFont 8";
+    font:           "Envy Code R 10";
     theme:          "colors";
     hide-scrollbar: true;
     terminal:       "urxvt";
