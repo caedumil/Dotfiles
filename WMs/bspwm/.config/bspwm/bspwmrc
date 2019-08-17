@@ -24,9 +24,11 @@ bspc config presel_feedback_color   "#$(getXresColor.sh color0)"
 # rules
 bspc rule --add Opera desktop='^1'
 bspc rule --add Firefox desktop='^1'
+bspc rule --add firefox desktop='^1'
 bspc rule --add Chromium desktop='^1'
 
 bspc rule --add Firefox:Places state=floating
+bspc rule --add firefox:Places state=floating
 
 bspc rule --add Pinentry-gtk2 state=floating
 bspc rule --add Gimp state=floating
