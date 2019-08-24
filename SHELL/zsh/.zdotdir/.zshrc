@@ -421,7 +421,7 @@ tmux-dev() {
     tmux new-session -A -c $dir -s $(basename $dir)
 }
 
-byoubo-dev() {
+byobu-dev() {
     local dir=$(realpath $1)
     if ! [[ -d $dir ]]; then
         return 1
