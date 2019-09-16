@@ -22,7 +22,6 @@ bspc config active_border_color     "#$(getXresColor.sh color7)"
 bspc config presel_feedback_color   "#$(getXresColor.sh color0)"
 
 # rules
-bspc rule --add Opera desktop='^1'
 bspc rule --add firefox desktop='^1'
 bspc rule --add Chromium desktop='^1'
 
