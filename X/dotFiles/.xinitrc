@@ -35,7 +35,7 @@ xsetroot -cursor_name left_ptr
 
 # adjust X screen saver
 xset s off
-xset dpms 1800 2700 3600
+xset dpms 900 1200 1800
 
 # add fonts path to X
 xset +fp /usr/share/fonts/artwiz-fonts
@@ -47,9 +47,6 @@ numlockx on
 
 # X11 settings daemon
 xsettingsd &
-
-# Composite manager
-#compton &
 
 # Load WM
 exec bspwm
