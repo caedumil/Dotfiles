@@ -1,8 +1,13 @@
 #! /bin/bash
 
+#
+# WM Setup
+#
 
 # tags/workspaces/desktops
-bspc monitor --reset-desktops 000 001 010 011 100 101
+bspc monitor eDP1 --focus --rename 000 --reset-desktops 000 001 010 011
+bspc monitor HDMI1 --rename 001 --reset-desktops 100 101
+bspc config pointer_follows_monitor true
 
 # border & gap
 bspc config border_width            5
@@ -34,6 +39,9 @@ bspc rule --add feh state=floating
 # desktop layout
 bspc desktop 000 --layout monocle
 
+#
+# Autostart
+#
 
 # wallpaper
 command -v feh >/dev/null 2>&1 && $HOME/.fehbg
