@@ -1,7 +1,5 @@
 #! /bin/bash
 
-# hotkeys
-sxhkd &
 
 # tags/workspaces/desktops
 bspc monitor --reset-desktops 000 001 010 011 100 101
@@ -36,13 +34,6 @@ bspc rule --add feh state=floating
 # desktop layout
 bspc desktop 000 --layout monocle
 
-# tags
-pgrep --full tags.py >/dev/null 2>&1 && pkill --full tags.py
-$HOME/.config/bspwm/tags.py &
 
 # wallpaper
 command -v feh >/dev/null 2>&1 && $HOME/.fehbg
-
-# compositor
-pgrep compton >/dev/null 2>&1 && pkill compton
-command -v compton >/dev/null 2>&1 && compton --daemon

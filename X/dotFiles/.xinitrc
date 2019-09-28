@@ -45,8 +45,8 @@ xset fp rehash
 # turn on numlock key
 numlockx on
 
-# X11 settings daemon
-xsettingsd &
+# start systemd user session target
+systemctl --user start bspwm-session.target
 
 # Load WM
 exec bspwm
