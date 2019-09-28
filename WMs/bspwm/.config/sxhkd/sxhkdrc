@@ -1,18 +1,11 @@
-#
-# sxhkd hotkeys
-#
-
 # make sxhkd reload its configuration files:
-super + Escape
-    pkill -USR1 -x sxhkd
-
 #
 # bspwm hotkeys
 #
 
-# quit bspwm normally
-super + shift + Escape
-    bspc quit
+# power/session menu
+super + {_,shift +} Escape
+    ~/.local/bin/{power,session}.sh
 
 # close and kill
 super + {_,shift + }w
@@ -124,6 +117,10 @@ super + {Left,Down,Up,Right}
 super + Return
     alacritty
 
+# screenlocker
+super + End
+    ~/.local/bin/lock.sh ~/.config/Xlock.png
+
 # program launcher
 {_,super} + XF86Search
     rofi -show {drun,run}
@@ -138,10 +135,6 @@ XF86AudioMute
 # MPD player
 XF86Audio{Play,Prev,Next}
     mpc --quiet {toggle,prev,next}
-
-# lockscreen
-super + BackSpace
-    sxlock -f '-gohu-gohufont-medium-*-normal-*-11-*-*-*-*-*-*-*'
 
 # infobar
 super + F1
