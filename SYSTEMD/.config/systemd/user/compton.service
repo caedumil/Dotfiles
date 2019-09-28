@@ -1,0 +1,11 @@
+[Unit]
+Description=A compositor for X11
+Documentation=man:compton(1)
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/compton
+
+[Install]
+WantedBy=bspwm-session.target

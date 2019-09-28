@@ -1,0 +1,12 @@
+[Unit]
+Description=X11 settings daemon
+Documentation=man:xsettingsd(1)
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/xsettingsd
+ExecReload=/usr/bin/kill -SIGHUP $MAINPID
+
+[Install]
+WantedBy=bspwm-session.target
