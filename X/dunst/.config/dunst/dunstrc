@@ -64,3 +64,8 @@
     appname = "ponymix"
     icon = "notification-audio-volume-muted"
     format = "Volume: %p (Muted)"
+
+[power]
+    appname = "power.sh"
+    format = "%s"
+    timeout = 1
