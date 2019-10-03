@@ -59,8 +59,9 @@ Plug 'dag/vim-fish'
 Plug 'baskerville/vim-sxhkdrc'
 
 " Color schemes
-Plug 'chriskempson/base16-vim'
-Plug 'mike-hearn/base16-vim-lightline'
+Plug 'arcticicestudio/nord-vim'
+"Plug 'chriskempson/base16-vim'
+"Plug 'mike-hearn/base16-vim-lightline'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -94,11 +95,10 @@ let mapleader=","
 syntax enable
 
 " Set background mode
-set background=light
+set background=dark
 
 " Set color mode
-let base16colorspace=256
-colorscheme base16-onedark
+colorscheme nord
 " }}}
 
 " Spaces & Tabs {{{
@@ -207,7 +207,7 @@ set noshowmode
 
 " Lightline config
 let g:lightline = {
-    \ 'colorscheme': 'base16_onedark',
+    \ 'colorscheme': 'nord',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
