@@ -144,6 +144,7 @@ set showcmd
 
 " Highlight current line
 set cursorline
+set cursorlineopt=line
 
 " Load filetype-specific indent files
 filetype indent on
