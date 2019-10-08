@@ -7,7 +7,7 @@ import notify2
 
 
 PIPE = '/tmp/wm/bspwm.fifo'
-SYMBOLS = ['f', 'o', 'u']
+SYMBOLS = ['m', 'f', 'o', 'u']
 STATUS = {
     'F': '[X]',
     'O': '[X]',
@@ -15,6 +15,10 @@ STATUS = {
     'f': '[ ]',
     'o': '[-]',
     'u': '[!]'
+}
+MONITOR = {
+    'M': ['<', '>'],
+    'm': ['|', '|']
 }
 
 
@@ -25,10 +29,14 @@ def idleLoop():
 
 def tags(ln):
     output = []
-    workspaces = filter((lambda x: x[0].lower() in SYMBOLS), ln.split(':'))
+    workspaces = filter((lambda x: x[0].lower() in SYMBOLS), ln[1:].split(':'))
     for status in workspaces:
         symbol = status[0]
-        output.append(STATUS[symbol])
+        mon = MONITOR.get(symbol)
+        if mon:
+            output.extend(mon)
+        else:
+            output.insert(-1, STATUS[symbol])
     return ' '.join(output)
 
 
