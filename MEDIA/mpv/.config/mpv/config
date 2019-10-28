@@ -62,18 +62,6 @@ alang = eng
 # Don't use cache on local files.
 cache = auto
 
-# Use 75MB input cache by default.
-cache-default = 75000
-
-# Playback will start with 50MB on cache.
-cache-initial = 50000
-
-# Create a cache file on the filesystem (/tmp).
-cache-file=TMP
-
-# Maximum size of the file created with 'cache-file'.
-#cache-file-size = 100000¬
-
 # Pause player when the cache runs low and unpause once data is avaliable.
 cache-pause = yes
 
