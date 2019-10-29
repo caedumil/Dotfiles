@@ -31,7 +31,6 @@ bspc rule --add Chromium desktop='^1'
 bspc rule --add firefox:Places state=floating
 bspc rule --add firefox:firefox state=floating
 
-bspc rule --ad Vmware state=fullscreen
 bspc rule --add Pinentry-gtk2 state=floating
 bspc rule --add Gimp state=floating
 bspc rule --add mpv state=floating
