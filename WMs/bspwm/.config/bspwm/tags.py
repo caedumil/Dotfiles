@@ -3,7 +3,8 @@
 import os
 import threading
 import subprocess as proc
-import notify2
+
+from pydbus import SessionBus
 
 
 PIPE = '/tmp/wm/bspwm.fifo'
@@ -18,7 +19,7 @@ STATUS = {
 }
 MONITOR = {
     'M': ['<', '>'],
-    'm': ['|', '|']
+    'm': [' ', ' ']
 }
 
 
@@ -41,22 +42,39 @@ def tags(ln):
 
 
 def main():
-    notify2.init('wmtags')
-    bubble = notify2.Notification('', '')
+    bus = SessionBus()
+    bubble = bus.get('.Notifications')
+
+    app_name = 'wmtags'
+    app_id = 0
+    app_icon = ''
+    summary = ''
+    status = None
+    action = []
+    hint = {}
+    expiration = -1
 
     wLoop = threading.Thread(target=idleLoop)
     wLoop.start()
 
     read = True
     last = None
-    status = None
     with open(PIPE, 'r') as rfifo:
         for line in rfifo:
             ln = line.strip()
             status = tags(ln)
             if status != last:
-                bubble.update('', status)
-                bubble.show()
+                body = status
+                app_id = bubble.Notify(
+                    app_name,
+                    app_id,
+                    app_icon,
+                    summary,
+                    f'.{status}.',
+                    action,
+                    hint,
+                    expiration
+                )
             last = status
 
     wLoop.join()
