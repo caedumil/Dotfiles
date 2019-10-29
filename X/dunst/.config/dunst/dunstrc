@@ -2,6 +2,8 @@
 [global]
     font = Envy Code R, Wuncon Siji 10
     format = "[%a] %s: %b"
+    icon_position = off
+    icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
     sort = yes
     indicate_hidden = yes
     alignment = center
