@@ -47,7 +47,7 @@ function fish_prompt
     echo -n $key_mode
 
     # User.
-    test $USER = "root"; and echo -n (set_color red)"#"
+    test $USER = "root"; and echo -n (set_color red)" #"
 
     echo -n (set_color normal)" "
 end
