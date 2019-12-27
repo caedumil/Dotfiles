@@ -125,6 +125,9 @@ super + End
 {_,super} + XF86Search
     rofi -show {drun,run}
 
+{_,shift +} Pause
+    rofi -show {drun,run}
+
 # volume
 XF86Audio{Lower,Raise}Volume
     ponymix -N {decrease,increase} 5
