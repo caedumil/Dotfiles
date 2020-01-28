@@ -413,21 +413,6 @@ alias mpa='mpv --no-pause --no-video'
 # }}}
 
 # Functions {{{
-tmux-dev() {
-    local dir=$(realpath $1)
-    if ! [[ -d $dir ]]; then
-        return 1
-    fi
-    tmux new-session -A -c $dir -s $(basename $dir)
-}
-
-byobu-dev() {
-    local dir=$(realpath $1)
-    if ! [[ -d $dir ]]; then
-        return 1
-    fi
-    byobu-tmux new-session -A -c $dir -s $(basename $dir)
-}
 # }}}
 
 # Tmux {{{
