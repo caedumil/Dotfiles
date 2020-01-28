@@ -43,7 +43,7 @@ xset +fp /usr/share/fonts/local
 xset fp rehash
 
 # turn on numlock key
-numlockx on
+#numlockx on
 
 # start systemd user session target
 systemctl --user start bspwm-session.target
