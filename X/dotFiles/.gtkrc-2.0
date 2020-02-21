@@ -1,5 +1,5 @@
-include "/usr/share/themes/vimix-light/gtk-2.0/gtkrc"
-gtk-theme-name="vimix-light"
+include "/usr/share/themes/Qogir-light/gtk-2.0/gtkrc"
+gtk-theme-name="Qogir-light"
 
 style "user-font"
 {
