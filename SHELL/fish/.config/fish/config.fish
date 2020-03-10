@@ -22,7 +22,7 @@ set -x SSH_AUTH_SOCK /run/user/(id -u $USER)/gnupg/S.gpg-agent.ssh
 function _gpg-agent_env --on-event fish_preexec
     if pgrep gpg-agent >/dev/null
         set -x GPG_TTY (tty)
-        gpg-connect-agent updatestartuptty /bye >/dev/null ^&1
+        gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
     end
 end
 
