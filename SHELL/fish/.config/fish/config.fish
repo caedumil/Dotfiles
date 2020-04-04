@@ -39,6 +39,11 @@ if test -d $HOME/.local/bin
     set -x PATH $HOME/.local/bin $PATH
 end
 
+# Go Path
+if test -d $HOME/.local/go
+    set -x GOPATH $HOME/.local/go
+end
+
 
 #
 # Fish git prompt
