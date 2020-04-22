@@ -3,6 +3,7 @@
 import os
 import threading
 import subprocess as proc
+from collections import namedtuple
 
 from pydbus import SessionBus
 
@@ -17,9 +18,16 @@ STATUS = {
     'o': '[-]',
     'u': '[!]'
 }
+MON = namedtuple('Monitor', ['starter', 'func'])
 MONITOR = {
-    'M': ['<', '>'],
-    'm': [' ', ' ']
+    'M': MON(
+        starter=[':', ':'],
+        func=str
+        ),
+    'm': MON(
+        starter=['.', '.'],
+        func=str.lower
+    )
 }
 
 
@@ -35,9 +43,10 @@ def tags(ln):
         symbol = status[0]
         mon = MONITOR.get(symbol)
         if mon:
-            output.extend(mon)
+            output.extend(mon.starter)
+            func = mon.func
         else:
-            output.insert(-1, STATUS[symbol])
+            output.insert(-1, func(STATUS[symbol]))
     return ' '.join(output)
 
 
@@ -70,7 +79,7 @@ def main():
                     app_id,
                     app_icon,
                     summary,
-                    f'.{status}.',
+                    status,
                     action,
                     hint,
                     expiration
