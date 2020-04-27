@@ -25,13 +25,16 @@ function fish_prompt --description "Write out the prompt"
     end
 
     # Prompt fixed body.
-    echo -n (set_color red)">"(set_color yellow)">"(set_color green)">"
+    if test "$last_cmd" -eq 0
+        # Colored if previous command exit successfully.
+        echo -n (set_color red)">"(set_color yellow)">"(set_color green)">"
+    else
+        # Red if failed.
+        echo -n (set_color red)">>>"
+    end
 
     # User.
     test $USER = "root"; and echo -n (set_color red)" #"
-
-    # Show last command status.
-    test $last_cmd != 0; and echo -n (set_color red)" !"
 
     echo -n (set_color normal)" "
 end
