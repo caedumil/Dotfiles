@@ -35,9 +35,14 @@ set -x EDITOR vim
 set -x VISUAL $EDITOR
 
 # Path
-if test -d $HOME/.local/bin
-    set -x PATH $HOME/.local/bin $PATH
-end
+# A faster way is to modify the $fish_user_paths universal variable, which is
+# automatically prepended to $PATH.
+# Just run this once at the command line, and it will affect the current
+# session and all future instances too.
+# (Note: you should NOT add this line to config.fish. If you do, the variable
+# will get longer each time you run fish!)
+# To permanently add ~/.local/bin to your $PATH, you could write:
+#   $ set -U fish_user_paths $HOME/.local/bin $fish_user_paths
 
 # Go Path
 if test -d $HOME/.local/go
