@@ -42,6 +42,9 @@ xset +fp /usr/share/fonts/artwiz-fonts
 xset +fp /usr/share/fonts/local
 xset fp rehash
 
+# map touch area to touchscreen monitor
+xinput --map-to-output 'Weida Hi-Tech                CoolTouchR System           ' eDP1
+
 # turn on numlock key
 #numlockx on
 
