@@ -40,6 +40,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugins on GitHub
+Plug 'whiteinge/diffconflicts'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
@@ -255,7 +256,7 @@ let g:gutentags_ctags_exclude=['venv', '*.md', '*.json']
 " }}}
 
 " Vim CamelCaseMotion {{{
-call camelcasemotion#CreateMotionMappings('<leader>')
+let g:camelcasemotion_key = '<leader>'
 " }}}
 
 " Custom functions & mappings {{{
