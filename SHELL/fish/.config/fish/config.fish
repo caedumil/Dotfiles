@@ -2,11 +2,14 @@
 # Fish Environment
 #
 
+# Update a couple of universal variables:
+# Set vi style keybindings:
+#   $ set -U fish_key_bindings fish_vi_key_bindings
+# Add '~/.local/bin' to PATH:
+#   $ set -U fish_user_paths $HOME/.local/bin $fish_user_paths
+
 # Disable greeting
 set fish_greeting ""
-
-# Set vi key bindings
-set -g fish_key_bindings fish_vi_key_bindings
 
 # Cursor shape
 # values are 'block', 'line' or 'underscore'
@@ -33,16 +36,6 @@ set -x LESSHISTFILE -
 # Editor
 set -x EDITOR vim
 set -x VISUAL $EDITOR
-
-# Path
-# A faster way is to modify the $fish_user_paths universal variable, which is
-# automatically prepended to $PATH.
-# Just run this once at the command line, and it will affect the current
-# session and all future instances too.
-# (Note: you should NOT add this line to config.fish. If you do, the variable
-# will get longer each time you run fish!)
-# To permanently add ~/.local/bin to your $PATH, you could write:
-#   $ set -U fish_user_paths $HOME/.local/bin $fish_user_paths
 
 # Go Path
 if test -d $HOME/.local/go
