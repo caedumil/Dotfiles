@@ -34,13 +34,12 @@ set -x PAGER less
 set -x LESSHISTFILE -
 
 # Editor
-set -x EDITOR vim
+set -x EDITOR nvim
 set -x VISUAL $EDITOR
 
 # Go Path
-if test -d $HOME/.local/go
-    set -x GOPATH $HOME/.local/go
-end
+set -x GOPATH $HOME/Code/go
+set -x GOBIN $HOME/.local/bin
 
 
 #
