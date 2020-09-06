@@ -19,6 +19,12 @@ SYMBOLS = {
     'f': '\uE1BC',
     'o': '\uE1C2',
     'u': '\uE1C4'
+    # 'F': '[ ]',
+    # 'O': '[x]',
+    # 'U': '[!]',
+    # 'f': '[ ]',
+    # 'o': '[x]',
+    # 'u': '[!]'
 }
 
 COLORS = {
@@ -42,7 +48,7 @@ class Bar():
             '-U', COLORS['FG'],
             '-g', geometry,
             '-u', '2',
-            '-f', '-artwiz-lime-medium-r-normal-*-*-*-*-*-*-*-*-*',
+            '-f', '-windows-dina-medium-r-normal-*-*-*-*-*-*-*-*-*',
             '-f', '-wuncon-siji-medium-r-normal-*-*-*-*-*-*-*-*-*',
         ]
         self._bar = proc.Popen(self._cmd, stdin=proc.PIPE)
