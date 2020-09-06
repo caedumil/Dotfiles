@@ -5,7 +5,7 @@
 Xcursor.theme: Adwaita
 
 !! XFont -------------------------------------------------------------------- !!
-*.font:                         -gohu-gohufont-medium-*-normal-*-11-*-*-*-*-*-*-*
+*.font:                         -gnu-unifont-medium-r-normal-*-16-*-*-*-*-*-*-*
 
 !! Xft ---------------------------------------------------------------------- !!
 Xft.antialias:                  true
