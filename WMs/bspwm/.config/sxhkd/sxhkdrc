@@ -115,7 +115,7 @@ super + {Left,Down,Up,Right}
 
 # terminal emulator
 super + Return
-    kitty
+    alacritty
 
 # screenlocker
 super + End

@@ -3,7 +3,7 @@ configuration {
     font:           "Envy Code R 10";
     theme:          "themes/nord";
     hide-scrollbar: true;
-    terminal:       "kitty";
+    terminal:       "alacritty";
 }
 window {
     background-color: @background;
