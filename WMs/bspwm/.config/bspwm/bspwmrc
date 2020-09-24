@@ -6,10 +6,10 @@
 
 # tags/workspaces/desktops
 if xrandr --query | grep 'HDMI1 connected' >/dev/null 2>&1 ; then
-    bspc monitor eDP1 --focus --rename 000 --reset-desktops 000 001 010 011
-    bspc monitor HDMI1 --rename 001 --reset-desktops 100 101
+    bspc monitor eDP1 --focus --reset-desktops 000 001 010 011
+    bspc monitor HDMI1 --reset-desktops 100 101
 else
-    bspc monitor --focus --rename 000 --reset-desktops 000 001 010 011 100 101
+    bspc monitor --focus --reset-desktops 000 001 010 011 100 101
 fi
 bspc config pointer_follows_monitor true
 
