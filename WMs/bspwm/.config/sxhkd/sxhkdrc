@@ -5,7 +5,7 @@
 
 # power/session menu
 super + {_,shift +} Escape
-    ~/.local/bin/{power,session}.sh
+    ~/.local/bin/{power.sh,session.py}
 
 # close and kill
 super + {_,shift + }w
