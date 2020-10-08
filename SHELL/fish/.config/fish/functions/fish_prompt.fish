@@ -3,7 +3,7 @@ function fish_prompt --description "Write out the prompt"
     set -l last_cmd $status
 
     # Remote connection.
-    if test $SSH_TTY
+    if test $SSH_CONNECTION
         set -l r_user (set_color red)(whoami)
         set -l r_host (set_color yellow)(hostname)
         echo -n $r_user(set_color white)"@"$r_host" "
