@@ -1,0 +1,9 @@
+[Unit]
+Description=Backup
+RequiresMountsFor=/mnt/Data
+Wants=backup.timer
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/backup.sh
+

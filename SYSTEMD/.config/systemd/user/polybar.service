@@ -1,0 +1,13 @@
+[Unit]
+Description=BSPWM polybar setup
+Documentation=man:polybar(1)
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.config/polybar/launch.sh
+ExecStop=/usr/bin/pkill polybar
+Restart=always
+
+[Install]
+WantedBy=bspwm-session.target
