@@ -7,7 +7,7 @@ Gtk/MenuImages      0
 Gtk/ButtonImages    0
 
 Xft/Antialias       1
-Xgt/Hinting         1
+Xft/Hinting         1
 Xft/HintStyle       "hintfull"
 Xft/RGBA            "rgb"
 Xft/lcdfilter       "lcdlight"
