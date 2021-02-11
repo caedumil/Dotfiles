@@ -34,8 +34,8 @@ fi
 xsetroot -cursor_name left_ptr
 
 # adjust X screen saver
-xset s 300 30
-xset dpms 0 300 300
+xset s 600 5
+xset dpms 0 0 900
 
 # add fonts path to X
 xset +fp /usr/share/fonts/artwiz-fonts
