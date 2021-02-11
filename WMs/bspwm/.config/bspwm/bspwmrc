@@ -33,6 +33,7 @@ bspc rule --add firefox desktop='^1'
 bspc rule --add Chromium desktop='^1'
 
 bspc rule --add firefox:Places state=floating
+bspc rule --add firefox:Toolkit state=floating
 bspc rule --add firefox:firefox state=floating
 
 bspc rule --add Pinentry-gtk2 state=floating
