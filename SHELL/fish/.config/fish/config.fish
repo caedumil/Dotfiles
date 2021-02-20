@@ -37,10 +37,6 @@ set -x LESSHISTFILE -
 set -x EDITOR nvim
 set -x VISUAL $EDITOR
 
-# Go Path
-set -x GOPATH $HOME/Code/go
-set -x GOBIN $HOME/.local/bin
-
 
 #
 # Fish git prompt
