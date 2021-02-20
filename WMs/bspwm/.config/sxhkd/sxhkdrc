@@ -135,9 +135,9 @@ XF86Audio{Lower,Raise}Volume
 XF86AudioMute
     ponymix -N toggle
 
-# MPD player
-XF86Audio{Play,Prev,Next}
-    mpc --quiet {toggle,prev,next}
+# MPRIS players
+XF86Audio{Prev,Next,Play,Stop}
+    playerctl {previous,next,play-pause,stop}
 
 # infobar
 super + F1
