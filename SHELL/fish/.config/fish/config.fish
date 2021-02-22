@@ -1,12 +1,13 @@
+# --- First run ---
 #
-# Fish Environment
-#
-
 # Update a couple of universal variables:
+#
 # Set vi style keybindings:
 #   $ set -U fish_key_bindings fish_vi_key_bindings
 # Add '~/.local/bin' to PATH:
 #   $ set -U fish_user_paths $HOME/.local/bin $fish_user_paths
+#
+# ---
 
 # Disable greeting
 set fish_greeting ""
@@ -37,25 +38,20 @@ set -x LESSHISTFILE -
 set -x EDITOR nvim
 set -x VISUAL $EDITOR
 
-
-#
-# Fish git prompt
-#
-
-# Settings
-set __fish_git_prompt_showdirtystate yes
-set __fish_git_prompt_showstashstate yes
-set __fish_git_prompt_showuntrackedfiles yes
+# Git prompt settings
+set __fish_git_prompt_showdirtystate 1
+set __fish_git_prompt_showstashstate 1
+set __fish_git_prompt_showuntrackedfiles 1
+set __fish_git_prompt_showcolorhints 1
 set __fish_git_prompt_showupstream informative
-set __fish_git_prompt_color_branch yellow
-set __fish_git_prompt_color_upstream_ahead green
-set __fish_git_prompt_color_upstream_behind red
+set __fish_git_prompt_describe_style branch
 
-# Status chars
 set __fish_git_prompt_char_stateseparator "|"
-set __fish_git_prompt_char_stagedstate (set_color green)"*"(set_color normal)
-set __fish_git_prompt_char_dirtystate (set_color yellow)"*"(set_color normal)
-set __fish_git_prompt_char_untrackedfiles (set_color red)"*"(set_color normal)
-set __fish_git_prompt_char_stashstate (set_color blue)"*"(set_color normal)
-set __fish_git_prompt_char_upstream_ahead (set_color green)"+"(set_color normal)
-set __fish_git_prompt_char_upstream_behind (set_color red)"-"(set_color normal)
+set __fish_git_prompt_char_stagedstate "+"
+set __fish_git_prompt_char_dirtystate "*"
+set __fish_git_prompt_char_untrackedfiles "%"
+set __fish_git_prompt_char_stashstate "!"
+set __fish_git_prompt_char_upstream_equal "="
+set __fish_git_prompt_char_upstream_ahead ">"
+set __fish_git_prompt_char_upstream_behind "<"
+set __fish_git_prompt_char_upstream_diverged "<>"
