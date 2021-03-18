@@ -1,40 +1,79 @@
+function __prompt_usr --description "Output user/host information"
+    test -n "$SSH_CONNECTION" ; and set -l hst yellow ; or set -l hst blue
+    test "$USER" = "root" ; and set -l usr red ; or set -l usr cyan
+
+    set_color $usr
+    echo -n "$USER"
+    set_color normal
+    echo -n "@"
+    set_color $hst
+    echo -n (prompt_hostname)
+    set_color normal
+end
+
+function __prompt_pwd --description "Output current directory information"
+    test -w (pwd) ; and set -l color blue ; or set -l color yellow
+
+    set_color $color
+    echo -n (prompt_pwd)
+    set_color normal
+end
+
+function __prompt_venv --description "Output Virtualenv information"
+    test -n "$VIRTUAL_ENV" ; or return
+
+    set_color normal
+    echo -n (basename "$VIRTUAL_ENV")
+end
+
 function fish_prompt --description "Write out the prompt"
-    # Save last command status for later.
-    set -l last_cmd $status
-
-    # Remote connection.
-    if test $SSH_CONNECTION
-        set -l r_user (set_color red)(whoami)
-        set -l r_host (set_color yellow)(hostname)
-        echo -n $r_user(set_color white)"@"$r_host" "
-    end
-
-    # Current dir.
-    test -w (pwd); and set -l color cyan; or set -l color yellow
-    echo -n (set_color $color)(prompt_pwd)" "
-
-    # Git information.
-    echo -n (set_color normal)(__fish_git_prompt "[%s]")" "
-
-    # Virtualenv information
+    # Disable python's virtualenv default prompt
     set -g VIRTUAL_ENV_DISABLE_PROMPT 1
-    if test -n "$VIRTUAL_ENV"
-        echo -n (set_color normal)"["
-        echo -n (set_color magenta)(basename "$VIRTUAL_ENV")
-        echo -n (set_color normal)"] "
+
+    # Save some information for later
+    set -l _cmd $status
+    set -l _git (fish_git_prompt "%s")
+    set -l _venv (__prompt_venv)
+
+    # Print prompt
+    set_color magenta
+    echo -n "┌─"
+
+    echo -n "─("
+    __prompt_usr
+    set_color magenta
+    echo -n ")"
+
+    echo -n "─["
+    __prompt_pwd
+    set_color magenta
+    echo -n "]"
+
+    if test -n "$_git"
+        echo -n "─["
+        echo -n "$_git"
+        set_color magenta
+        echo -n "]"
     end
 
-    # Prompt fixed body.
-    if test "$last_cmd" -eq 0
-        # Colored if previous command exit successfully.
-        echo -n (set_color red)">"(set_color yellow)">"(set_color green)">"
-    else
-        # Red if failed.
-        echo -n (set_color red)">>>"
+    set_color normal
+    echo ""
+
+    set_color magenta
+    echo -n "└─"
+
+    if test -n "$_venv"
+        echo -n "─<"
+        echo -n "$_venv"
+        set_color magenta
+        echo -n ">"
     end
 
-    # User.
-    test $USER = "root"; and echo -n (set_color red)" #"
+    if test "$_cmd" -ne 0
+        set_color red
+        echo -n " !"
+    end
 
-    echo -n (set_color normal)" "
+    set_color normal
+    fish_default_mode_prompt
 end

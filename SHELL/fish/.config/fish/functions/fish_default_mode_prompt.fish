@@ -7,22 +7,21 @@ function fish_default_mode_prompt --description "Display the default mode for th
                 true
             case default
                 set_color --bold --background red white
-                echo '[N]'
+                echo -n '[N]'
             case replace_one
                 set_color --bold --background green white
-                echo '[R]'
+                echo -n '[R]'
             case replace
                 set_color --bold --background cyan white
-                echo '[R]'
+                echo -n '[R]'
             case visual
                 set_color --bold --background magenta white
-                echo '[V]'
+                echo -n '[V]'
         end
     else
         set_color --bold --background green white
-        echo '[E]'
+        echo -n '[E]'
     end
     set_color normal
     echo -n ' '
 end
-
