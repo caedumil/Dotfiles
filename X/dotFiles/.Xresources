@@ -13,30 +13,3 @@ Xft.rgba:                       rgb
 Xft.hinting:                    true
 Xft.hintstyle:                  hintfull
 Xft.lcdfilter:                  lcdlight
-
-!! URxvt -------------------------------------------------------------------- !!
-URxvt.cursorUnderline:          true
-URxvt.geometry:                 100x30
-URxvt.transparent:              false
-URxvt.scrollBar:                false
-URxvt.scrollBar_right:          false
-URxvt.font:                     -gohu-gohufont-medium-*-normal-*-11-*-*-*-*-*-*-*,\
-                                -gnu-unifont-medium-*-normal-*-*-*-*-*-*-*-*-*
-URxvt.boldFont:                 -gohu-gohufont-bold-*-normal-*-11-*-*-*-*-*-*-*,\
-                                -gnu-unifont-medium-*-normal-*-*-*-*-*-*-*-*-*
-URxvt.letterSpace:              0
-URxvt.saveLines:                1000
-URxvt.fading:                   5
-!extensions
-URxvt.perl-ext-common:          default,url-select,keyboard-select,clipboard
-!perls -- url-select
-URxvt.keysym.M-u:               perl:url-select:select_next
-URxvt.url-select.launcher:      /usr/bin/xdg-open
-URxvt.url-select.underline:     true
-!perls -- keyboard-select
-URxvt.keysym.M-s:               perl:keyboard-select:activate
-!perls -- clipboard
-URxvt.keysym.M-c:               perl:clipboard:copy
-URxvt.keysym.M-v:               perl:clipboard:paste
-URxvt.clipboard.copycmd:        xsel -bi
-URxvt.clipboard.pastecmd:       xsel -bo
