@@ -137,7 +137,7 @@ XF86AudioMute
 
 # MPRIS players
 XF86Audio{Prev,Next,Play,Stop}
-    playerctl {previous,next,play-pause,stop}
+    playerctl --all-players {previous,next,play-pause,stop}
 
 # infobar
 super + F1
