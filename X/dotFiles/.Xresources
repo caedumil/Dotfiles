@@ -2,14 +2,25 @@
 #include ".Xcolors"
 
 !! Xcursor ------------------------------------------------------------------ !!
-Xcursor.theme: Adwaita
+Xcursor.theme:  Adwaita
 
 !! XFont -------------------------------------------------------------------- !!
-*.font:                         -gnu-unifont-medium-r-normal-*-16-*-*-*-*-*-*-*
+*.font: -gnu-unifont-medium-r-normal-*-16-*-*-*-*-*-*-*
 
 !! Xft ---------------------------------------------------------------------- !!
-Xft.antialias:                  true
-Xft.rgba:                       rgb
-Xft.hinting:                    true
-Xft.hintstyle:                  hintfull
-Xft.lcdfilter:                  lcdlight
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintfull
+Xft.lcdfilter:  lcdlight
+
+!! XLock -------------------------------------------------------------------- !!
+XLock.description:  off
+XLock.font:         -windows-dina-medium-r-normal-*-13-*-*-*-*-*-*-*
+XLock.planfont:     -windows-dina-medium-r-normal-*-13-*-*-*-*-*-*-*
+XLock.fontset:      -windows-dina-medium-r-normal-*-13-*-*-*-*-*-*-*
+XLock.planfontset:  -windows-dina-medium-r-normal-*-13-*-*-*-*-*-*-*
+XLock.background:   #2E3440
+XLock.foreground:   #D8DEE9
+XLock.mode:         matrix
+XLock.matrix.delay: 50000
