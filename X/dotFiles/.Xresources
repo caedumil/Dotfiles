@@ -15,6 +15,7 @@ Xft.hintstyle:  hintfull
 Xft.lcdfilter:  lcdlight
 
 !! XLock -------------------------------------------------------------------- !!
+XLock.erasemode:    no_fade
 XLock.description:  off
 XLock.font:         -windows-dina-medium-r-normal-*-13-*-*-*-*-*-*-*
 XLock.planfont:     -windows-dina-medium-r-normal-*-13-*-*-*-*-*-*-*
