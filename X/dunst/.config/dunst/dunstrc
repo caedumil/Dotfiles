@@ -27,6 +27,7 @@
     browser = /usr/bin/xdg-open
     frame_width = 5
     frame_color = "#D8DEE9"
+    progress_bar = false
 
 [shortcuts]
     close = mod4+n
