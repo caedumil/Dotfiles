@@ -4,12 +4,12 @@
     format = "[%a] %s: %b"
     icon_position = off
     icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
-    sort = yes
-    indicate_hidden = yes
+    sort = true
+    indicate_hidden = true
     alignment = center
     bounce_freq = 0
     show_age_threshold = 60
-    word_wrap = yes
+    word_wrap = true
     ignore_newline = no
     geometry = "500x5+710-30"
     transparency = 0
@@ -46,7 +46,7 @@
 
 [urgency_critical]
     background = "#BF616A"
-    foreground = "#b6bdca"
+    foreground = "#B6BDCA"
     timeout = 0
 
 [wmtags]
