@@ -117,10 +117,6 @@ super + {Left,Down,Up,Right}
 super + Return
     alacritty
 
-# screenlocker
-super + End
-    ~/.local/bin/lock.sh ~/.config/Xlock.png
-
 # program launcher
 {_,super} + XF86Search
     rofi -show {drun,run}
