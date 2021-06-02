@@ -1,13 +1,12 @@
 [Unit]
 Description=X11 screen lock
 Documentation=man:xss-lock(1)
-Documentation=https://github.com/google/xsecurelock
+Documentation=man:xlock(1)
 PartOf=graphical-session.target
 
 [Service]
 Type=simple
-Environment="XSECURELOCK_COMPOSITE_OBSCURER=0" "XSECURELOCK_SAVER=%h/.local/share/xsecurelock/saver_image.sh"
-ExecStart=/usr/bin/xss-lock --notifier=/usr/lib/xsecurelock/dimmer --transfer-sleep-lock -- xsecurelock
+ExecStart=/usr/bin/xss-lock -- xlock
 
 [Install]
 WantedBy=bspwm-session.target
