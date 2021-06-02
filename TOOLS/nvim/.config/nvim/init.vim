@@ -30,13 +30,13 @@ call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-endwise')
 call minpac#add('bkad/CamelCaseMotion')
 call minpac#add('Yggdroot/indentLine')
-call minpac#add('majutsushi/tagbar')
+call minpac#add('preservim/tagbar')
 call minpac#add('ludovicchabant/vim-gutentags')
 call minpac#add('dag/vim-fish')
 call minpac#add('baskerville/vim-sxhkdrc')
 call minpac#add('arcticicestudio/nord-vim')
-"call minpac#add('chriskempson/base16-vim')
-"call minpac#add('mike-hearn/base16-vim-lightline')
+call minpac#add('chriskempson/base16-vim')
+call minpac#add('mike-hearn/base16-vim-lightline')
 " }}}
 
 " Backup {{{
@@ -68,7 +68,8 @@ syntax enable
 set background=dark
 
 " Set color mode
-colorscheme nord
+let base16colorspace=256
+colorscheme base16-default-dark
 " }}}
 
 " Spaces & Tabs {{{
@@ -183,7 +184,7 @@ set noshowmode
 
 " Lightline config
 let g:lightline = {
-    \ 'colorscheme': 'nord',
+    \ 'colorscheme': 'base16_default_dark',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],

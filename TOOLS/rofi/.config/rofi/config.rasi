@@ -1,7 +1,7 @@
 configuration {
     modi:           "drun,run";
     font:           "Envy Code R 10";
-    theme:          "themes/nord";
+    theme:          "themes/base16-default-dark";
     hide-scrollbar: true;
     terminal:       "alacritty";
 }
