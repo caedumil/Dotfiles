@@ -23,5 +23,5 @@ XLock.fontset:      -windows-dina-medium-r-normal-*-13-*-*-*-*-*-*-*
 XLock.planfontset:  -windows-dina-medium-r-normal-*-13-*-*-*-*-*-*-*
 XLock.background:   #2E3440
 XLock.foreground:   #D8DEE9
-XLock.mode:         matrix
+XLock.mode:         blank
 XLock.matrix.delay: 50000
