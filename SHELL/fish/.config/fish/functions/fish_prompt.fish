@@ -72,6 +72,8 @@ function fish_prompt --description "Write out the prompt"
     if test "$_cmd" -ne 0
         set_color red
         echo -n " !"
+    else
+        echo -n  " >"
     end
 
     set_color normal
