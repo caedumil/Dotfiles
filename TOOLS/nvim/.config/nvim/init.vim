@@ -20,23 +20,13 @@ call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 " Packages list
-call minpac#add('whiteinge/diffconflicts')
 call minpac#add('itchyny/lightline.vim')
-call minpac#add('scrooloose/syntastic')
-call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-endwise')
 call minpac#add('bkad/CamelCaseMotion')
-call minpac#add('Yggdroot/indentLine')
-call minpac#add('preservim/tagbar')
-call minpac#add('ludovicchabant/vim-gutentags')
-call minpac#add('dag/vim-fish')
-call minpac#add('baskerville/vim-sxhkdrc')
 call minpac#add('arcticicestudio/nord-vim')
-call minpac#add('chriskempson/base16-vim')
-call minpac#add('mike-hearn/base16-vim-lightline')
 " }}}
 
 " Backup {{{
@@ -68,8 +58,7 @@ syntax enable
 set background=dark
 
 " Set color mode
-let base16colorspace=256
-colorscheme base16-default-dark
+colorscheme nord
 " }}}
 
 " Spaces & Tabs {{{
@@ -184,50 +173,15 @@ set noshowmode
 
 " Lightline config
 let g:lightline = {
-    \ 'colorscheme': 'base16_default_dark',
+    \ 'colorscheme': 'nord',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+    \             [ 'readonly', 'filename', 'modified' ] ],
     \   'right': [ [ 'lineinfo' ],
     \              [ 'percent' ],
     \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
     \ },
-    \ 'component_function': {
-    \   'gitbranch': 'fugitive#head'
-    \ },
     \ }
-" }}}
-
-" Vim Syntastic {{{
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_signs=1
-
-let g:syntastic_mode_map={
-    \ "mode": "active",
-    \ "active_filetypes": [],
-    \ "passive_filetypes": [] }
-
-" C++14
-let g:syntastic_cpp_compiler='g++'
-let g:syntastic_cpp_compiler_options='-std=c++14'
-" }}}
-
-" Vim TagBar {{{
-nmap <F8> :TagbarToggle<CR>
-" }}}
-
-" Vim Gutentags {{{
-let g:gutentags_exclude_filetypes=['markdown', 'json']
-
-let g:gutentags_ctags_tagfile='.ctags'
-let g:gutentags_ctags_exclude=['venv', '*.md', '*.json']
 " }}}
 
 " Vim CamelCaseMotion {{{
@@ -260,5 +214,4 @@ function! StripWhitespaces()
     call cursor(l, c)
 endfunction
 " }}}
-
 " vim:foldmethod=marker:foldlevel=0
