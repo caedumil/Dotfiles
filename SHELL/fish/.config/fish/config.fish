@@ -1,16 +1,8 @@
-# --- First run ---
-#
-# Update a couple of universal variables:
-#
-# Set vi style keybindings:
-#   $ set -U fish_key_bindings fish_vi_key_bindings
-# Add '~/.local/bin' to PATH:
-#   $ set -U fish_user_paths $HOME/.local/bin $fish_user_paths
-#
-# ---
-
 # Disable greeting
 set fish_greeting ""
+
+# Set vi style keybindings:
+fish_vi_key_bindings
 
 # Cursor shape
 # values are 'block', 'line' or 'underscore'
