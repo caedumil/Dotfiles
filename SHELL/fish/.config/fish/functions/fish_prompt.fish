@@ -34,38 +34,39 @@ function fish_prompt --description "Write out the prompt"
     set -l _cmd $status
     set -l _git (fish_git_prompt "%s")
     set -l _venv (__prompt_venv)
+    set -l _color (fish_default_mode_prompt)
 
     # Print prompt
-    set_color magenta
+    set_color "$_color"
     echo -n "┌─"
 
     echo -n "─("
     __prompt_usr
-    set_color magenta
+    set_color "$_color"
     echo -n ")"
 
     echo -n "─["
     __prompt_pwd
-    set_color magenta
+    set_color "$_color"
     echo -n "]"
 
     if test -n "$_git"
         echo -n "─["
         echo -n "$_git"
-        set_color magenta
+        set_color "$_color"
         echo -n "]"
     end
 
     set_color normal
     echo ""
 
-    set_color magenta
+    set_color "$_color"
     echo -n "└─"
 
     if test -n "$_venv"
         echo -n "─<"
         echo -n "$_venv"
-        set_color magenta
+        set_color "$_color"
         echo -n ">"
     end
 
@@ -77,5 +78,5 @@ function fish_prompt --description "Write out the prompt"
     end
 
     set_color normal
-    fish_default_mode_prompt
+    echo -n " "
 end

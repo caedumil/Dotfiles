@@ -2,24 +2,17 @@ function fish_default_mode_prompt --description "Display the default mode for th
     if test "$fish_key_bindings" = "fish_vi_key_bindings" -o "$fish_key_bindings" = "fish_hybrid_key_bindings"
         switch $fish_bind_mode
             case insert
-                true
+                echo 'magenta'
             case default
-                set_color --background red white
-                echo -n '[N]'
+                echo 'blue'
             case replace_one
-                set_color --background green white
-                echo -n '[R]'
+                echo 'green'
             case replace
-                set_color --background cyan white
-                echo -n '[R]'
+                echo 'green'
             case visual
-                set_color --background magenta white
-                echo -n '[V]'
+                echo 'cyan'
         end
     else
-        set_color --bold --background green white
-        echo -n '[E]'
+        normal
     end
-    set_color normal
-    echo -n ' '
 end
