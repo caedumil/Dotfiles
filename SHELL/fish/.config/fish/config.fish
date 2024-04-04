@@ -12,6 +12,9 @@ if status is-interactive
     set -U fish_cursor_visual line
 end
 
+# Add '~/.local/bin' to PATH:
+fish_add_path $HOME/.local/bin
+
 # SSH & GPG-agent
 set -x SSH_AUTH_SOCK /run/user/(id -u $USER)/gnupg/S.gpg-agent.ssh
 
