@@ -1,6 +1,34 @@
 # Write your default config options here!
 [default]
 
+###################
+# track selection #
+###################
+
+# DVDs use ISO 639-1 two-letter codes, Matroska use ISO 639-2 three-letter codes
+# while OGM uses a free-form identifier.
+
+# Priority list of audio languages to use.
+alang = eng
+
+# Priority list of subtitle languages to use.
+slang = por,eng
+
+####################
+# playback control #
+####################
+
+# Pause video on start.
+pause
+
+####################
+# program behavior #
+####################
+
+# Youtube-dl hook. Video format/quality.
+# Download best format available but not better than 720p.
+ytdl-format = bestvideo[height<=720]+bestaudio/best[height<=720]
+
 ##################
 # video settings #
 ##################
@@ -14,21 +42,6 @@ hwdec = vaapi
 # Multithreaded decoding of H264/MPEG-1/2 (valid: 1-16, 0 for autodetect).
 vd-lavc-threads = 0
 
-# Start in fullscreen mode by default.
-fs = no
-
-# Which screen to go fullscreen.
-fs-screen = current
-
-# Change to a different videomode when going fullscreen.
-#vm = yes
-
-# Use this for a widescreen monitor, non-square pixels.
-monitoraspect = 16:10
-
-# Keep the player window on top of all other windows.
-ontop = no
-
 ##################
 # audio settings #
 ##################
@@ -41,39 +54,6 @@ audio-channels = 2
 
 # Volume on startup.
 volume = 95
-
-####################
-# track selections #
-####################
-
-# DVDs use ISO 639-1 two-letter codes, Matroska use ISO 639-2 three-letter codes
-# while OGM uses a free-form identifier.
-
-# Priority list of subtitle languages to use.
-slang = por,eng
-
-# Priority list of audio languages to use.
-alang = eng
-
-##################
-# cache settings #
-##################
-
-# Don't use cache on local files.
-cache = auto
-
-# Pause player when the cache runs low and unpause once data is avaliable.
-cache-pause = yes
-
-#######################
-# screenshot settings #
-#######################
-
-# Screenshot format.
-screenshot-format = png
-
-# Screenshot filename.
-screenshot-template = "%F-%n"
 
 ######################
 # subtitles settings #
@@ -90,13 +70,38 @@ sub-file-paths = Subs
 # Change how some video outputs render OSD and subtiles.
 force-rgba-osd-rendering = no
 
-#################
-# misc settings #
-#################
+###################
+# window settings #
+###################
 
-# Pause video on start.
-pause
+# Keep the player window on top of all other windows.
+ontop = no
 
-# Youtube-dl hook. Video format/quality.
-# Download best format available but not better than 480p.
-ytdl-format = bestvideo[height<=720]+bestaudio/best[height<=720]
+# Start in fullscreen mode by default.
+fs = no
+
+# Which screen to go fullscreen.
+fs-screen = current
+
+# Use this for a widescreen monitor, non-square pixels.
+monitoraspect = 16:10
+
+#######################
+# screenshot settings #
+#######################
+
+# Screenshot format.
+screenshot-format = png
+
+# Screenshot filename.
+screenshot-template = "%F-%n"
+
+##################
+# cache settings #
+##################
+
+# Don't use cache on local files.
+cache = auto
+
+# Pause player when the cache runs low and unpause once data is avaliable.
+cache-pause = yes
